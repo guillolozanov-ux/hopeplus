@@ -45,28 +45,25 @@
 }
 
 .botonTexto {
-  position: relative;
   display: inline-block;
   overflow: hidden;
-  padding-block: 2px;
+  height: 1.3em;
+  line-height: 1.3;
 }
 
-/* El texto se desliza hacia arriba y entra una copia desde abajo */
-.botonTexto::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 100%;
-  padding-block: 2px;
+.rodillo {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.7s var(--motion-ease-in-out-fuerte);
 }
 
-.botonTexto,
-.botonTexto::after {
-  transition: transform var(--motion-slow) var(--motion-ease);
+.rodillo > span {
+  display: block;
+  height: 1.3em;
 }
 
-.boton:hover .botonTexto {
-  transform: translateY(-100%);
+.boton:hover .rodillo {
+  transform: translateY(-50%);
 }
 
 .botonFlecha {

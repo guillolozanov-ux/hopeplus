@@ -64,8 +64,12 @@ type BotonProps = {
 export function Boton({ href, children, variante = "primario", flecha = true, magnet, className }: BotonProps) {
   const btn = (
     <Enlace href={href} className={`${s.boton} ${s[variante]} ${className ?? ""}`}>
-      <span className={s.botonTexto} data-text={typeof children === "string" ? children : undefined}>
-        {children}
+      {/* Ventana fija que recorta; adentro rueda el texto y entra su copia desde abajo */}
+      <span className={s.botonTexto}>
+        <span className={s.rodillo}>
+          <span>{children}</span>
+          <span aria-hidden>{children}</span>
+        </span>
       </span>
       {flecha && (
         <span className={s.botonFlecha} aria-hidden>
