@@ -6,6 +6,7 @@ import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { alRevelar, hayIntro } from "@/lib/intro";
 import { hero, mosaico, comunidad } from "@/content/sitio";
 import { Titular, Boton, Foto, Plus, Flecha } from "@/components/ui";
+import { Enlace } from "@/components/enlace";
 import s from "./hero.module.css";
 
 export function Hero() {
@@ -91,29 +92,29 @@ export function Hero() {
               <Plus className={s.esquina} />
               <p className={s.cifraValor}>{mosaico.cifra.valor}</p>
               <p className={s.cifraTexto}>{mosaico.cifra.texto}</p>
-              <a href={mosaico.cifra.cta.href} className={s.pieCard}>
+              <Enlace href={mosaico.cifra.cta.href} className={s.pieCard}>
                 {mosaico.cifra.cta.label}
                 <span className={s.circulo}>
                   <Flecha />
                 </span>
-              </a>
+              </Enlace>
             </article>
           </Entra>
           <Entra>
-            <a href={mosaico.voz.href} className={`${s.card} ${s.voz}`}>
+            <Enlace href={mosaico.voz.href} className={`${s.card} ${s.voz}`}>
               <IconoVoz />
               <span className={s.vozTitulo}>{mosaico.voz.titulo}</span>
-            </a>
+            </Enlace>
           </Entra>
         </div>
 
         <div className={`${s.col} ${s.colB}`} data-col data-speed="8">
           <Entra>
-            <a href="#programas" className={`${s.card} ${s.foto}`}>
+            <Enlace href="/programas/tamizaje-escolar" className={`${s.card} ${s.foto}`}>
               <Foto src={mosaico.causaA.foto} alt={mosaico.causaA.alt} sizes="(min-width: 1200px) 240px, 45vw" priority />
               <span className={s.chip}>{mosaico.causaA.etiqueta}</span>
               <span className={s.fotoTitulo}>{mosaico.causaA.titulo}</span>
-            </a>
+            </Enlace>
           </Entra>
         </div>
 
@@ -126,29 +127,29 @@ export function Hero() {
                 ))}
               </div>
               <p className={s.comunidadTitulo}>{mosaico.comunidad.titulo}</p>
-              <a href={mosaico.comunidad.cta.href} className={`${s.pieCard} ${s.pieOscuro}`}>
+              <Enlace href={mosaico.comunidad.cta.href} className={`${s.pieCard} ${s.pieOscuro}`}>
                 {mosaico.comunidad.cta.label}
                 <span className={s.circulo}>
                   <Flecha />
                 </span>
-              </a>
+              </Enlace>
             </article>
           </Entra>
         </div>
 
         <div className={`${s.col} ${s.colD}`} data-col data-speed="8">
           <Entra>
-            <a href="#programas" className={`${s.card} ${s.foto}`}>
+            <Enlace href="/programas/adultos-mayores" className={`${s.card} ${s.foto}`}>
               <Foto src={mosaico.causaB.foto} alt={mosaico.causaB.alt} sizes="(min-width: 1200px) 240px, 45vw" priority />
               <span className={s.chip}>{mosaico.causaB.etiqueta}</span>
               <span className={s.fotoTitulo}>{mosaico.causaB.titulo}</span>
-            </a>
+            </Enlace>
           </Entra>
         </div>
 
         <div className={`${s.col} ${s.colE}`} data-col data-speed="18">
           <Entra>
-            <a href={mosaico.explorar.href} className={`${s.card} ${s.explorar}`}>
+            <Enlace href={mosaico.explorar.href} className={`${s.card} ${s.explorar}`}>
               <Foto src={mosaico.explorar.foto} alt={mosaico.explorar.alt} sizes="(min-width: 1200px) 240px, 45vw" className={s.explorarFoto} />
               <span className={`${s.pieCard} ${s.pieOscuro}`}>
                 {mosaico.explorar.titulo}
@@ -156,13 +157,13 @@ export function Hero() {
                   <Flecha />
                 </span>
               </span>
-            </a>
+            </Enlace>
           </Entra>
           <Entra>
-            <a href={mosaico.confianza.href} className={`${s.card} ${s.confianza}`}>
+            <Enlace href={mosaico.confianza.href} className={`${s.card} ${s.confianza}`}>
               <IconoCorazon />
               <span className={s.confianzaTitulo}>{mosaico.confianza.titulo}</span>
-            </a>
+            </Enlace>
           </Entra>
         </div>
       </div>

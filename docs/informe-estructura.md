@@ -72,3 +72,32 @@ Piel: marca TSP Hope Fundación, sub-marca de TuSalud+.
 - **Resolución hope+:** las letras del logo se arman (h-o-p-e, la mano, FUNDATION), el "+" entra
   girando, las letras se van, el "+" viaja al centro y se vuelve la ventana que se abre.
   `src/components/intro.tsx`. Una vez por sesión; desactivada con `prefers-reduced-motion`.
+
+## Páginas internas (referencias de layout, segunda ronda)
+Se tomaron seis láminas de referencia como **estructura**; la piel sigue siendo hope+.
+
+| Recurso estructural de la referencia | Dónde se usa | Cómo se resolvió en hope+ |
+|---|---|---|
+| Tarjeta de texto sobre foto a sangre, cinta que cruza la imagen | `/nosotros` (hero) | Tarjeta crema + `Trazo`: cinta propia coral→marino que da una vuelta y se dibuja con DrawSVG |
+| Banner de tres paneles (mensaje / marca / foto) | `/nosotros` | El tercio central es el "+" del logo girando con el scroll |
+| Bento con etiqueta montada en el borde superior | `/nosotros`, `/programas`, `/participa` | `TagBorde` con versalitas; tarjetas foto esmeriladas, coral y marino |
+| Tarjetas con esquina recortada y flecha en el hueco | `/participa` | Máscara radial en la esquina superior derecha |
+| Lista con flechas y filetes | `/nosotros`, `/programas/[slug]` | Flecha circular marino que gira 45° al pasar |
+| Bento de cifras grandes con foto alta y panel degradado | `/impacto`, `/programas/[slug]` | Degradados cálidos de marca; cifras con CountUp |
+| Lista esmerilada sobre foto | `/participa` (voluntariado) | Vidrio marino con íconos "+" coral |
+
+**No tomado:** el verde lima y el azul eléctrico, las tipografías, el glifo "A" de cinta y el arcoíris de las piezas de salud.
+
+## Transiciones entre páginas
+Cada ruta tiene la suya (`src/lib/transiciones.ts`, `src/components/transicion/`). El velo
+muestra el nombre del destino; las entradas de la página nueva esperan a que se abra.
+
+| Destino | Transición |
+|---|---|
+| `/` | Velo crema con el "+" que gira |
+| `/nosotros` | Cortina: panel coral y marino suben y se van |
+| `/programas` | Columnas marino que caen escalonadas |
+| `/programas/[slug]` | Círculo coral que se abre desde el punto del clic |
+| `/participa` | El "+" crece hasta tapar y luego se abre como ventana |
+| `/impacto` | Persianas horizontales rubor y marino |
+| `/donar` | Cinta coral en diagonal |

@@ -59,6 +59,7 @@ type Step = { mobile: string; tablet: string; desktop: string; leading: number; 
 
 export const type = {
   mega: { mobile: "72px", tablet: "120px", desktop: "176px", leading: 0.9, tracking: "-0.03em" },
+  stat: { mobile: "64px", tablet: "80px", desktop: "96px", leading: 0.95, tracking: "-0.02em" }, // cifras dentro de tarjetas
   display: { mobile: "40px", tablet: "56px", desktop: "72px", leading: 1.02, tracking: "-0.02em" },
   h2: { mobile: "32px", tablet: "40px", desktop: "52px", leading: 1.08, tracking: "-0.015em" },
   h3: { mobile: "22px", tablet: "24px", desktop: "28px", leading: 1.15, tracking: "-0.01em" },

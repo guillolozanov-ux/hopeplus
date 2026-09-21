@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { gsap, Draggable, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { programas } from "@/content/sitio";
 import { Titular, Etiqueta, Foto, Flecha, pesos } from "@/components/ui";
+import { Enlace } from "@/components/enlace";
 import s from "./programas.module.css";
 
 export function Programas() {
@@ -165,10 +166,10 @@ export function Programas() {
                     </span>
                     <span className={s.categoria}>{p.categoria}</span>
                   </div>
-                  <a href="#donar" className={s.donar}>
-                    Apoyar este programa
+                  <Enlace href={`/programas/${p.slug}`} className={s.donar}>
+                    Ver el programa
                     <Flecha />
-                  </a>
+                  </Enlace>
                 </div>
               </article>
             );

@@ -1,0 +1,46 @@
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-md);
+}
+
+.fila {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.concepto {
+  font-size: var(--type-small);
+  color: var(--color-ink-soft);
+}
+
+.pista {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding-bottom: var(--space-2xs);
+  border-bottom: var(--size-hairline) solid var(--color-line);
+}
+
+/* Marca delgada (≤ 24 px), extremo de dato redondeado y base recta */
+.barra {
+  display: block;
+  height: 20px;
+  border-radius: 0 4px 4px 0;
+  background: var(--color-accent);
+  transition: opacity var(--motion-base) var(--motion-ease);
+}
+
+.valor {
+  font-size: var(--type-small);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Al pasar por una fila, las demás se atenúan */
+.lista:hover .fila:not(:hover) .barra {
+  opacity: 0.35;
+}

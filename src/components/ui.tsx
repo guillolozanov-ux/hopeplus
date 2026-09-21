@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Fragment, type ElementType, type ReactNode } from "react";
 import SplitText from "@/components/reactbits/SplitText";
 import Magnet from "@/components/reactbits/Magnet";
+import { Enlace } from "@/components/enlace";
 import s from "./ui.module.css";
 
 /** Resalta la palabra clave del titular (una sola por titular, al final). */
@@ -62,7 +63,7 @@ type BotonProps = {
 
 export function Boton({ href, children, variante = "primario", flecha = true, magnet, className }: BotonProps) {
   const btn = (
-    <a href={href} className={`${s.boton} ${s[variante]} ${className ?? ""}`}>
+    <Enlace href={href} className={`${s.boton} ${s[variante]} ${className ?? ""}`}>
       <span className={s.botonTexto} data-text={typeof children === "string" ? children : undefined}>
         {children}
       </span>
@@ -71,7 +72,7 @@ export function Boton({ href, children, variante = "primario", flecha = true, ma
           <Flecha />
         </span>
       )}
-    </a>
+    </Enlace>
   );
   return magnet ? <Magnet>{btn}</Magnet> : btn;
 }

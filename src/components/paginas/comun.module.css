@@ -1,0 +1,77 @@
+.trazo {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.paradaA {
+  stop-color: var(--color-accent-soft);
+}
+
+.paradaB {
+  stop-color: var(--color-accent);
+}
+
+.paradaC {
+  stop-color: var(--color-ink-soft);
+}
+
+.tagBorde {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  font-size: var(--type-label);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.tagOscuro {
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+}
+
+.cabeza {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding-top: calc(var(--size-header) + var(--space-3xl));
+  padding-bottom: var(--space-2xl);
+}
+
+.centrada {
+  align-items: center;
+  text-align: center;
+}
+
+.bajada {
+  max-width: 48ch;
+  font-size: var(--type-lead);
+  line-height: var(--leading-lead);
+  color: var(--color-ink-muted);
+}
+
+/* Titular de página: una clase compartida para todos los h1 internos */
+.h1 {
+  font-size: var(--type-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  max-width: 16em;
+}
+
+.h2 {
+  font-size: var(--type-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+}

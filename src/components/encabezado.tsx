@@ -1,7 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Enlace } from "@/components/enlace";
 import { gsap, ScrollTrigger, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { alRevelar } from "@/lib/intro";
 import { navegacion, hero } from "@/content/sitio";
@@ -13,6 +15,8 @@ export function Encabezado() {
   const menuRef = useRef<HTMLDivElement>(null);
   const tl = useRef<gsap.core.Timeline>(null);
   const [abierto, setAbierto] = useState(false);
+  const ruta = usePathname();
+  const activo = (href: string) => (href === "/" ? ruta === "/" : ruta.startsWith(href));
 
   useGSAP(
     () => {
@@ -51,6 +55,11 @@ export function Encabezado() {
     { scope: ref },
   );
 
+  // Al cambiar de página el encabezado vuelve a verse aunque se hubiera ocultado
+  useEffect(() => {
+    if (ref.current) gsap.to(ref.current, { yPercent: 0, duration: 0.6, ease: "expo.out", overwrite: "auto" });
+  }, [ruta]);
+
   const alternar = () => {
     const next = !abierto;
     setAbierto(next);
@@ -62,50 +71,54 @@ export function Encabezado() {
   const cerrar = () => abierto && alternar();
 
   return (
-    <header ref={ref} className={s.header} data-solido="false">
-      <div className={`contenedor ${s.barra}`}>
-        <a href="#inicio" className={s.logo} data-entra aria-label="hope+ Fundation, inicio">
-          <Image src="/marca/hope-logo.svg" alt="" width={740} height={266} priority unoptimized className={s.logoOscuro} />
-          <Image src="/marca/hope-logo-claro.svg" alt="" width={740} height={266} unoptimized className={s.logoClaro} />
-        </a>
+    <>
+      <header ref={ref} className={s.header} data-solido="false">
+        <div className={`contenedor ${s.barra}`}>
+          <Enlace href="/" className={s.logo} data-entra aria-label="hope+ Fundation, inicio">
+            <Image src="/marca/hope-logo.svg" alt="" width={740} height={266} priority unoptimized className={s.logoOscuro} />
+            <Image src="/marca/hope-logo-claro.svg" alt="" width={740} height={266} unoptimized className={s.logoClaro} />
+          </Enlace>
 
-        <nav className={s.nav} aria-label="Principal">
-          {navegacion.map((n) => (
-            <a key={n.href} href={n.href} className={s.link} data-entra>
-              {n.label}
-            </a>
-          ))}
-        </nav>
+          <nav className={s.nav} aria-label="Principal">
+            {navegacion.map((n) => (
+              <Enlace key={n.href} href={n.href} className={s.link} data-entra aria-current={activo(n.href) ? "page" : undefined}>
+                {n.label}
+              </Enlace>
+            ))}
+          </nav>
 
-        <div className={s.acciones} data-entra>
-          <Boton href={hero.primario.href} variante="acento" className={s.donar} magnet>
-            Donar
-          </Boton>
-          <button
-            className={s.burger}
-            onClick={alternar}
-            aria-expanded={abierto}
-            aria-controls="menu-movil"
-            aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
-          >
-            <span />
-            <span />
-          </button>
+          <div className={s.acciones} data-entra>
+            <Boton href={hero.primario.href} variante="acento" className={s.donar} magnet>
+              Donar
+            </Boton>
+            <button
+              className={s.burger}
+              onClick={alternar}
+              aria-expanded={abierto}
+              aria-controls="menu-movil"
+              aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
+            >
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
+      {/* Fuera del <header>: si el header tiene transform, un hijo fixed quedaría
+          confinado a su caja en lugar de ocupar la pantalla */}
       <div ref={menuRef} id="menu-movil" className={s.menu} aria-hidden={!abierto} inert={!abierto}>
         <nav className={`contenedor ${s.menuNav}`} aria-label="Menú">
-          {[...navegacion, { label: "Donar", href: "#donar" }].map((n, i) => (
+          {[{ label: "Inicio", href: "/" }, ...navegacion, { label: "Donar", href: "/donar" }].map((n, i) => (
             <div key={n.href} className={s.menuFila}>
-              <a href={n.href} className={s.menuLink} data-item onClick={cerrar}>
+              <Enlace href={n.href} className={s.menuLink} data-item onClick={cerrar}>
                 <span className={s.menuNum}>{String(i + 1).padStart(2, "0")}</span>
                 {n.label}
-              </a>
+              </Enlace>
             </div>
           ))}
         </nav>
       </div>
-    </header>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { pie, sitio } from "@/content/sitio";
 import { Boton, Titular } from "@/components/ui";
+import { Enlace } from "@/components/enlace";
 import s from "./pie.module.css";
 
 export function Pie() {
@@ -21,9 +22,9 @@ export function Pie() {
                 <ul>
                   {c.links.map((l) => (
                     <li key={l.label}>
-                      <a href={l.href} className={s.link}>
+                      <Enlace href={l.href} className={s.link}>
                         {l.label}
-                      </a>
+                      </Enlace>
                     </li>
                   ))}
                 </ul>
@@ -35,7 +36,7 @@ export function Pie() {
             <p>
               {sitio.anio} © {sitio.nombreLegal} · {sitio.ciudad} · {pie.grupo}
             </p>
-            <Boton href="#donar" variante="acento">
+            <Boton href="/donar" variante="acento">
               Donar ahora
             </Boton>
           </div>

@@ -4,6 +4,9 @@ import { cssVars, color } from "@/styles/tokens";
 import { sitio } from "@/content/sitio";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { Intro } from "@/components/intro";
+import { Transicion } from "@/components/transicion/transicion";
+import { Encabezado } from "@/components/encabezado";
+import { Pie } from "@/components/pie";
 import { scriptIntro } from "@/lib/intro";
 import "./globals.css";
 
@@ -21,7 +24,7 @@ const sans = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: `${sitio.nombreLegal} · ${sitio.claim}`,
+  title: { default: `${sitio.nombreLegal} · ${sitio.claim}`, template: `%s · ${sitio.nombreLegal}` },
   description: sitio.descripcion,
   openGraph: {
     title: sitio.nombreLegal,
@@ -42,8 +45,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body>
         <Intro />
+        <Transicion />
         <SmoothScroll />
+        <Encabezado />
         {children}
+        <Pie />
       </body>
     </html>
   );

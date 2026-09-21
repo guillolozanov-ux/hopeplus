@@ -17,10 +17,10 @@ export const sitio = {
 };
 
 export const navegacion = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Programas", href: "#programas" },
-  { label: "Equipo", href: "#equipo" },
-  { label: "Preguntas", href: "#preguntas" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Programas", href: "/programas" },
+  { label: "Participa", href: "/participa" },
+  { label: "Impacto", href: "/impacto" },
 ];
 
 export const hero = {
@@ -28,24 +28,24 @@ export const hero = {
   marca: "necesita",
   bajada:
     "Somos la fundación del grupo TuSalud+. Organizamos jornadas de salud y programas de acceso para familias que hoy no llegan a la consulta.",
-  primario: { label: "Donar ahora", href: "#donar" },
-  secundario: { label: "Ver programas", href: "#programas" },
+  primario: { label: "Donar ahora", href: "/donar" },
+  secundario: { label: "Ver programas", href: "/programas" },
 };
 
 export const mosaico = {
   cifra: {
     valor: "3.200+",
     texto: "personas atendidas en jornadas de salud durante 2025.",
-    cta: { label: "Donar", href: "#donar" },
+    cta: { label: "Donar", href: "/donar" },
   },
-  voz: { titulo: "Cuéntanos tu caso", href: "#preguntas" },
+  voz: { titulo: "Cuéntanos tu caso", href: "/participa#contacto" },
   causaA: {
     etiqueta: "Niñez",
     titulo: "Tamizaje visual para escolares",
     foto: "/fotos/nino-sonrisa.jpg",
     alt: "Niño sonriendo mirando hacia arriba",
   },
-  comunidad: { titulo: "Súmate a 500 voluntarios", cta: { label: "Ser voluntario", href: "#comunidad" } },
+  comunidad: { titulo: "Súmate a 500 voluntarios", cta: { label: "Ser voluntario", href: "/participa" } },
   causaB: {
     etiqueta: "Adulto mayor",
     titulo: "Brigadas para adultos mayores en zona rural",
@@ -54,11 +54,11 @@ export const mosaico = {
   },
   explorar: {
     titulo: "Explorar programas",
-    href: "#programas",
+    href: "/programas",
     foto: "/fotos/manos.jpg",
     alt: "Mano adulta sostiene la mano de un bebé",
   },
-  confianza: { titulo: "Tu aporte llega completo", href: "#donar" },
+  confianza: { titulo: "Tu aporte llega completo", href: "/impacto" },
 };
 
 export const manifiesto =
@@ -88,6 +88,7 @@ export const comoAyudar = {
 };
 
 export type Programa = {
+  slug: string;
   titulo: string;
   texto: string;
   foto: string;
@@ -96,6 +97,14 @@ export type Programa = {
   meta: number;
   apoyos: number;
   categoria: string;
+  // Detalle (página /programas/[slug]) — BORRADOR
+  beneficiarios: number;
+  lugares: string;
+  frecuencia: string;
+  descripcion: string;
+  incluye: string[];
+  fotoDetalle: string;
+  altDetalle: string;
 };
 
 export const programas: { etiqueta: string; titulo: string; marca: string; items: Programa[] } = {
@@ -104,6 +113,7 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
   marca: "apoyo",
   items: [
     {
+      slug: "jornadas-rurales",
       titulo: "Jornadas de salud en zonas rurales del Atlántico",
       texto: "Consulta médica, odontología y entrega de medicamentos en veredas sin puesto de salud.",
       foto: "/fotos/enfermero-adulta.jpg",
@@ -112,8 +122,17 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       meta: 60_000_000,
       apoyos: 412,
       categoria: "Atención primaria",
+      beneficiarios: 1850,
+      lugares: "Veredas de Luruaco, Repelón y Manatí",
+      frecuencia: "Una jornada al mes",
+      descripcion:
+        "Llevamos un equipo completo a veredas que no tienen puesto de salud: medicina general, odontología, enfermería y farmacia. Cada jornada atiende en un día lo que a una familia le tomaría semanas conseguir.",
+      incluye: ["Consulta de medicina general.", "Valoración y limpieza odontológica.", "Toma de tensión y glucometría.", "Entrega de medicamentos formulados."],
+      fotoDetalle: "/fotos/saludo.jpg",
+      altDetalle: "Enfermero saluda a una paciente mayor en silla de ruedas",
     },
     {
+      slug: "tamizaje-escolar",
       titulo: "Tamizaje visual y auditivo para escolares",
       texto: "Detección temprana en colegios públicos y entrega de gafas formuladas sin costo.",
       foto: "/fotos/amigos.jpg",
@@ -122,8 +141,17 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       meta: 35_000_000,
       apoyos: 268,
       categoria: "Niñez",
+      beneficiarios: 2400,
+      lugares: "Colegios públicos de Barranquilla y Soledad",
+      frecuencia: "Calendario escolar",
+      descripcion:
+        "Un niño que no ve bien el tablero parece un niño que no aprende. Revisamos visión y audición en colegios públicos y entregamos las gafas formuladas sin costo para la familia.",
+      incluye: ["Tamizaje de agudeza visual.", "Audiometría de barrido.", "Remisión a optometría.", "Gafas formuladas sin costo."],
+      fotoDetalle: "/fotos/lectura.jpg",
+      altDetalle: "Padre lee un libro con su hija",
     },
     {
+      slug: "adultos-mayores",
       titulo: "Acompañamiento a adultos mayores",
       texto: "Control de hipertensión y diabetes, y visitas domiciliarias a personas que viven solas.",
       foto: "/fotos/abuelas.jpg",
@@ -132,8 +160,17 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       meta: 30_000_000,
       apoyos: 190,
       categoria: "Adulto mayor",
+      beneficiarios: 620,
+      lugares: "Barrios del sur de Barranquilla",
+      frecuencia: "Visitas cada quince días",
+      descripcion:
+        "Muchos adultos mayores con hipertensión o diabetes viven solos y dejan de ir a control. Los visitamos en casa, revisamos su tratamiento y los conectamos con su EPS cuando hace falta.",
+      incluye: ["Control de tensión arterial y glucosa.", "Revisión de medicamentos.", "Visita domiciliaria de enfermería.", "Acompañamiento en trámites de salud."],
+      fotoDetalle: "/fotos/manos-mayor.jpg",
+      altDetalle: "Manos de una persona mayor sosteniendo una pelota de terapia",
     },
     {
+      slug: "materno-infantil",
       titulo: "Salud materna y primera infancia",
       texto: "Controles prenatales, vacunación y seguimiento nutricional durante los primeros mil días.",
       foto: "/fotos/madre-hija.jpg",
@@ -142,8 +179,17 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       meta: 40_000_000,
       apoyos: 331,
       categoria: "Materno infantil",
+      beneficiarios: 540,
+      lugares: "Zona rural del Atlántico",
+      frecuencia: "Seguimiento mensual",
+      descripcion:
+        "Los primeros mil días definen buena parte de la salud de una persona. Acompañamos a madres gestantes y a sus bebés con controles, vacunación y orientación nutricional.",
+      incluye: ["Controles prenatales.", "Esquema de vacunación al día.", "Seguimiento de peso y talla.", "Talleres de lactancia y crianza."],
+      fotoDetalle: "/fotos/bebe.jpg",
+      altDetalle: "Bebé sonriendo",
     },
     {
+      slug: "nutricion-infantil",
       titulo: "Nutrición para niños en riesgo",
       texto: "Complemento alimentario y valoración por nutricionista para niños con bajo peso.",
       foto: "/fotos/nino-balon.jpg",
@@ -152,6 +198,14 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       meta: 25_000_000,
       apoyos: 124,
       categoria: "Nutrición",
+      beneficiarios: 310,
+      lugares: "Comunidades de Malambo y Sabanagrande",
+      frecuencia: "Seguimiento semanal",
+      descripcion:
+        "Detectamos a tiempo a niños con bajo peso y los acompañamos hasta que recuperan su curva de crecimiento, con complemento alimentario y valoración por nutricionista.",
+      incluye: ["Valoración por nutricionista.", "Complemento alimentario.", "Desparasitación.", "Orientación a las familias."],
+      fotoDetalle: "/fotos/nino-brazos.jpg",
+      altDetalle: "Niño con los brazos abiertos en el campo",
     },
   ],
 };
@@ -161,7 +215,7 @@ export const comunidad = {
   cifra: 12480,
   sufijo: "+",
   texto: "personas que apoyan a la fundación",
-  cta: { label: "Quiero ser parte", href: "#donar" },
+  cta: { label: "Quiero ser parte", href: "/participa" },
   fotos: [
     { src: "/fotos/nino-risa.jpg", alt: "Niño riendo" },
     { src: "/fotos/joven-sonrisa.jpg", alt: "Joven sonriendo" },
@@ -244,17 +298,17 @@ export const pie = {
     {
       titulo: "Fundación",
       links: [
-        { label: "Programas", href: "#programas" },
-        { label: "Equipo", href: "#equipo" },
-        { label: "Preguntas", href: "#preguntas" },
+        { label: "Nosotros", href: "/nosotros" },
+        { label: "Programas", href: "/programas" },
+        { label: "Impacto", href: "/impacto" },
       ],
     },
     {
       titulo: "Participa",
       links: [
-        { label: "Donar", href: "#donar" },
-        { label: "Voluntariado", href: "#comunidad" },
-        { label: "Aliados", href: "#como-ayudar" },
+        { label: "Donar", href: "/donar" },
+        { label: "Voluntariado", href: "/participa" },
+        { label: "Preguntas", href: "/donar#preguntas" },
       ],
     },
     {

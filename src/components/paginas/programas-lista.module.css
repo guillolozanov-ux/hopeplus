@@ -1,0 +1,269 @@
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-2xl);
+}
+
+.filtro {
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 0 0 var(--size-hairline) var(--color-line);
+  font-size: var(--type-small);
+  transition:
+    background-color var(--motion-base) var(--motion-ease),
+    color var(--motion-base) var(--motion-ease);
+}
+
+.filtro:hover {
+  box-shadow: inset 0 0 0 var(--size-hairline) var(--color-ink);
+}
+
+.filtro[aria-pressed="true"] {
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  box-shadow: none;
+}
+
+.grilla {
+  display: grid;
+  gap: var(--space-xl) var(--space-sm);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xs);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: inset 0 0 0 var(--size-hairline) var(--color-line);
+  transition: box-shadow var(--motion-slow) var(--motion-ease);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lift);
+}
+
+.foto {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+}
+
+.cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-md) var(--space-xs) var(--space-xs);
+}
+
+.titulo {
+  font-size: var(--type-h3);
+  line-height: var(--leading-h3);
+}
+
+.texto {
+  margin-top: var(--space-2xs);
+  font-size: var(--type-small);
+  line-height: var(--leading-small);
+  color: var(--color-ink-muted);
+}
+
+.barra {
+  margin-top: auto;
+  padding-top: var(--space-md);
+}
+
+.barra::before {
+  content: "";
+  display: block;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-page-deep);
+}
+
+.barra span {
+  display: block;
+  height: 6px;
+  margin-top: -6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+}
+
+.montos {
+  margin-top: var(--space-xs);
+  font-size: var(--type-small);
+  color: var(--color-ink-muted);
+}
+
+.montos strong {
+  color: var(--color-ink);
+  font-weight: var(--weight-semibold);
+}
+
+.flecha {
+  position: absolute;
+  top: calc(var(--space-xs) + var(--space-sm));
+  right: calc(var(--space-xs) + var(--space-sm));
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: var(--size-control-lg);
+  height: var(--size-control-lg);
+  border-radius: 50%;
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  transition:
+    transform var(--motion-slow) var(--motion-ease),
+    background-color var(--motion-base) var(--motion-ease);
+}
+
+.flecha svg {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+}
+
+.card:hover .flecha {
+  transform: rotate(45deg);
+  background: var(--color-accent);
+}
+
+/* Destacado: foto a sangre con el texto encima */
+.destacado {
+  min-height: 460px;
+  justify-content: flex-end;
+  padding: 0;
+  overflow: visible;
+  color: var(--color-on-ink);
+  background: var(--color-ink);
+}
+
+.destacado .foto {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+  border-radius: var(--radius-lg);
+}
+
+.destacado .foto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--color-scrim);
+}
+
+.destacado .cuerpo {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  padding: var(--space-lg);
+  max-width: 560px;
+}
+
+.destacado .titulo {
+  font-size: var(--type-h2);
+  line-height: var(--leading-h2);
+}
+
+.destacado .texto,
+.destacado .montos {
+  color: var(--color-on-ink);
+  opacity: 0.85;
+}
+
+.destacado .montos strong {
+  color: var(--color-on-ink);
+}
+
+.destacado .barra::before {
+  background: var(--color-line-on-ink);
+}
+
+.destacado .flecha {
+  top: var(--space-lg);
+  right: var(--space-lg);
+  background: var(--color-accent);
+}
+
+/* Tile de patrocinio que cierra la grilla */
+.patrocinio {
+  justify-content: space-between;
+  gap: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  box-shadow: none;
+}
+
+.patrocinio .titulo {
+  font-size: var(--type-h2);
+  line-height: var(--leading-h2);
+}
+
+.patrocinio .texto {
+  color: var(--color-on-accent);
+  opacity: 0.85;
+}
+
+.patrocinio .flecha {
+  position: static;
+  align-self: flex-end;
+  background: var(--color-page);
+  color: var(--color-ink);
+}
+
+/* CTA con esquina recortada */
+.cta {
+  padding-block: var(--section);
+}
+
+.ctaPanel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-2xl) var(--space-lg);
+  border-radius: var(--radius-xl);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  mask: radial-gradient(circle at 100% 0, transparent 64px, var(--color-ink) 65px);
+}
+
+.ctaTitulo {
+  font-size: var(--type-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+  max-width: 14em;
+}
+
+.ctaTexto {
+  max-width: 46ch;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .grilla {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .destacado {
+    grid-column: 1 / -1;
+  }
+
+  .ctaPanel {
+    padding: var(--space-3xl);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grilla {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .destacado {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}

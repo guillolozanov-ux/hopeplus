@@ -11,6 +11,15 @@ que confirmarlo con la fundación antes de publicar el dominio definitivo.
       categorías. Hoy son 5 programas de ejemplo.
 - [ ] Equivalencias de los montos de donación ("$50.000 financia el tamizaje de cinco escolares", etc.).
 
+## Páginas internas (borrador)
+- [ ] **Nombre en los textos:** las páginas nuevas dicen "hope+"; la portada y el pie aún dicen
+      "TSP Hope Fundación". Definir el nombre oficial.
+- [ ] `/nosotros`: historia, misión, visión ("en 2030…") y valores.
+- [ ] `/programas/[slug]`: personas beneficiadas, municipios, frecuencia y qué incluye cada programa.
+- [ ] `/impacto`: 92 % a programas, 38 jornadas, 74 % de seguimiento, 14 municipios y la
+      distribución de recursos (41 / 27 / 24 / 8 %). Todo inventado como ejemplo.
+- [ ] `/participa`: roles de voluntariado y beneficios para aliados.
+
 ## Donaciones
 - [ ] Banco, número de cuenta y NIT reales (hoy: "Por confirmar" / `000-000000-00`).
 - [ ] Confirmar si la fundación expide certificado de donación (la FAQ dice que sí).

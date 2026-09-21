@@ -14,6 +14,8 @@ export function SmoothScroll() {
 
     const instancia = new Lenis({ lerp: 0.1, anchors: { offset: -80 } });
     lenis = instancia;
+    // Solo en desarrollo: acceso desde la consola para depurar
+    if (process.env.NODE_ENV !== "production") Object.assign(window, { __lenis: instancia });
     if (document.documentElement.classList.contains("con-intro")) instancia.stop();
     instancia.on("scroll", ScrollTrigger.update);
     const tick = (time: number) => instancia.raf(time * 1000);

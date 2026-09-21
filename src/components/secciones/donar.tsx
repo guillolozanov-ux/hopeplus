@@ -2,11 +2,13 @@
 
 import { useRef, useState } from "react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
+import { alRevelar } from "@/lib/intro";
 import { donar, sitio } from "@/content/sitio";
 import { Titular, Etiqueta, Boton, Plus, pesos } from "@/components/ui";
 import s from "./donar.module.css";
 
-export function Donar() {
+/** `principal`: es la primera sección de la página (/donar), entra al abrirse el velo. */
+export function Donar({ principal = false }: { principal?: boolean }) {
   const ref = useRef<HTMLElement>(null);
   const [monto, setMonto] = useState(donar.montos[1]);
   const [copiado, setCopiado] = useState(false);
@@ -15,13 +17,15 @@ export function Donar() {
     () => {
       const mm = gsap.matchMedia();
       mm.add(MOTION_OK, () => {
-        gsap.from("[data-bloque]", {
+        const tween = gsap.from("[data-bloque]", {
           y: 60,
           autoAlpha: 0,
           stagger: 0.12,
           duration: 1.3,
-          scrollTrigger: { trigger: ref.current, start: "top 75%", once: true },
+          paused: principal,
+          scrollTrigger: principal ? undefined : { trigger: ref.current, start: "top 75%", once: true },
         });
+        if (principal) return alRevelar(() => tween.play());
       });
       return () => mm.revert();
     },
@@ -45,10 +49,10 @@ export function Donar() {
   };
 
   return (
-    <section ref={ref} id="donar" className={`contenedor ${s.seccion}`}>
+    <section ref={ref} id="donar" className={`contenedor ${s.seccion} ${principal ? s.principal : ""}`}>
       <div className={s.intro} data-bloque>
         <Etiqueta>{donar.etiqueta}</Etiqueta>
-        <Titular lineas={donar.titulo} marca={donar.marca} className={s.titulo} />
+        <Titular as={principal ? "h1" : "h2"} lineas={donar.titulo} marca={donar.marca} className={s.titulo} immediate={principal} />
         <p className={s.bajada}>{donar.bajada}</p>
       </div>
 

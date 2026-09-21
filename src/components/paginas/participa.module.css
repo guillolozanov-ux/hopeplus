@@ -1,0 +1,318 @@
+/* ---------- 1. Tarjetas con esquina recortada ---------- */
+.formas {
+  display: grid;
+  gap: var(--space-sm);
+  padding-bottom: var(--section);
+}
+
+.forma {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-2xl);
+  min-height: 340px;
+  padding: var(--space-lg);
+}
+
+/* El fondo va en un pseudo-elemento con máscara: la esquina superior derecha
+   queda mordida y la flecha se aloja en el hueco */
+.forma::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: var(--radius-xl);
+  background: var(--fondo);
+  mask: radial-gradient(circle at 100% 0, transparent 62px, var(--color-ink) 63px);
+  transition: transform var(--motion-slow) var(--motion-ease);
+}
+
+.forma {
+  isolation: isolate;
+}
+
+.forma:hover::before {
+  transform: translateY(-6px);
+}
+
+.claro {
+  --fondo: var(--color-page-deep);
+  color: var(--color-ink);
+}
+
+.marino {
+  --fondo: var(--color-ink);
+  color: var(--color-on-ink);
+}
+
+.acento {
+  --fondo: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.muesca {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: var(--size-control-lg);
+  height: var(--size-control-lg);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 var(--size-hairline) var(--color-ink);
+  color: var(--color-ink);
+  transition:
+    transform var(--motion-slow) var(--motion-ease),
+    background-color var(--motion-base) var(--motion-ease),
+    color var(--motion-base) var(--motion-ease);
+}
+
+.muesca svg {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+}
+
+.forma:hover .muesca {
+  transform: rotate(45deg);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+}
+
+.formaTitulo {
+  font-size: var(--type-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+  max-width: 8em;
+}
+
+.puntos {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: var(--space-3xs);
+  font-size: var(--type-small);
+  line-height: var(--leading-small);
+}
+
+.puntos li::marker {
+  content: "+  ";
+  color: var(--color-accent);
+  font-weight: var(--weight-semibold);
+}
+
+.acento .puntos li::marker {
+  color: var(--color-ink);
+}
+
+/* ---------- 2. Voluntariado ---------- */
+.voluntariado {
+  display: grid;
+  gap: var(--space-2xl);
+  padding-bottom: var(--section);
+}
+
+.volFoto {
+  position: relative;
+  min-height: 520px;
+}
+
+.volFotoMarco {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.volImg {
+  object-fit: cover;
+}
+
+/* Lista esmerilada sobre la foto */
+.vidrio {
+  position: absolute;
+  left: var(--space-md);
+  right: var(--space-md);
+  bottom: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-ink-deep) 55%, transparent);
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  box-shadow: inset 0 0 0 var(--size-hairline) var(--color-line-on-ink);
+  color: var(--color-on-ink);
+}
+
+.vidrioFila {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs);
+}
+
+.vidrioFila + .vidrioFila {
+  border-top: var(--size-hairline) solid var(--color-line-on-ink);
+}
+
+.vidrioFila strong {
+  display: block;
+  font-size: var(--type-small);
+  font-weight: var(--weight-semibold);
+}
+
+.vidrioFila small {
+  display: block;
+  font-size: var(--type-label);
+  opacity: 0.8;
+}
+
+.vidrioIcono {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--size-control-sm);
+  height: var(--size-control-sm);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.vidrioIcono svg {
+  width: var(--size-icon-xs);
+  height: var(--size-icon-xs);
+}
+
+.volTexto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.parrafo {
+  max-width: 46ch;
+  color: var(--color-ink-muted);
+}
+
+/* ---------- 3. Aliados ---------- */
+.aliados {
+  display: grid;
+  gap: var(--space-2xl);
+  padding-bottom: var(--section);
+}
+
+.aliadosIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.beneficios {
+  display: grid;
+  gap: var(--space-xl) var(--space-sm);
+}
+
+.beneficio {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  min-height: 220px;
+  padding: var(--space-xl) var(--space-md);
+  border-radius: var(--radius-lg);
+  background: var(--color-page-deep);
+  text-align: center;
+}
+
+.beneficioAcento {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.beneficioTitulo {
+  font-size: var(--type-h3);
+  line-height: var(--leading-h3);
+}
+
+.beneficioTexto {
+  max-width: 28ch;
+  font-size: var(--type-small);
+  opacity: 0.8;
+}
+
+/* ---------- 4. Contacto ---------- */
+.contacto {
+  padding-bottom: var(--section);
+}
+
+.contactoPanel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-3xl) var(--space-lg);
+  border-radius: var(--radius-xl);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  text-align: center;
+}
+
+.contactoTrazo {
+  position: absolute;
+  left: -10%;
+  top: 10%;
+  width: 120%;
+  opacity: 0.9;
+}
+
+.contactoTitulo,
+.contactoTexto,
+.contactoPanel > :last-child {
+  position: relative;
+  z-index: 1;
+}
+
+.contactoTitulo {
+  font-size: var(--type-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+}
+
+.contactoTexto {
+  max-width: 44ch;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .formas,
+  .beneficios {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .forma {
+    min-height: 420px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .voluntariado {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .volFoto {
+    min-height: 620px;
+  }
+
+  .aliados {
+    grid-template-columns: 5fr 7fr;
+    align-items: center;
+  }
+}

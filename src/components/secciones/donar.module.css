@@ -4,6 +4,10 @@
   padding-block: var(--section);
 }
 
+.principal {
+  padding-top: calc(var(--size-header) + var(--space-3xl));
+}
+
 .intro {
   display: flex;
   flex-direction: column;

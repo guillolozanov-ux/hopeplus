@@ -2,7 +2,8 @@
 
 /**
  * CountUp — adaptado de React Bits (reactbits.dev, MIT).
- * Cambios: formato numérico es-CO (punto de miles), sin callbacks.
+ * Cambios: formato numérico es-CO (punto de miles), sin callbacks; el servidor
+ * pinta el valor final (sin JS o con movimiento reducido se ve la cifra real).
  */
 import { useInView, useMotionValue, useSpring } from "motion/react";
 import { useEffect, useRef } from "react";
@@ -17,12 +18,16 @@ export default function CountUp({ to, from = 0, duration = 2, delay = 0, classNa
   const spring = useSpring(value, { damping: 20 + 40 * (1 / duration), stiffness: 100 * (1 / duration) });
   const inView = useInView(ref, { once: true, margin: "0px 0px -15% 0px" });
 
+  const animar = useRef(false);
+
+  // Con movimiento permitido, se reinicia a `from` antes de entrar en pantalla
   useEffect(() => {
-    if (!inView) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      if (ref.current) ref.current.textContent = fmt.format(to);
-      return;
-    }
+    animar.current = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (animar.current && ref.current) ref.current.textContent = fmt.format(from);
+  }, [from]);
+
+  useEffect(() => {
+    if (!inView || !animar.current) return;
     const id = setTimeout(() => value.set(to), delay * 1000);
     return () => clearTimeout(id);
   }, [inView, to, delay, value]);
@@ -37,7 +42,7 @@ export default function CountUp({ to, from = 0, duration = 2, delay = 0, classNa
 
   return (
     <span className={className} ref={ref}>
-      {fmt.format(from)}
+      {fmt.format(to)}
     </span>
   );
 }
