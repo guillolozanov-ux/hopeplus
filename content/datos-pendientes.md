@@ -31,6 +31,5 @@ que confirmarlo con la fundación antes de publicar el dominio definitivo.
 - [ ] Imagen Open Graph para redes.
 
 ## Marca
-- [ ] Logos en vector (SVG). Hoy son PNG recortados del sistema de diseño TuSalud+.
-- [x] Logo oficial del sitio: el apilado "TSP / HOPE / FUNDATION" (confirmado por el cliente).
-- [ ] El PNG apilado mide 237 px de ancho: en el pie se ve algo suave en pantallas retina. Hace falta el SVG.
+- [x] Logo oficial en SVG: "hope+ FUNDATION" (`public/marca/hope-logo.svg` y su versión clara).
+- [ ] Favicon y sello de "Quiénes somos" siguen usando el monograma TH de la marca anterior. ¿Se cambian?

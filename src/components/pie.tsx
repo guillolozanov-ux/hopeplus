@@ -12,7 +12,7 @@ export function Pie() {
 
           <div className={s.grilla}>
             <div className={s.marca}>
-              <Image src="/marca/hope-apilado-claro.png" alt="TSP Hope Fundación" width={237} height={121} className={s.logo} />
+              <Image src="/marca/hope-logo-claro.svg" alt="hope+ Fundation" width={740} height={266} unoptimized className={s.logo} />
               <p className={s.descripcion}>{sitio.descripcion}</p>
             </div>
             {pie.columnas.map((c) => (

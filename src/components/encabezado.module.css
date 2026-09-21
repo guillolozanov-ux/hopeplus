@@ -36,7 +36,7 @@
 .logo img {
   grid-area: 1 / 1;
   width: auto;
-  height: 44px;
+  height: 48px;
   transition: opacity var(--motion-base) var(--motion-ease);
 }
 
