@@ -1,0 +1,47 @@
+.manifiesto {
+  display: grid;
+  gap: var(--space-lg);
+  padding-block: var(--section);
+}
+
+.lado {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.sello {
+  width: 72px;
+  height: auto;
+  animation: girar 24s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.texto {
+  font-family: var(--font-display);
+  font-size: var(--type-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+  max-width: 24ch;
+}
+
+@media (min-width: 1200px) {
+  .manifiesto {
+    grid-template-columns: 1fr 3fr;
+    align-items: start;
+  }
+
+  .lado {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sello {
+    width: 112px;
+  }
+}

@@ -1,0 +1,217 @@
+.seccion {
+  padding-block: var(--section);
+  overflow: hidden;
+}
+
+.cabeza {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.titulos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.titulo {
+  font-size: var(--type-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+  max-width: 18ch;
+}
+
+.flechas {
+  display: none;
+  gap: var(--space-2xs);
+}
+
+.flecha {
+  display: grid;
+  place-items: center;
+  width: var(--size-control-xl);
+  height: var(--size-control-xl);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 var(--size-hairline) var(--color-ink);
+  transition:
+    background-color var(--motion-base) var(--motion-ease),
+    color var(--motion-base) var(--motion-ease),
+    opacity var(--motion-base) var(--motion-ease);
+}
+
+.flecha:hover:not(:disabled) {
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+}
+
+.flecha:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.flecha svg {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+}
+
+.izq {
+  transform: rotate(-135deg);
+}
+
+.der {
+  transform: rotate(45deg);
+}
+
+.viewport {
+  margin-top: var(--space-xl);
+  overflow: visible;
+}
+
+.track {
+  display: flex;
+  column-gap: var(--space-sm);
+  width: max-content;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.track[data-arrastrando="true"] {
+  cursor: grabbing;
+}
+
+.track[data-arrastrando="true"] a {
+  pointer-events: none;
+}
+
+.card {
+  width: min(82vw, 380px);
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xs);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: inset 0 0 0 var(--size-hairline) var(--color-line);
+  transition: box-shadow var(--motion-slow) var(--motion-ease);
+  user-select: none;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card);
+}
+
+.foto {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+}
+
+.cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-md) var(--space-xs) var(--space-xs);
+}
+
+.cardTitulo {
+  font-size: var(--type-h3);
+  line-height: var(--leading-h3);
+}
+
+.cardTexto {
+  margin-top: var(--space-2xs);
+  font-size: var(--type-small);
+  line-height: var(--leading-small);
+  color: var(--color-ink-muted);
+}
+
+.progreso {
+  margin-top: var(--space-md);
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-page-deep);
+  overflow: hidden;
+}
+
+.barra {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-accent);
+  transform-origin: left center;
+}
+
+.montos {
+  margin-top: var(--space-xs);
+  font-size: var(--type-small);
+  color: var(--color-ink-muted);
+}
+
+.montos strong {
+  color: var(--color-ink);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: var(--size-hairline) solid var(--color-line);
+  font-size: var(--type-small);
+}
+
+.apoyos {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.corazon {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+  color: var(--color-accent);
+}
+
+.categoria {
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 0 0 var(--size-hairline) var(--color-line);
+  font-size: var(--type-label);
+  white-space: nowrap;
+}
+
+.donar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  background: var(--color-page);
+  font-size: var(--type-small);
+  font-weight: var(--weight-medium);
+  transition:
+    background-color var(--motion-base) var(--motion-ease),
+    color var(--motion-base) var(--motion-ease);
+}
+
+.donar svg {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+}
+
+.donar:hover {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+@media (min-width: 768px) {
+  .flechas {
+    display: flex;
+  }
+}

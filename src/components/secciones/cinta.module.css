@@ -1,0 +1,62 @@
+.seccion {
+  position: relative;
+  padding-block: var(--space-3xl);
+  overflow: hidden;
+}
+
+.filaA,
+.filaB {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-sm);
+  width: 110%;
+  margin-left: -5%;
+}
+
+.filaA {
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  transform: rotate(-3deg);
+}
+
+.filaB {
+  z-index: 1;
+  margin-top: var(--space-2xs);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  transform: rotate(2deg);
+  box-shadow: var(--shadow-lift);
+}
+
+.track {
+  display: flex;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: var(--type-ribbon);
+  line-height: var(--leading-ribbon);
+  letter-spacing: var(--tracking-ribbon);
+}
+
+.track > span {
+  flex-shrink: 0;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding-right: 0.4em;
+}
+
+.plus {
+  width: 0.45em;
+  height: 0.45em;
+}
+
+.filaA .plus {
+  color: var(--color-accent);
+}
+
+.filaB .plus {
+  color: var(--color-ink);
+}

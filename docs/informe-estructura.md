@@ -1,0 +1,65 @@
+# Hope+ — Informe de estructura
+
+Referencia: captura de una plantilla de donaciones (se usa solo como esqueleto).
+Piel: marca TSP Hope Fundación, sub-marca de TuSalud+.
+
+## Arquitectura
+1. **Navegación** — logo a la izquierda, 4 enlaces al centro, menú a la derecha.
+2. **Hero** — titular serif centrado a dos líneas, bajada corta, dos botones
+   (primario "Donar", secundario "Ver video"). Debajo, un **mosaico de 7 tarjetas**
+   de alturas escalonadas: cifra de impacto, causas con foto, CTA de comunidad,
+   tarjeta de acción ("Tu voz cuenta", "Explorar").
+3. **Cómo ayudar** — panel de color de ancho casi total, título centrado,
+   3 columnas con ilustración + título + texto corto.
+4. **Causas / programas urgentes** — título a la izquierda, flechas de carrusel a la
+   derecha, tarjetas horizontales deslizables: foto, título, bajada, barra de
+   progreso, recaudado vs. meta, apoyos, etiqueta de categoría.
+5. **Comunidad** — frase centrada, **contador gigante**, CTA; fotos pequeñas
+   flotando alrededor.
+6. **Cinta** — dos franjas de texto en bucle, cruzadas en ángulo.
+7. **Equipo** — 4 retratos en tarjeta, nombre y cargo.
+8. **Preguntas frecuentes** — panel de fondo tenue, acordeón.
+9. **Pie** — bloque oscuro redondeado: logo + claim, 3 columnas de enlaces,
+   copyright + botón de donar.
+
+## Proporciones (estimadas desde la captura, no medidas)
+- Contenedor ≈ 1200 px, margen lateral ≈ 40 px; los paneles de color casi a sangre
+  con radio grande.
+- Escala tipográfica ≈ 1.33: hero ≈ 56 px → sección ≈ 36 px → tarjeta ≈ 18 px → cuerpo 14 px.
+- Titulares serif de peso regular/medio; cuerpo sans pequeño.
+- Padding vertical de sección ≈ 8× el cuerpo (≈ 112–128 px).
+- Medida de línea de bajadas: 45–60 caracteres.
+
+## Recursos estructurales
+- Tarjetas con radio grande como unidad básica; contraste de fondo entre bloques.
+- Paneles de color para agrupar secciones (cómo ayudar, FAQ, pie).
+- Barra de progreso como dato principal de cada causa.
+- Número gigante como único foco de una sección.
+- Desbordamiento horizontal (carrusel, cinta).
+
+## Gestos firma de la referencia (NO se copian)
+- Verde lima + verde bosque, y fotos en blanco y negro.
+- Tarjetas con **pestaña de carpeta** en la esquina.
+- Ilustraciones de manos/objetos en collage (tipo recorte de revista).
+- Cinta con asterisco `*` como separador.
+- Textos, nombres, cifras y el nombre de la marca.
+
+## Cómo se resuelven en Hope+
+| Gesto de referencia | Resolución Hope+ |
+|---|---|
+| Lima + verde bosque | Azul marino + coral + crema (marca TSP Hope) |
+| Serif genérica | Serif de alto contraste que dialoga con el monograma TH |
+| Pestaña de carpeta | Esquina con el **"+"** de la marca como marcador |
+| Collage de manos | Ilustraciones de línea propias (mano, personas, apretón) que se dibujan con DrawSVG |
+| Asterisco en la cinta | Separador **"+"** coral |
+| Fotos B/N | Fotos con duotono marino (tratamiento ya usado por TuSalud+) |
+
+## Verificación (paso 5)
+- [x] Ningún color de la referencia (lima / verde bosque) en el código: todos los colores salen de `tokens.ts`.
+- [x] Ninguna tipografía de la referencia: DM Serif Display + Poppins.
+- [x] Colores, fuentes, escala tipográfica, espacios, radios, sombras y medidas de control vienen de tokens.
+      Quedan literales solo en geometría propia de un componente (alto de tarjetas, tamaño de ilustraciones).
+- [x] Ningún texto, nombre ni cifra de la referencia: textos propios en español de Colombia.
+- [x] Ninguna imagen, ícono o SVG de la referencia: fotos CC0 de StockSnap, ilustraciones de línea propias.
+- [x] Gestos firma resueltos distinto (ver tabla).
+- [x] Responsive revisado en 390 px, 1440 px (capturas headless) y 820 px (tablet).

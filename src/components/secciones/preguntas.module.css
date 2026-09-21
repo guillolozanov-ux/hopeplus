@@ -1,0 +1,122 @@
+.seccion {
+  padding-inline: var(--space-xs);
+}
+
+.panel {
+  padding-block: var(--section);
+  border-radius: var(--radius-xl);
+  background: var(--color-page-deep);
+}
+
+.interior {
+  max-width: calc(880px + var(--gutter) * 2);
+}
+
+.cabeza {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.burbuja {
+  width: 56px;
+  height: 56px;
+  color: var(--color-accent);
+  animation: balanceo 4s ease-in-out infinite;
+}
+
+@keyframes balanceo {
+  50% {
+    transform: rotate(-10deg) translateY(-4px);
+  }
+}
+
+.titulo {
+  font-size: var(--type-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+}
+
+.bajada {
+  font-size: var(--type-small);
+  color: var(--color-ink-muted);
+}
+
+.bajada a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+
+.lista {
+  list-style: none;
+  margin: var(--space-xl) 0 0;
+  padding: 0;
+}
+
+.item {
+  border-bottom: var(--size-hairline) solid var(--color-line);
+}
+
+.item h3 {
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  font-weight: var(--weight-medium);
+}
+
+.pregunta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  width: 100%;
+  padding-block: var(--space-md);
+  text-align: left;
+}
+
+.icono {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--size-control-sm);
+  height: var(--size-control-sm);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 var(--size-hairline) var(--color-ink);
+  transition:
+    transform var(--motion-slow) var(--motion-ease),
+    background-color var(--motion-base) var(--motion-ease),
+    color var(--motion-base) var(--motion-ease);
+}
+
+.icono svg {
+  width: var(--size-icon-xs);
+  height: var(--size-icon-xs);
+}
+
+.item[data-abierta="true"] .icono {
+  transform: rotate(135deg);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  box-shadow: none;
+}
+
+.respuesta {
+  overflow: hidden;
+}
+
+.respuesta p {
+  padding-bottom: var(--space-md);
+  max-width: var(--measure);
+  font-size: var(--type-small);
+  line-height: var(--leading-body);
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 768px) {
+  .seccion {
+    padding-inline: var(--space-md);
+  }
+}

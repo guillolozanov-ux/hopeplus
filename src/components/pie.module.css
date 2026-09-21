@@ -1,0 +1,102 @@
+.pie {
+  padding: var(--space-3xl) var(--space-xs) var(--space-xs);
+}
+
+.bloque {
+  border-radius: var(--radius-xl);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  padding-block: var(--space-2xl) var(--space-lg);
+  overflow: hidden;
+}
+
+.claim {
+  font-family: var(--font-display);
+  font-size: var(--type-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+}
+
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl) var(--space-md);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: var(--size-hairline) solid var(--color-line-on-ink);
+}
+
+.marca {
+  grid-column: 1 / -1;
+}
+
+.logo {
+  width: auto;
+  height: 64px;
+}
+
+.descripcion {
+  margin-top: var(--space-md);
+  max-width: 36ch;
+  font-size: var(--type-small);
+  line-height: var(--leading-small);
+  opacity: 0.72;
+}
+
+.colTitulo {
+  font-size: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.columna ul {
+  list-style: none;
+  margin: var(--space-sm) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.link {
+  font-size: var(--type-small);
+  opacity: 0.85;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition:
+    background-size var(--motion-base) var(--motion-ease),
+    opacity var(--motion-base) var(--motion-ease);
+}
+
+.link:hover {
+  opacity: 1;
+  background-size: 100% 1px;
+}
+
+.base {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-md);
+  border-top: var(--size-hairline) solid var(--color-line-on-ink);
+  font-size: var(--type-label);
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .pie {
+    padding-inline: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+
+  .grilla {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+
+  .marca {
+    grid-column: auto;
+  }
+}
