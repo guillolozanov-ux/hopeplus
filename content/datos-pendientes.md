@@ -41,4 +41,4 @@ que confirmarlo con la fundación antes de publicar el dominio definitivo.
 
 ## Marca
 - [x] Logo oficial en SVG: "hope+ FUNDATION" (`public/marca/hope-logo.svg` y su versión clara).
-- [ ] Favicon y sello de "Quiénes somos" siguen usando el monograma TH de la marca anterior. ¿Se cambian?
+- [x] Favicon y símbolo de "Quiénes somos": la "o" del logo hope+ (anillo + mano). El monograma TH ya no se usa.

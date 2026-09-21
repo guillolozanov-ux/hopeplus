@@ -35,7 +35,7 @@ export const color = {
 } as const;
 
 export const font = {
-  display: "var(--ff-display), 'Times New Roman', serif", // titulares: serif del monograma TH
+  display: "var(--ff-display), 'Times New Roman', serif", // titulares: serif de alto contraste
   sans: "var(--ff-sans), 'Helvetica Neue', Arial, sans-serif", // interfaz y cuerpo
 } as const;
 
