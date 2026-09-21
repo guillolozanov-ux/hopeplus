@@ -89,7 +89,7 @@
 .mascara {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.1em;
+  padding-block: 0.05em 0.22em; /* aire para las descendentes (p, g) de la serif */
 }
 
 .titulo {
