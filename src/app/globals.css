@@ -48,7 +48,7 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-medium);
   text-wrap: balance;
 }
 

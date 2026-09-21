@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Serif_Display, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { cssVars, color } from "@/styles/tokens";
 import { sitio } from "@/content/sitio";
 import { SmoothScroll } from "@/components/smooth-scroll";
@@ -9,13 +9,6 @@ import { Encabezado } from "@/components/encabezado";
 import { Pie } from "@/components/pie";
 import { scriptIntro } from "@/lib/intro";
 import "./globals.css";
-
-const display = DM_Serif_Display({
-  variable: "--ff-display",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-});
 
 const sans = Poppins({
   variable: "--ff-sans",
@@ -38,7 +31,7 @@ export const viewport: Viewport = { themeColor: color.page };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-CO" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
+    <html lang="es-CO" className={sans.variable} suppressHydrationWarning>
       <head>
         <style id="tokens" dangerouslySetInnerHTML={{ __html: cssVars() }} />
         <script dangerouslySetInnerHTML={{ __html: scriptIntro }} />

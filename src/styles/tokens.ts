@@ -35,7 +35,8 @@ export const color = {
 } as const;
 
 export const font = {
-  display: "var(--ff-display), 'Times New Roman', serif", // titulares: serif de alto contraste
+  // Titulares: Helvetica (fuente de sistema, no se descarga; en Windows cae en Arial)
+  display: "'Helvetica Neue', Helvetica, Arial, sans-serif",
   sans: "var(--ff-sans), 'Helvetica Neue', Arial, sans-serif", // interfaz y cuerpo
 } as const;
 
@@ -58,17 +59,17 @@ export const breakpoint = {
 type Step = { mobile: string; tablet: string; desktop: string; leading: number; tracking: string };
 
 export const type = {
-  mega: { mobile: "72px", tablet: "120px", desktop: "176px", leading: 0.9, tracking: "-0.03em" },
-  menu: { mobile: "32px", tablet: "48px", desktop: "64px", leading: 1.1, tracking: "-0.015em" }, // enlaces del panel del menú
-  stat: { mobile: "64px", tablet: "80px", desktop: "96px", leading: 0.95, tracking: "-0.02em" }, // cifras dentro de tarjetas
-  display: { mobile: "40px", tablet: "56px", desktop: "72px", leading: 1.02, tracking: "-0.02em" },
-  h2: { mobile: "32px", tablet: "40px", desktop: "52px", leading: 1.08, tracking: "-0.015em" },
-  h3: { mobile: "22px", tablet: "24px", desktop: "28px", leading: 1.15, tracking: "-0.01em" },
+  mega: { mobile: "72px", tablet: "120px", desktop: "176px", leading: 0.9, tracking: "-0.045em" },
+  menu: { mobile: "32px", tablet: "48px", desktop: "64px", leading: 1.1, tracking: "-0.03em" }, // enlaces del panel del menú
+  stat: { mobile: "64px", tablet: "80px", desktop: "96px", leading: 0.95, tracking: "-0.035em" }, // cifras dentro de tarjetas
+  display: { mobile: "40px", tablet: "56px", desktop: "72px", leading: 1.02, tracking: "-0.035em" },
+  h2: { mobile: "32px", tablet: "40px", desktop: "52px", leading: 1.08, tracking: "-0.03em" },
+  h3: { mobile: "22px", tablet: "24px", desktop: "28px", leading: 1.15, tracking: "-0.015em" },
   lead: { mobile: "17px", tablet: "18px", desktop: "20px", leading: 1.5, tracking: "0" },
   body: { mobile: "15px", tablet: "16px", desktop: "16px", leading: 1.55, tracking: "0" },
   small: { mobile: "13px", tablet: "14px", desktop: "14px", leading: 1.45, tracking: "0" },
   label: { mobile: "11px", tablet: "12px", desktop: "12px", leading: 1.2, tracking: "0.16em" },
-  ribbon: { mobile: "34px", tablet: "56px", desktop: "72px", leading: 1.1, tracking: "-0.01em" },
+  ribbon: { mobile: "34px", tablet: "56px", desktop: "72px", leading: 1.1, tracking: "-0.025em" },
 } as const satisfies Record<string, Step>;
 
 export const space = {
@@ -135,11 +136,11 @@ export const curva = {
 } as const;
 
 /**
- * Resorte amortiguado: `amortiguacion` < 1 rebota (0.45 ≈ 20 % de sobrepaso y un
- * rebote de vuelta). Se convierte en la curva "resorte" de GSAP en src/lib/gsap.ts.
+ * Resorte amortiguado: `amortiguacion` < 1 rebota. 0.7 ≈ 5 % de sobrepaso, un
+ * asentamiento suave (0.45 daba ~20 % y se sentía exagerado). Se convierte en la curva "resorte" de GSAP en src/lib/gsap.ts.
  */
 export const resorte = {
-  amortiguacion: 0.45,
+  amortiguacion: 0.7,
 } as const;
 
 export const motion = {
