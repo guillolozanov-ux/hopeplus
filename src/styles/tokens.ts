@@ -134,6 +134,14 @@ export const curva = {
   inOutSuave: "0.645, 0.045, 0.355, 1",
 } as const;
 
+/**
+ * Resorte amortiguado: `amortiguacion` < 1 rebota (0.45 ≈ 20 % de sobrepaso y un
+ * rebote de vuelta). Se convierte en la curva "resorte" de GSAP en src/lib/gsap.ts.
+ */
+export const resorte = {
+  amortiguacion: 0.45,
+} as const;
+
 export const motion = {
   ease: "cubic-bezier(0.22, 1, 0.36, 1)",
   easeInOutFuerte: `cubic-bezier(${curva.inOutFuerte})`,

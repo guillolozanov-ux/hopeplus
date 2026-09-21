@@ -34,6 +34,7 @@ export function Encabezado() {
   const [mostrado, setMostrado] = useState<ItemMenu | null>(null);
   if (grupo && !mostrado) setMostrado(grupo);
   const panelAbierto = useRef(false);
+  const alturaPrevia = useRef(0);
   const ruta = usePathname();
 
   const activo = (href: string) => (href === "/" ? ruta === "/" : ruta.startsWith(href));
@@ -81,7 +82,15 @@ export function Encabezado() {
     const q = (sel: string) => panel.querySelectorAll<HTMLElement>(sel);
 
     if (grupo && mostrado && grupo !== mostrado) {
-      const tl = gsap.timeline({ onComplete: () => setMostrado(grupo) });
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // Se congela el alto actual para que el contenido nuevo no lo haga saltar;
+          // luego se interpola hacia el alto del grupo nuevo
+          alturaPrevia.current = panel.offsetHeight;
+          panel.style.height = `${alturaPrevia.current}px`;
+          setMostrado(grupo);
+        },
+      });
       tl.to(q("[data-panel-media]"), { clipPath: "inset(0 0 100% 0)", duration: 0.25, ease: "inOutFuerte" }).to(
         q("[data-panel-item]"),
         { yPercent: -110, autoAlpha: 0, duration: 0.25, stagger: 0.05, ease: "inOutFuerte" },
@@ -118,22 +127,34 @@ export function Encabezado() {
     if (!cambio) {
       tl.fromTo(panel, { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.7, ease: "inOutFuerte" });
       panelAbierto.current = true;
+    } else if (alturaPrevia.current) {
+      // El panel se estira o se recoge suavemente al alto del grupo nuevo
+      panel.style.height = "auto";
+      const nueva = panel.offsetHeight;
+      tl.fromTo(
+        panel,
+        { height: alturaPrevia.current },
+        { height: nueva, duration: 0.8, ease: "inOutSuave", clearProps: "height" },
+        0,
+      );
+      alturaPrevia.current = 0;
     }
-    // La foto se destapa de abajo hacia arriba; en un cambio de grupo entra algo después
+    // La foto se destapa de abajo hacia arriba mientras se asienta con resorte
     tl.fromTo(
       q("[data-panel-media]"),
       { clipPath: cambio ? "inset(100% 0 0 0)" : "inset(0 0 0% 0)" },
       { clipPath: "inset(0% 0 0 0)", duration: 0.65, ease: "inOutFuerte" },
-      cambio ? "<0.1" : "<",
+      cambio ? 0.15 : 0,
     )
-      .fromTo(items, { yPercent: 110, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 0.55, stagger: 0.12, ease: "inOutFuerte" }, "<");
+      .fromTo(q("[data-panel-img]"), { scale: 1.25 }, { scale: 1, duration: 1.3, ease: "resorte" }, "<")
+      .fromTo(items, { yPercent: 110, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 1.1, stagger: 0.09, ease: "resorte" }, "<");
 
     if (!cambio) {
       const t = Math.min(0.25 + 0.03 * items.length, 0.6);
-      tl.fromTo(q("[data-panel-red]"), { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.3, stagger: 0.08, ease: "inOutFuerte" }, t).fromTo(
+      tl.fromTo(q("[data-panel-red]"), { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.9, stagger: 0.08, ease: "resorte" }, t).fromTo(
         q("[data-panel-frase]"),
         { y: 20, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, duration: 0.4, ease: "inOutFuerte" },
+        { y: 0, autoAlpha: 1, duration: 0.6, ease: "inOutFuerte" },
         t + 0.25,
       );
     }
@@ -272,6 +293,8 @@ export function Encabezado() {
                   fill
                   sizes="240px"
                   className={s.panelImg}
+                  style={{ objectPosition: mostrado.imagen.posicion }}
+                  data-panel-img
                 />
               )}
             </div>

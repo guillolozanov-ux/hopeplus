@@ -20,7 +20,7 @@ export type ItemMenu = {
   label: string;
   href: string;
   grupo?: { label: string; href: string }[];
-  imagen?: { src: string; alt: string };
+  imagen?: { src: string; alt: string; posicion?: string };
 };
 
 /** Menú principal. Los ítems con `grupo` abren un panel desplegable. */
@@ -28,7 +28,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Nosotros",
     href: "/nosotros",
-    imagen: { src: "/fotos/saludo.jpg", alt: "Enfermero saluda a una paciente mayor" },
+    imagen: { src: "/fotos/enfermero-adulta.jpg", alt: "Enfermero acompaña a una paciente", posicion: "35% 50%" },
     grupo: [
       { label: "Quiénes somos", href: "/nosotros" },
       { label: "Cómo trabajamos", href: "/nosotros#proceso" },
@@ -38,7 +38,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Programas",
     href: "/programas",
-    imagen: { src: "/fotos/amigos.jpg", alt: "Dos niños abrazados sonriendo" },
+    imagen: { src: "/fotos/nino-sonrisa.jpg", alt: "Niño sonriendo", posicion: "45% 40%" },
     grupo: [
       { label: "Todos los programas", href: "/programas" },
       { label: "Jornadas rurales", href: "/programas/jornadas-rurales" },
@@ -51,7 +51,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Participa",
     href: "/participa",
-    imagen: { src: "/fotos/manos-mayor.jpg", alt: "Manos de una persona mayor" },
+    imagen: { src: "/fotos/madre-hija.jpg", alt: "Madre abraza a su hija en un parque", posicion: "40% 50%" },
     grupo: [
       { label: "Voluntariado", href: "/participa#voluntariado" },
       { label: "Aliados", href: "/participa#aliados" },

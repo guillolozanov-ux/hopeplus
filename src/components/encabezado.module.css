@@ -215,6 +215,7 @@
   left: 0;
   right: 0;
   display: none;
+  overflow: hidden;
   background: var(--color-surface);
   color: var(--color-ink);
   box-shadow: var(--shadow-lift);
@@ -251,9 +252,12 @@
   list-style: none;
 }
 
-/* Cada fila recorta su enlace: entra desde abajo y sale hacia arriba */
+/* Cada fila recorta su enlace: entra desde abajo y sale hacia arriba.
+   El aire extra arriba deja ver el sobrepaso del resorte sin cortarlo */
 .panelFila {
   overflow: hidden;
+  padding-top: 0.3em;
+  margin-top: -0.3em;
   padding-bottom: 0.08em;
 }
 
