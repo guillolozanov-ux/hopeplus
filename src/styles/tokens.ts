@@ -59,6 +59,7 @@ type Step = { mobile: string; tablet: string; desktop: string; leading: number; 
 
 export const type = {
   mega: { mobile: "72px", tablet: "120px", desktop: "176px", leading: 0.9, tracking: "-0.03em" },
+  menu: { mobile: "32px", tablet: "48px", desktop: "64px", leading: 1.1, tracking: "-0.015em" }, // enlaces del panel del menú
   stat: { mobile: "64px", tablet: "80px", desktop: "96px", leading: 0.95, tracking: "-0.02em" }, // cifras dentro de tarjetas
   display: { mobile: "40px", tablet: "56px", desktop: "72px", leading: 1.02, tracking: "-0.02em" },
   h2: { mobile: "32px", tablet: "40px", desktop: "52px", leading: 1.08, tracking: "-0.015em" },
@@ -122,8 +123,20 @@ export const shadow = {
   lift: "0 24px 60px -20px rgba(20, 31, 51, 0.35)",
 } as const;
 
+/**
+ * Curvas con nombre. Las mismas se registran en GSAP con CustomEase (src/lib/gsap.ts)
+ * para que CSS y GSAP compartan el movimiento.
+ * - inOutFuerte: arranque lento y remate seco (paneles, enlaces del menú).
+ * - inOutSuave: cierre de paneles.
+ */
+export const curva = {
+  inOutFuerte: "0.5, 0, 0.15, 1",
+  inOutSuave: "0.645, 0.045, 0.355, 1",
+} as const;
+
 export const motion = {
   ease: "cubic-bezier(0.22, 1, 0.36, 1)",
+  easeInOutFuerte: `cubic-bezier(${curva.inOutFuerte})`,
   fast: "180ms",
   base: "320ms",
   slow: "640ms",

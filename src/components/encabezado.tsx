@@ -8,6 +8,7 @@ import { alRevelar } from "@/lib/intro";
 import { navegacion, pie, sitio, type ItemMenu } from "@/content/sitio";
 import { Enlace } from "@/components/enlace";
 import { Flecha } from "@/components/ui";
+import { IconoRed } from "@/components/redes";
 import s from "./encabezado.module.css";
 
 // Rutas cuyo primer pantallazo es una foto oscura: la barra arranca en claro.
@@ -28,9 +29,11 @@ export function Encabezado() {
   const [grupo, setGrupo] = useState<ItemMenu | null>(null);
   const [movil, setMovil] = useState(false);
   const [acordeon, setAcordeon] = useState<string | null>(null);
-  // Último grupo abierto: el panel lo sigue mostrando mientras se cierra
+  // Grupo que el panel está mostrando. Va un paso detrás de `grupo`: al cambiar
+  // o cerrar, primero sale el contenido actual y después se actualiza.
   const [mostrado, setMostrado] = useState<ItemMenu | null>(null);
-  if (grupo && grupo !== mostrado) setMostrado(grupo);
+  if (grupo && !mostrado) setMostrado(grupo);
+  const panelAbierto = useRef(false);
   const ruta = usePathname();
 
   const activo = (href: string) => (href === "/" ? ruta === "/" : ruta.startsWith(href));
@@ -68,23 +71,76 @@ export function Encabezado() {
     { scope: ref },
   );
 
-  // Panel de escritorio: se despliega hacia abajo y los enlaces suben en cascada
+  // Panel de escritorio, en dos tiempos (curvas inOutFuerte / inOutSuave de los tokens):
+  // 1) cuando cambia `grupo`: sale lo que se ve (cambio de grupo) o se cierra el panel
   useEffect(() => {
     const panel = panelRef.current;
     const header = ref.current;
     if (!panel || !header) return;
     header.dataset.abierto = String(Boolean(grupo) || movil);
-    if (!grupo) {
-      gsap.to(panel, { clipPath: "inset(0 0 100% 0)", duration: 0.5, ease: "expo.inOut", overwrite: true });
-      return;
+    const q = (sel: string) => panel.querySelectorAll<HTMLElement>(sel);
+
+    if (grupo && mostrado && grupo !== mostrado) {
+      const tl = gsap.timeline({ onComplete: () => setMostrado(grupo) });
+      tl.to(q("[data-panel-media]"), { clipPath: "inset(0 0 100% 0)", duration: 0.25, ease: "inOutFuerte" }).to(
+        q("[data-panel-item]"),
+        { yPercent: -110, autoAlpha: 0, duration: 0.25, stagger: 0.05, ease: "inOutFuerte" },
+        "<",
+      );
+      return () => {
+        tl.kill();
+      };
     }
-    gsap.to(panel, { clipPath: "inset(0 0 0% 0)", duration: 0.7, ease: "expo.out", overwrite: true });
-    gsap.fromTo(
-      panel.querySelectorAll("[data-panel-item]"),
-      { yPercent: 110 },
-      { yPercent: 0, duration: 0.8, stagger: 0.05, ease: "expo.out", delay: 0.1 },
-    );
-  }, [grupo, movil]);
+
+    if (!grupo && mostrado) {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          panelAbierto.current = false;
+          setMostrado(null);
+        },
+      });
+      tl.to(panel, { clipPath: "inset(0 0 100% 0)", duration: 0.6, ease: "inOutSuave" });
+      return () => {
+        tl.kill();
+      };
+    }
+  }, [grupo, mostrado, movil]);
+
+  // 2) cuando cambia `mostrado`: entra el contenido nuevo (y el panel, si estaba cerrado)
+  useEffect(() => {
+    const panel = panelRef.current;
+    if (!panel || !mostrado) return;
+    const q = (sel: string) => panel.querySelectorAll<HTMLElement>(sel);
+    const items = q("[data-panel-item]");
+    const tl = gsap.timeline();
+
+    const cambio = panelAbierto.current;
+    if (!cambio) {
+      tl.fromTo(panel, { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.7, ease: "inOutFuerte" });
+      panelAbierto.current = true;
+    }
+    // La foto se destapa de abajo hacia arriba; en un cambio de grupo entra algo después
+    tl.fromTo(
+      q("[data-panel-media]"),
+      { clipPath: cambio ? "inset(100% 0 0 0)" : "inset(0 0 0% 0)" },
+      { clipPath: "inset(0% 0 0 0)", duration: 0.65, ease: "inOutFuerte" },
+      cambio ? "<0.1" : "<",
+    )
+      .fromTo(items, { yPercent: 110, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 0.55, stagger: 0.12, ease: "inOutFuerte" }, "<");
+
+    if (!cambio) {
+      const t = Math.min(0.25 + 0.03 * items.length, 0.6);
+      tl.fromTo(q("[data-panel-red]"), { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.3, stagger: 0.08, ease: "inOutFuerte" }, t).fromTo(
+        q("[data-panel-frase]"),
+        { y: 20, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.4, ease: "inOutFuerte" },
+        t + 0.25,
+      );
+    }
+    return () => {
+      tl.kill();
+    };
+  }, [mostrado]);
 
   // Panel móvil: entra desde la derecha
   useEffect(() => {
@@ -205,14 +261,20 @@ export function Encabezado() {
         </div>
 
         {/* Panel desplegable de escritorio (a todo el ancho, bajo la barra) */}
-        <div
-          ref={panelRef}
-          id="panel-menu"
-          className={s.panel}
-          aria-hidden={!grupo}
-          inert={!grupo}
-        >
+        <div ref={panelRef} id="panel-menu" className={s.panel} aria-hidden={!grupo} inert={!grupo}>
           <div className={s.panelInterior}>
+            <div className={s.panelMedia} data-panel-media>
+              {mostrado?.imagen && (
+                <Image
+                  key={mostrado.imagen.src}
+                  src={mostrado.imagen.src}
+                  alt={mostrado.imagen.alt}
+                  fill
+                  sizes="240px"
+                  className={s.panelImg}
+                />
+              )}
+            </div>
             <ul className={s.panelLista}>
               {mostrado?.grupo?.map((g) => (
                 <li key={g.href + g.label} className={s.panelFila}>
@@ -225,8 +287,18 @@ export function Encabezado() {
             </ul>
           </div>
           <div className={s.panelPie}>
-            <p>{sitio.claim}.</p>
-            <p className={s.panelDescripcion}>{sitio.descripcion}</p>
+            <ul className={s.panelRedes} aria-label="Redes sociales">
+              {redes.map((r) => (
+                <li key={r.label} data-panel-red>
+                  <a href={r.href} aria-label={r.label} className={s.red}>
+                    <IconoRed red={r.label} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className={s.panelFrase} data-panel-frase>
+              {sitio.descripcion}
+            </p>
           </div>
         </div>
       </header>
@@ -287,7 +359,9 @@ export function Encabezado() {
           <ul className={s.redes}>
             {redes.map((r) => (
               <li key={r.label}>
-                <a href={r.href}>{r.label}</a>
+                <a href={r.href} aria-label={r.label} className={s.red}>
+                  <IconoRed red={r.label} />
+                </a>
               </li>
             ))}
           </ul>

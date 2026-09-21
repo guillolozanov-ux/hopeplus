@@ -221,20 +221,40 @@
   clip-path: inset(0 0 100% 0);
 }
 
+/* Foto a la izquierda; los enlaces arrancan en la mitad, alineados con la navegación */
 .panelInterior {
-  padding: var(--space-xl) var(--space-sm) var(--space-2xl);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-sm) var(--space-md) var(--space-xl);
+}
+
+.panelMedia {
+  position: relative;
+  width: 240px;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-page-deep);
+}
+
+.panelImg {
+  object-fit: cover;
 }
 
 .panelLista {
   display: grid;
-  gap: var(--space-3xs);
+  align-content: start;
+  gap: var(--space-xs);
   margin: 0;
-  padding: 0;
+  padding: var(--space-lg) 0 0;
   list-style: none;
 }
 
+/* Cada fila recorta su enlace: entra desde abajo y sale hacia arriba */
 .panelFila {
   overflow: hidden;
+  padding-bottom: 0.08em;
 }
 
 .panelLink {
@@ -242,10 +262,12 @@
   align-items: center;
   gap: var(--space-sm);
   font-family: var(--font-display);
-  font-size: var(--type-h2);
-  line-height: var(--leading-h2);
-  letter-spacing: var(--tracking-h2);
-  transition: color var(--motion-base) var(--motion-ease);
+  font-size: var(--type-menu);
+  line-height: var(--leading-menu);
+  letter-spacing: var(--tracking-menu);
+  transition:
+    color var(--motion-base) var(--motion-ease),
+    opacity var(--motion-base) var(--motion-ease);
 }
 
 .panelFlecha {
@@ -270,21 +292,52 @@
 
 /* Los enlaces del panel también atenúan a sus vecinos */
 .panelLista:hover .panelLink:not(:hover) {
-  opacity: 0.45;
+  opacity: 0.4;
 }
 
 .panelPie {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-lg);
-  padding: var(--space-md) var(--space-sm);
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
   border-top: var(--size-hairline) solid var(--color-line);
-  font-size: var(--type-small);
 }
 
-.panelDescripcion {
-  max-width: 52ch;
-  color: var(--color-ink-muted);
+.panelRedes {
+  display: flex;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.red {
+  display: grid;
+  place-items: center;
+  width: var(--size-control-sm);
+  height: var(--size-control-sm);
+  border-radius: 50%;
+  color: var(--color-ink);
+  transition:
+    background-color var(--motion-base) var(--motion-ease),
+    color var(--motion-base) var(--motion-ease);
+}
+
+.red svg {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+}
+
+.red:hover {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.panelFrase {
+  max-width: 44ch;
+  font-size: var(--type-small);
+  line-height: var(--leading-small);
 }
 
 /* ---------- Velo ---------- */
@@ -377,7 +430,7 @@
 
 .redes {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-2xs);
   margin: 0 0 var(--space-sm);
   padding: 0;
   list-style: none;
@@ -386,9 +439,7 @@
 }
 
 @media (min-width: 768px) {
-  .barra,
-  .panelInterior,
-  .panelPie {
+  .barra {
     padding-inline: var(--space-md);
   }
 }
@@ -411,9 +462,4 @@
     display: none;
   }
 
-  /* El contenido del panel arranca alineado con la navegación */
-  .panelInterior,
-  .panelPie {
-    padding-left: 50%;
-  }
 }

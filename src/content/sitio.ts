@@ -16,13 +16,19 @@ export const sitio = {
   anio: 2026,
 };
 
-export type ItemMenu = { label: string; href: string; grupo?: { label: string; href: string }[] };
+export type ItemMenu = {
+  label: string;
+  href: string;
+  grupo?: { label: string; href: string }[];
+  imagen?: { src: string; alt: string };
+};
 
 /** Menú principal. Los ítems con `grupo` abren un panel desplegable. */
 export const navegacion: ItemMenu[] = [
   {
     label: "Nosotros",
     href: "/nosotros",
+    imagen: { src: "/fotos/saludo.jpg", alt: "Enfermero saluda a una paciente mayor" },
     grupo: [
       { label: "Quiénes somos", href: "/nosotros" },
       { label: "Cómo trabajamos", href: "/nosotros#proceso" },
@@ -32,6 +38,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Programas",
     href: "/programas",
+    imagen: { src: "/fotos/amigos.jpg", alt: "Dos niños abrazados sonriendo" },
     grupo: [
       { label: "Todos los programas", href: "/programas" },
       { label: "Jornadas rurales", href: "/programas/jornadas-rurales" },
@@ -44,6 +51,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Participa",
     href: "/participa",
+    imagen: { src: "/fotos/manos-mayor.jpg", alt: "Manos de una persona mayor" },
     grupo: [
       { label: "Voluntariado", href: "/participa#voluntariado" },
       { label: "Aliados", href: "/participa#aliados" },
@@ -349,6 +357,7 @@ export const pie = {
         { label: "Instagram", href: "#" },
         { label: "Facebook", href: "#" },
         { label: "LinkedIn", href: "#" },
+        { label: "X", href: "#" },
       ],
     },
   ],
