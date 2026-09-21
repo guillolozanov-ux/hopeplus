@@ -129,6 +129,8 @@ export const comoAyudar = {
 export type Programa = {
   slug: string;
   titulo: string;
+  corto: string; // nombre para tarjetas y menús
+
   texto: string;
   foto: string;
   alt: string;
@@ -148,11 +150,12 @@ export type Programa = {
 
 export const programas: { etiqueta: string; titulo: string; marca: string; items: Programa[] } = {
   etiqueta: "Programas",
-  titulo: "Programas que necesitan tu apoyo",
+  titulo: "Causas que necesitan tu apoyo",
   marca: "apoyo",
   items: [
     {
       slug: "jornadas-rurales",
+      corto: "Jornadas rurales",
       titulo: "Jornadas de salud en zonas rurales del Atlántico",
       texto: "Consulta médica, odontología y entrega de medicamentos en veredas sin puesto de salud.",
       foto: "/fotos/enfermero-adulta.jpg",
@@ -172,10 +175,11 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
     },
     {
       slug: "tamizaje-escolar",
+      corto: "Tamizaje escolar",
       titulo: "Tamizaje visual y auditivo para escolares",
       texto: "Detección temprana en colegios públicos y entrega de gafas formuladas sin costo.",
-      foto: "/fotos/amigos.jpg",
-      alt: "Dos niños abrazados sonriendo",
+      foto: "/fotos/nino-sonrisa.jpg",
+      alt: "Niño sonriendo",
       recaudado: 21_300_000,
       meta: 35_000_000,
       apoyos: 268,
@@ -191,10 +195,11 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
     },
     {
       slug: "adultos-mayores",
+      corto: "Adultos mayores",
       titulo: "Acompañamiento a adultos mayores",
       texto: "Control de hipertensión y diabetes, y visitas domiciliarias a personas que viven solas.",
-      foto: "/fotos/abuelas.jpg",
-      alt: "Dos mujeres mayores sonriendo juntas",
+      foto: "/fotos/adulto-mayor-medica.jpg",
+      alt: "Médica atiende a un adulto mayor en silla de ruedas",
       recaudado: 14_800_000,
       meta: 30_000_000,
       apoyos: 190,
@@ -210,6 +215,7 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
     },
     {
       slug: "materno-infantil",
+      corto: "Materno infantil",
       titulo: "Salud materna y primera infancia",
       texto: "Controles prenatales, vacunación y seguimiento nutricional durante los primeros mil días.",
       foto: "/fotos/madre-hija.jpg",
@@ -229,6 +235,7 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
     },
     {
       slug: "nutricion-infantil",
+      corto: "Nutrición infantil",
       titulo: "Nutrición para niños en riesgo",
       texto: "Complemento alimentario y valoración por nutricionista para niños con bajo peso.",
       foto: "/fotos/nino-balon.jpg",
