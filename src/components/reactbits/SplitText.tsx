@@ -2,11 +2,12 @@
 
 /**
  * SplitText — adaptado de React Bits (reactbits.dev, MIT).
- * Cambios: acepta children (para conservar la palabra marcada en <em>), máscara por
+ * Cambios: espera a la intro en modo inmediato, acepta children (para conservar la palabra marcada en <em>), máscara por
  * línea, modo `immediate` para el hero y respeto a prefers-reduced-motion.
  */
 import { useRef, useState, useEffect, type ElementType, type ReactNode } from "react";
 import { gsap, SplitText as GSAPSplitText, useGSAP, MOTION_OK } from "@/lib/gsap";
+import { alRevelar } from "@/lib/intro";
 
 type Props = {
   children: ReactNode;
@@ -41,6 +42,7 @@ export default function SplitText({
   useGSAP(
     () => {
       if (!ref.current || !fontsReady) return;
+      let soltar = () => {};
       const mm = gsap.matchMedia();
       mm.add(MOTION_OK, () => {
         const split = GSAPSplitText.create(ref.current!, {
@@ -50,18 +52,25 @@ export default function SplitText({
           autoSplit: true,
           onSplit(self) {
             const targets = splitType === "chars" ? self.chars : splitType === "words" ? self.words : self.lines;
-            return gsap.from(targets, {
+            const tween = gsap.from(targets, {
               yPercent: 110,
               rotate: 3,
               duration,
               stagger,
               delay,
               ease: "expo.out",
+              paused: immediate,
               scrollTrigger: immediate ? undefined : { trigger: ref.current, start, once: true },
             });
+            // En modo inmediato espera a que la intro abra la página
+            if (immediate) soltar = alRevelar(() => tween.play());
+            return tween;
           },
         });
-        return () => split.revert();
+        return () => {
+          soltar();
+          split.revert();
+        };
       });
       gsap.set(ref.current, { autoAlpha: 1 });
       return () => mm.revert();

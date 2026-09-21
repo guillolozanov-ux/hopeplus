@@ -3,6 +3,8 @@ import { DM_Serif_Display, Poppins } from "next/font/google";
 import { cssVars, color } from "@/styles/tokens";
 import { sitio } from "@/content/sitio";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { Intro } from "@/components/intro";
+import { scriptIntro } from "@/lib/intro";
 import "./globals.css";
 
 const display = DM_Serif_Display({
@@ -33,11 +35,13 @@ export const viewport: Viewport = { themeColor: color.page };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-CO" className={`${display.variable} ${sans.variable}`}>
+    <html lang="es-CO" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
       <head>
         <style id="tokens" dangerouslySetInnerHTML={{ __html: cssVars() }} />
+        <script dangerouslySetInnerHTML={{ __html: scriptIntro }} />
       </head>
       <body>
+        <Intro />
         <SmoothScroll />
         {children}
       </body>

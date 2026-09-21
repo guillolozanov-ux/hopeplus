@@ -63,3 +63,12 @@ Piel: marca TSP Hope Fundación, sub-marca de TuSalud+.
 - [x] Ninguna imagen, ícono o SVG de la referencia: fotos CC0 de StockSnap, ilustraciones de línea propias.
 - [x] Gestos firma resueltos distinto (ver tabla).
 - [x] Responsive revisado en 390 px, 1440 px (capturas headless) y 820 px (tablet).
+
+## Intro (referencia: stauffer.org)
+- **Tomado (técnica):** un velo a pantalla completa con la forma del logo recortada; el velo
+  escala desde el centro y la página aparece a través del recorte, mientras el hero se asienta
+  desde un leve zoom.
+- **No tomado (firma):** la "S" dibujada con líneas paralelas que suben una a una.
+- **Resolución hope+:** las letras del logo se arman (h-o-p-e, la mano, FUNDATION), el "+" entra
+  girando, las letras se van, el "+" viaja al centro y se vuelve la ventana que se abre.
+  `src/components/intro.tsx`. Una vez por sesión; desactivada con `prefers-reduced-motion`.

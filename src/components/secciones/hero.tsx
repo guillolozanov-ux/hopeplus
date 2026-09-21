@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
+import { alRevelar, hayIntro } from "@/lib/intro";
 import { hero, mosaico, comunidad } from "@/content/sitio";
 import { Titular, Boton, Foto, Plus, Flecha } from "@/components/ui";
 import s from "./hero.module.css";
@@ -17,9 +18,12 @@ export function Hero() {
         const cols = gsap.utils.toArray<HTMLElement>("[data-col]");
         const cards = gsap.utils.toArray<HTMLElement>("[data-card]");
 
-        // Entrada: las tarjetas suben desde el centro hacia afuera
-        gsap
-          .timeline({ delay: 0.5 })
+        // Entrada: arranca cuando la intro abre el "+" (o al cargar, si no hay intro).
+        // Con intro, el hero se asienta desde un leve zoom mientras el velo crece.
+        const conIntro = hayIntro();
+        const entrada = gsap
+          .timeline({ paused: true, delay: conIntro ? 0 : 0.5 })
+          .from(ref.current, { scale: conIntro ? 1.15 : 1, transformOrigin: "50% 40%", duration: 2.4, ease: "expo.out", clearProps: "scale" }, 0)
           .from("[data-fade]", { y: 24, autoAlpha: 0, stagger: 0.08, duration: 1 }, 0.35)
           .from(
             cards,
@@ -32,6 +36,7 @@ export function Hero() {
             },
             0.45,
           );
+        const soltar = alRevelar(() => entrada.play());
 
         // Parallax por columna al hacer scroll
         cols.forEach((col) => {
@@ -50,8 +55,12 @@ export function Hero() {
             qx.forEach((q, i) => q(dx * (i - 2) * -10));
           };
           window.addEventListener("mousemove", onMove);
-          return () => window.removeEventListener("mousemove", onMove);
+          return () => {
+            soltar();
+            window.removeEventListener("mousemove", onMove);
+          };
         }
+        return soltar;
       });
       return () => mm.revert();
     },

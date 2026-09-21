@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { gsap, ScrollTrigger, useGSAP, MOTION_OK } from "@/lib/gsap";
+import { alRevelar } from "@/lib/intro";
 import { navegacion, hero } from "@/content/sitio";
 import { Boton } from "@/components/ui";
 import s from "./encabezado.module.css";
@@ -30,13 +31,15 @@ export function Encabezado() {
 
       const mm = gsap.matchMedia();
       mm.add(MOTION_OK, () => {
-        gsap.from(header.querySelectorAll("[data-entra]"), {
+        const entrada = gsap.from(header.querySelectorAll("[data-entra]"), {
           y: -24,
           autoAlpha: 0,
           stagger: 0.06,
           duration: 1,
           delay: 0.2,
+          paused: true,
         });
+        return alRevelar(() => entrada.play());
       });
 
       tl.current = gsap

@@ -1,0 +1,42 @@
+/* Oculta por defecto: solo aparece si el script de <head> puso la clase con-intro */
+.intro {
+  display: none;
+}
+
+:global(html.con-intro) .intro {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+:global(html.con-intro) body {
+  overflow: hidden;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.horizontal {
+  display: none;
+}
+
+@media (min-aspect-ratio: 1/1) {
+  .horizontal {
+    display: block;
+  }
+
+  .vertical {
+    display: none;
+  }
+}
+
+.velo {
+  fill: var(--color-page);
+}
