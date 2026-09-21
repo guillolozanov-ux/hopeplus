@@ -37,4 +37,4 @@ Todas bajo licencia **CC0** (dominio público) de [StockSnap.io](https://stocksn
 ## Marca
 
 - Logos TSP Hope Fundación: sistema de diseño TuSalud+ (`assets/sub-brands/`).
-- Tipografías: Helvetica Neue (fuente de sistema, titulares) y Poppins (Google Fonts, OFL).
+- Tipografías: Google Sans (titulares) y Poppins (texto), ambas de Google Fonts con licencia OFL.

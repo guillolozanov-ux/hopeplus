@@ -35,8 +35,8 @@ export const color = {
 } as const;
 
 export const font = {
-  // Titulares: Helvetica (fuente de sistema, no se descarga; en Windows cae en Arial)
-  display: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+  // Titulares: Google Sans (se carga con next/font en layout.tsx)
+  display: "var(--ff-display), 'Helvetica Neue', Arial, sans-serif",
   sans: "var(--ff-sans), 'Helvetica Neue', Arial, sans-serif", // interfaz y cuerpo
 } as const;
 

@@ -56,7 +56,7 @@ Piel: marca TSP Hope Fundación, sub-marca de TuSalud+.
 
 ## Verificación (paso 5)
 - [x] Ningún color de la referencia (lima / verde bosque) en el código: todos los colores salen de `tokens.ts`.
-- [x] Ninguna tipografía de la referencia: Helvetica Neue (titulares) + Poppins.
+- [x] Ninguna tipografía de la referencia: Google Sans (titulares) + Poppins.
 - [x] Colores, fuentes, escala tipográfica, espacios, radios, sombras y medidas de control vienen de tokens.
       Quedan literales solo en geometría propia de un componente (alto de tarjetas, tamaño de ilustraciones).
 - [x] Ningún texto, nombre ni cifra de la referencia: textos propios en español de Colombia.
