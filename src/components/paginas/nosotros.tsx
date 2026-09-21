@@ -70,7 +70,7 @@ export function PaginaNosotros() {
       </Aparece>
 
       {/* 4. Proceso: lista con flechas */}
-      <Aparece className={`contenedor ${s.proceso}`}>
+      <Aparece className={`contenedor ${s.proceso}`} id="proceso">
         <div className={s.procesoIntro} data-sube>
           <Etiqueta>{proceso.etiqueta}</Etiqueta>
           <Titular lineas={proceso.titulo} marca={proceso.marca} className={c.h2} />

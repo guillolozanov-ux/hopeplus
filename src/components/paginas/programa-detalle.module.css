@@ -1,6 +1,7 @@
 /* ---------- 1. Hero dividido ---------- */
 .hero {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-2xl);
   padding-top: calc(var(--size-header) + var(--space-2xl));
   padding-bottom: var(--section);
@@ -248,6 +249,7 @@
 /* ---------- 3. Qué incluye ---------- */
 .incluye {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-2xl);
   padding-bottom: var(--section);
 }

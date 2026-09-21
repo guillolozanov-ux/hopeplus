@@ -82,6 +82,12 @@ button {
   color: var(--color-on-accent);
 }
 
+/* Recursos que cruzan a propósito el borde (cintas, trazos) no deben
+   ensanchar la página: se recortan en el eje horizontal */
+main {
+  overflow-x: clip;
+}
+
 /* Utilidades compartidas */
 
 .contenedor {

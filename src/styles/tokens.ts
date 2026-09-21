@@ -98,7 +98,7 @@ export const layout = {
 
 /** Medidas fijas de interfaz: barra, controles redondos, íconos y filetes. */
 export const size = {
-  header: "76px",
+  header: "64px",
   controlSm: "32px",
   controlMd: "40px",
   controlLg: "48px",

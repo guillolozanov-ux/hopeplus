@@ -16,10 +16,41 @@ export const sitio = {
   anio: 2026,
 };
 
-export const navegacion = [
-  { label: "Nosotros", href: "/nosotros" },
-  { label: "Programas", href: "/programas" },
-  { label: "Participa", href: "/participa" },
+export type ItemMenu = { label: string; href: string; grupo?: { label: string; href: string }[] };
+
+/** Menú principal. Los ítems con `grupo` abren un panel desplegable. */
+export const navegacion: ItemMenu[] = [
+  {
+    label: "Nosotros",
+    href: "/nosotros",
+    grupo: [
+      { label: "Quiénes somos", href: "/nosotros" },
+      { label: "Cómo trabajamos", href: "/nosotros#proceso" },
+      { label: "Equipo", href: "/nosotros#equipo" },
+    ],
+  },
+  {
+    label: "Programas",
+    href: "/programas",
+    grupo: [
+      { label: "Todos los programas", href: "/programas" },
+      { label: "Jornadas rurales", href: "/programas/jornadas-rurales" },
+      { label: "Tamizaje escolar", href: "/programas/tamizaje-escolar" },
+      { label: "Adultos mayores", href: "/programas/adultos-mayores" },
+      { label: "Materno infantil", href: "/programas/materno-infantil" },
+      { label: "Nutrición infantil", href: "/programas/nutricion-infantil" },
+    ],
+  },
+  {
+    label: "Participa",
+    href: "/participa",
+    grupo: [
+      { label: "Voluntariado", href: "/participa#voluntariado" },
+      { label: "Aliados", href: "/participa#aliados" },
+      { label: "Contacto", href: "/participa#contacto" },
+      { label: "Preguntas frecuentes", href: "/donar#preguntas" },
+    ],
+  },
   { label: "Impacto", href: "/impacto" },
 ];
 

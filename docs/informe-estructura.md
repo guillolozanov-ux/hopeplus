@@ -101,3 +101,14 @@ muestra el nombre del destino; las entradas de la página nueva esperan a que se
 | `/participa` | El "+" crece hasta tapar y luego se abre como ventana |
 | `/impacto` | Persianas horizontales rubor y marino |
 | `/donar` | Cinta coral en diagonal |
+
+## Encabezado (referencia: higherlifefoundation.org)
+- **Tomado (estructura y comportamiento):** barra fija delgada (64 px) y transparente arriba,
+  que se oculta al bajar y reaparece al subir; navegación alineada a la derecha junto al botón
+  de acción; los enlaces vecinos se atenúan al pasar el cursor; grupos con ▾ que abren un
+  panel a todo el ancho con enlaces grandes, frase al pie y la página oscurecida detrás;
+  botón compacto cuya flecha salta de izquierda a derecha; en móvil, botón de acción +
+  botón de menú cuadrado y panel lateral con acordeones, redes y frase.
+- **No tomado:** el verde lima del botón, la tipografía Cera Pro, el logo y los textos.
+- **Resolución hope+:** botón coral que pasa a marino; enlaces del panel en la serif de marca
+  con flecha coral; grupos Nosotros · Programas · Participa + Impacto.

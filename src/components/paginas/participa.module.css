@@ -108,6 +108,7 @@
 /* ---------- 2. Voluntariado ---------- */
 .voluntariado {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-2xl);
   padding-bottom: var(--section);
 }
@@ -200,6 +201,7 @@
 /* ---------- 3. Aliados ---------- */
 .aliados {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-2xl);
   padding-bottom: var(--section);
 }
