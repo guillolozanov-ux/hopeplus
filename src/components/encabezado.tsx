@@ -303,7 +303,7 @@ export function Encabezado() {
                 <li key={g.href + g.label} className={s.panelFila}>
                   <Enlace href={g.href} className={s.panelLink} data-panel-item onClick={cerrar}>
                     {g.label}
-                    <Flecha className={s.panelFlecha} />
+                    <FlechaPanel />
                   </Enlace>
                 </li>
               ))}
@@ -392,5 +392,21 @@ export function Encabezado() {
         </div>
       </div>
     </>
+  );
+}
+
+/** Flecha del panel: ocupa todo su lienzo para medir lo mismo que la letra. */
+function FlechaPanel() {
+  return (
+    <svg className={s.panelFlecha} viewBox="0 0 24 24" aria-hidden focusable="false">
+      <path
+        d="M3.5 20.5 20.5 3.5M6.5 3.5h14v14"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
