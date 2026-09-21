@@ -62,8 +62,8 @@ export function Encabezado() {
     <header ref={ref} className={s.header} data-solido="false">
       <div className={`contenedor ${s.barra}`}>
         <a href="#inicio" className={s.logo} data-entra aria-label="TSP Hope, inicio">
-          <Image src="/marca/hope-principal.png" alt="" width={264} height={221} priority className={s.logoOscuro} />
-          <Image src="/marca/hope-principal-claro.png" alt="" width={264} height={221} className={s.logoClaro} />
+          <Image src="/marca/hope-apilado.png" alt="" width={237} height={121} priority className={s.logoOscuro} />
+          <Image src="/marca/hope-apilado-claro.png" alt="" width={237} height={121} className={s.logoClaro} />
         </a>
 
         <nav className={s.nav} aria-label="Principal">

@@ -32,4 +32,5 @@ que confirmarlo con la fundación antes de publicar el dominio definitivo.
 
 ## Marca
 - [ ] Logos en vector (SVG). Hoy son PNG recortados del sistema de diseño TuSalud+.
-- [ ] El logo apilado dice "FUNDATION" (en inglés) — confirmar si es intencional. No se usa en el sitio.
+- [x] Logo oficial del sitio: el apilado "TSP / HOPE / FUNDATION" (confirmado por el cliente).
+- [ ] El PNG apilado mide 237 px de ancho: en el pie se ve algo suave en pantallas retina. Hace falta el SVG.
