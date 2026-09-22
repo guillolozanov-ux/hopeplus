@@ -195,20 +195,6 @@
   font-weight: var(--weight-semibold);
 }
 
-.barra {
-  display: block;
-  height: 3px;
-  border-radius: var(--radius-pill);
-  background: var(--color-line-on-ink);
-  overflow: hidden;
-}
-
-.barra span {
-  display: block;
-  height: 100%;
-  background: var(--color-accent);
-}
-
 @media (min-width: 768px) {
   .grilla {
     grid-template-columns: repeat(3, minmax(0, 1fr));

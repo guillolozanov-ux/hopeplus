@@ -53,18 +53,7 @@
 }
 
 .barra {
-  height: 8px;
   margin-bottom: var(--space-xs);
-  border-radius: var(--radius-pill);
-  background: var(--color-page-deep);
-  overflow: hidden;
-}
-
-.barra span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--color-accent);
 }
 
 .botones {

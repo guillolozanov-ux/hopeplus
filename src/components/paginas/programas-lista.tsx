@@ -6,6 +6,7 @@ import { alRevelar } from "@/lib/intro";
 import { programas } from "@/content/sitio";
 import { Titular, Etiqueta, Foto, Flecha, Boton, pesos } from "@/components/ui";
 import { Enlace } from "@/components/enlace";
+import { BarraMeta } from "@/components/barra-meta";
 import { Aparece, Cabeza, TagBorde } from "./comun";
 import c from "./comun.module.css";
 import s from "./programas-lista.module.css";
@@ -81,9 +82,7 @@ export function PaginaProgramas() {
                 <div className={s.cuerpo}>
                   <h2 className={s.titulo}>{p.titulo}</h2>
                   <p className={s.texto}>{p.texto}</p>
-                  <div className={s.barra} aria-label={`${pct}% de la meta`}>
-                    <span style={{ width: `${pct}%` }} />
-                  </div>
+                  <BarraMeta pct={pct} fondo={destacado ? "oscuro" : "claro"} className={s.barra} />
                   <p className={s.montos}>
                     <strong>{pesos(p.recaudado)}</strong> de {pesos(p.meta)}
                   </p>

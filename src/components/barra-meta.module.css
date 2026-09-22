@@ -1,0 +1,77 @@
+.barra {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.md {
+  height: 10px;
+}
+
+.lg {
+  height: 12px;
+}
+
+.claro {
+  background: var(--color-page-deep);
+}
+
+.oscuro {
+  background: var(--color-line-on-ink);
+}
+
+/* Relleno: degradado coral con un filo de luz arriba para darle volumen */
+.relleno {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--color-accent-soft) 0%, var(--color-accent) 70%);
+  box-shadow:
+    inset 0 2px 0 color-mix(in srgb, var(--color-surface) 45%, transparent),
+    0 0 12px color-mix(in srgb, var(--color-accent) 45%, transparent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.6s var(--motion-ease-in-out-fuerte);
+}
+
+.barra[data-visible="true"] .relleno {
+  transform: scaleX(1);
+}
+
+/* Destello que recorre la barra */
+.brillo {
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-surface) 70%, transparent) 50%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  animation: destello 3.2s var(--motion-ease) 1.8s infinite;
+}
+
+@keyframes destello {
+  0% {
+    transform: translateX(-120%);
+  }
+  45%,
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .relleno {
+    transform: none;
+  }
+
+  .brillo {
+    display: none;
+  }
+}

@@ -3,6 +3,7 @@ import { programas, type Programa } from "@/content/sitio";
 import { Titular, Etiqueta, Boton, Foto, Flecha, Plus, pesos } from "@/components/ui";
 import CountUp from "@/components/reactbits/CountUp";
 import { Enlace } from "@/components/enlace";
+import { BarraMeta } from "@/components/barra-meta";
 import { Aparece, Trazo, TagBorde } from "./comun";
 import c from "./comun.module.css";
 import s from "./programa-detalle.module.css";
@@ -27,9 +28,7 @@ export function PaginaPrograma({ p }: { p: Programa }) {
             {p.descripcion}
           </p>
           <div className={s.progreso} data-sube>
-            <div className={s.barra}>
-              <span style={{ width: `${pct}%` }} />
-            </div>
+            <BarraMeta pct={pct} grosor="lg" className={s.barra} />
             <p>
               <strong>{pesos(p.recaudado)}</strong> recaudados de {pesos(p.meta)}
             </p>

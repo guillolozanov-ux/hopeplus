@@ -68,25 +68,13 @@
   color: var(--color-ink-muted);
 }
 
+/* La barra baja al pie de la tarjeta, con aire respecto al texto */
 .barra {
   margin-top: auto;
-  padding-top: var(--space-md);
 }
 
-.barra::before {
-  content: "";
-  display: block;
-  height: 6px;
-  border-radius: var(--radius-pill);
-  background: var(--color-page-deep);
-}
-
-.barra span {
-  display: block;
-  height: 6px;
-  margin-top: -6px;
-  border-radius: var(--radius-pill);
-  background: var(--color-accent);
+.texto {
+  margin-bottom: var(--space-md);
 }
 
 .montos {
@@ -173,10 +161,6 @@
 
 .destacado .montos strong {
   color: var(--color-on-ink);
-}
-
-.destacado .barra::before {
-  background: var(--color-line-on-ink);
 }
 
 .destacado .flecha {

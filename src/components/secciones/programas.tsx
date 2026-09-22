@@ -6,6 +6,7 @@ import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { programas } from "@/content/sitio";
 import { Titular, Plus, pesos } from "@/components/ui";
 import { Enlace } from "@/components/enlace";
+import { BarraMeta } from "@/components/barra-meta";
 import s from "./programas.module.css";
 
 /** Máximo de causas que muestra el módulo de la portada. */
@@ -86,9 +87,7 @@ export function Programas() {
                   <span className={s.cifra}>
                     <strong>{pesos(p.recaudado)}</strong> · {pct}% de la meta
                   </span>
-                  <span className={s.barra} aria-hidden>
-                    <span style={{ width: `${pct}%` }} />
-                  </span>
+                  <BarraMeta pct={pct} fondo="oscuro" />
                 </span>
               </Enlace>
             </li>
