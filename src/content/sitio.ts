@@ -20,7 +20,8 @@ export type ItemMenu = {
   label: string;
   href: string;
   grupo?: { label: string; href: string }[];
-  imagen?: { src: string; alt: string; posicion?: string };
+  /** Clip corto del panel del menú: `/video/menu/<nombre>.{webm,mp4,jpg}` */
+  video?: { nombre: string; alt: string };
 };
 
 /** Menú principal. Los ítems con `grupo` abren un panel desplegable. */
@@ -28,7 +29,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Nosotros",
     href: "/nosotros",
-    imagen: { src: "/fotos/enfermero-adulta-hd.jpg", alt: "Jornada de salud comunitaria", posicion: "50% 50%" },
+    video: { nombre: "nosotros", alt: "Un cuidador sostiene la mano de un paciente mayor" },
     grupo: [
       { label: "Quiénes somos", href: "/nosotros" },
       { label: "Cómo trabajamos", href: "/nosotros#proceso" },
@@ -38,7 +39,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Programas",
     href: "/programas",
-    imagen: { src: "/fotos/nino-sonrisa-hd.jpg", alt: "Niño sonriendo", posicion: "50% 30%" },
+    video: { nombre: "programas", alt: "Niño con gafas sonríe a la cámara" },
     grupo: [
       { label: "Todos los programas", href: "/programas" },
       { label: "Jornadas rurales", href: "/programas/jornadas-rurales" },
@@ -51,7 +52,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Participa",
     href: "/participa",
-    imagen: { src: "/fotos/madre-hija-hd.jpg", alt: "Madre e hija abrazadas", posicion: "50% 35%" },
+    video: { nombre: "participa", alt: "Voluntarios cargan cajas de ayuda" },
     grupo: [
       { label: "Voluntariado", href: "/participa#voluntariado" },
       { label: "Aliados", href: "/participa#aliados" },

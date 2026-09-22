@@ -33,6 +33,10 @@ de esas imágenes están a su cargo.
 
 - `public/video/hero-campo.*` — [Pexels, video 10040045](https://www.pexels.com/video/10040045/)
   (licencia de Pexels). Convertido a blanco y negro, sin audio.
+- `public/video/menu/*` — clips de 6 s de Pexels para el panel del menú:
+  [nosotros 7516765](https://www.pexels.com/video/7516765/),
+  [programas 7416683](https://www.pexels.com/video/7416683/),
+  [participa 6646611](https://www.pexels.com/video/6646611/). Recortados a 3:4, sin audio.
 
 ## Componentes
 

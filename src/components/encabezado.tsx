@@ -13,6 +13,9 @@ import { StaggeredMenuPanel, StaggeredMenuToggle } from "@/components/reactbits/
 import s from "./encabezado.module.css";
 
 
+const movimientoReducido = () =>
+  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 const redes = pie.columnas.find((c) => c.titulo === "Redes")?.links ?? [];
 
 /**
@@ -268,17 +271,23 @@ export function Encabezado() {
         <div ref={panelRef} id="panel-menu" className={s.panel} aria-hidden={!grupo} inert={!grupo}>
           <div className={s.panelInterior}>
             <div className={s.panelMedia} data-panel-media>
-              {mostrado?.imagen && (
-                <Image
-                  key={mostrado.imagen.src}
-                  src={mostrado.imagen.src}
-                  alt={mostrado.imagen.alt}
-                  fill
-                  sizes="240px"
+              {mostrado?.video && (
+                // key: al cambiar de grupo se monta un video nuevo y arranca desde el inicio
+                <video
+                  key={mostrado.video.nombre}
                   className={s.panelImg}
-                  style={{ objectPosition: mostrado.imagen.posicion }}
                   data-panel-img
-                />
+                  autoPlay={!movimientoReducido()}
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster={`/video/menu/${mostrado.video.nombre}.jpg`}
+                  aria-label={mostrado.video.alt}
+                >
+                  <source src={`/video/menu/${mostrado.video.nombre}.webm`} type="video/webm" />
+                  <source src={`/video/menu/${mostrado.video.nombre}.mp4`} type="video/mp4" />
+                </video>
               )}
             </div>
             <ul className={s.panelLista}>
