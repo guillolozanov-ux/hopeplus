@@ -11,6 +11,13 @@ import s from "./donar.module.css";
 export function Donar({ principal = false }: { principal?: boolean }) {
   const ref = useRef<HTMLElement>(null);
   const [monto, setMonto] = useState(donar.montos[1]);
+  // "Otro monto": solo dígitos; vacío = se usa el monto fijo elegido
+  const [otro, setOtro] = useState("");
+  const otroValor = otro ? Number(otro) : 0;
+  const usandoOtro = otro !== "";
+  const otroValido = otroValor >= donar.minimo;
+  const montoFinal = usandoOtro ? otroValor : monto;
+  const puedeEnviar = !usandoOtro || otroValido;
   const [copiado, setCopiado] = useState(false);
 
   const { contextSafe } = useGSAP(
@@ -34,8 +41,19 @@ export function Donar({ principal = false }: { principal?: boolean }) {
 
   const elegir = contextSafe((m: number) => {
     setMonto(m);
+    setOtro("");
     gsap.fromTo("[data-equivale]", { y: 12, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6 });
   });
+
+  const escribirOtro = (valor: string) => {
+    // Solo dígitos, sin ceros a la izquierda y con un tope razonable (12 dígitos)
+    setOtro(valor.replace(/\D/g, "").replace(/^0+/, "").slice(0, 12));
+  };
+
+  const asunto = encodeURIComponent(`Soporte de donación ${pesos(montoFinal)}`);
+  const cuerpo = encodeURIComponent(
+    `Hola, adjunto el soporte de mi donación a ${sitio.nombreLegal} por ${pesos(montoFinal)}.\n\nNombre:\nDocumento:\n`,
+  );
 
   const copiar = async () => {
     const numero = donar.cuenta.find((c) => c.k === "Número")?.v ?? "";
@@ -63,7 +81,7 @@ export function Donar({ principal = false }: { principal?: boolean }) {
             <button
               key={m}
               role="radio"
-              aria-checked={monto === m}
+              aria-checked={!usandoOtro && monto === m}
               className={s.monto}
               onClick={() => elegir(m)}
             >
@@ -71,9 +89,38 @@ export function Donar({ principal = false }: { principal?: boolean }) {
             </button>
           ))}
         </div>
+        {/* Otro monto: cualquier cifra desde el mínimo */}
+        <div className={s.otro} data-activo={usandoOtro || undefined} data-error={(usandoOtro && !otroValido) || undefined}>
+          <label htmlFor="otro-monto" className={s.otroEtiqueta}>
+            Otro monto <span>(mínimo {pesos(donar.minimo)})</span>
+          </label>
+          <div className={s.otroCampo}>
+            <span className={s.otroSigno} aria-hidden>
+              $
+            </span>
+            <input
+              id="otro-monto"
+              className={s.otroInput}
+              inputMode="numeric"
+              autoComplete="off"
+              placeholder="Escribe tu monto"
+              value={otro ? new Intl.NumberFormat("es-CO").format(otroValor) : ""}
+              onChange={(e) => escribirOtro(e.target.value)}
+              aria-invalid={usandoOtro && !otroValido}
+              aria-describedby="otro-ayuda"
+            />
+            <span className={s.otroMoneda} aria-hidden>
+              COP
+            </span>
+          </div>
+          <p id="otro-ayuda" className={s.otroAyuda} aria-live="polite">
+            {usandoOtro && !otroValido ? `El monto mínimo es ${pesos(donar.minimo)}.` : ""}
+          </p>
+        </div>
+
         <p className={s.equivale} data-equivale aria-live="polite">
           <Plus className={s.plus} />
-          {donar.equivalencias[monto]}
+          {equivalencia(montoFinal, usandoOtro && !otroValido)}
         </p>
 
         <dl className={s.cuenta}>
@@ -89,11 +136,28 @@ export function Donar({ principal = false }: { principal?: boolean }) {
           <button className={s.copiar} onClick={copiar}>
             {copiado ? "Número copiado" : "Copiar número de cuenta"}
           </button>
-          <Boton href={`mailto:${sitio.correo}?subject=Soporte de donación ${pesos(monto)}`} variante="acento" magnet>
-            Enviar soporte
-          </Boton>
+          <span className={s.enviar} data-bloqueado={!puedeEnviar || undefined} aria-disabled={!puedeEnviar}>
+            <Boton href={`mailto:${sitio.correo}?subject=${asunto}&body=${cuerpo}`} variante="acento" magnet>
+              Enviar soporte
+            </Boton>
+          </span>
         </div>
       </div>
     </section>
   );
+}
+
+/** Qué financia un monto: el tramo más alto que alcanza; desde 250.000, días de brigada. */
+function equivalencia(monto: number, invalido: boolean) {
+  if (invalido) return `Escribe un monto desde ${pesos(donar.minimo)}.`;
+  const tramos = Object.keys(donar.equivalencias)
+    .map(Number)
+    .sort((a, b) => a - b);
+  const mayor = tramos[tramos.length - 1];
+  if (monto >= mayor * 2) {
+    const dias = Math.floor(monto / mayor);
+    return `Sostiene ${dias} días completos de brigada.`;
+  }
+  const tramo = [...tramos].reverse().find((t) => monto >= t) ?? tramos[0];
+  return donar.equivalencias[tramo];
 }

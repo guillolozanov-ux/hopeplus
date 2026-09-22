@@ -71,6 +71,94 @@
   box-shadow: none;
 }
 
+/* ---------- Otro monto ---------- */
+.otro {
+  margin-top: var(--space-md);
+}
+
+.otroEtiqueta {
+  display: block;
+  margin-bottom: var(--space-2xs);
+  font-size: var(--type-small);
+  font-weight: var(--weight-medium);
+}
+
+.otroEtiqueta span {
+  font-weight: var(--weight-regular);
+  opacity: 0.65;
+}
+
+.otroCampo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding-inline: var(--space-sm);
+  border-radius: var(--radius-md);
+  background: var(--color-ink-soft);
+  transition:
+    background-color var(--motion-base) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease);
+}
+
+.otroCampo:focus-within {
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.otro[data-activo] .otroCampo {
+  background: color-mix(in srgb, var(--color-accent) 22%, var(--color-ink-soft));
+}
+
+.otro[data-error] .otroCampo {
+  box-shadow: 0 0 0 2px var(--color-accent-soft);
+}
+
+.otroSigno,
+.otroMoneda {
+  flex: none;
+  font-size: var(--type-small);
+  opacity: 0.7;
+}
+
+.otroSigno {
+  font-family: var(--font-display);
+  font-size: var(--type-h3);
+  opacity: 1;
+}
+
+.otroInput {
+  flex: 1;
+  min-width: 0;
+  height: var(--size-control-xl);
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--color-on-ink);
+  font-family: var(--font-display);
+  font-size: var(--type-h3);
+  font-variant-numeric: tabular-nums;
+}
+
+.otroInput::placeholder {
+  font-family: var(--font-sans);
+  font-size: var(--type-small);
+  color: var(--color-on-ink);
+  opacity: 0.5;
+}
+
+.otroAyuda {
+  min-height: 1.4em;
+  margin-top: var(--space-3xs);
+  font-size: var(--type-label);
+  color: var(--color-accent-soft);
+}
+
+/* Botón de envío bloqueado mientras el monto escrito no alcanza el mínimo */
+.enviar[data-bloqueado] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 .equivale {
   display: flex;
   align-items: center;

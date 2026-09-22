@@ -292,6 +292,7 @@ export const donar = {
   marca: "programas",
   bajada: "Elige un monto o escribe el tuyo. Al confirmar la transferencia te enviamos el soporte de tu donación.",
   montos: [20_000, 50_000, 100_000, 250_000],
+  minimo: 20_000, // monto mínimo para "Otro monto"
   equivalencias: {
     20000: "Cubre los medicamentos de una consulta.",
     50000: "Financia el tamizaje visual de cinco escolares.",
