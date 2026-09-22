@@ -44,7 +44,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-lg);
-  width: min(var(--size-logo-golf), 72vw);
+  width: min(calc(var(--size-logo-golf) * 0.7), 50vw);
 }
 
 .golfMascara {
