@@ -109,7 +109,7 @@ export const golfTour = {
         texto:
           "Controles prenatales, transporte al parto y seguimiento del recién nacido para madres de veredas alejadas del hospital.",
         meta: 140_000_000,
-        foto: "/fotos/madre-hija-hd.jpg",
+        foto: "/fotos/madre-hija-xl.jpg",
         alt: "Una madre abraza a su hija",
       },
       {
@@ -120,7 +120,7 @@ export const golfTour = {
         texto:
           "La gran final vuelve a casa: visitas médicas domiciliarias y medicamentos para adultos mayores que viven solos en el Atlántico.",
         meta: 140_000_000,
-        foto: "/fotos/abuelas-hd.jpg",
+        foto: "/fotos/abuelas-xl.jpg",
         alt: "Tres generaciones de mujeres juntas",
       },
     ],

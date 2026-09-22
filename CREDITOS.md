@@ -3,26 +3,20 @@
 ## Fotografías
 
 Todas de [Pexels](https://www.pexels.com), bajo la [licencia de Pexels](https://www.pexels.com/license/)
-(uso libre, también comercial, sin atribución obligatoria). Descargadas a 2400 px de ancho;
+(uso libre, también comercial, sin atribución obligatoria). Descargadas a 3000 px de ancho (las pantallas retina piden el doble de lo que se ve);
 Next.js genera el tamaño justo para cada pantalla.
 
 | Archivo | Fuente |
 |---|---|
-| abrazo-hd.jpg | [pexels.com/photo/7403030](https://www.pexels.com/photo/7403030/) |
-| abuelas-hd.jpg | [pexels.com/photo/36883129](https://www.pexels.com/photo/36883129/) |
-| adulto-mayor-medica-hd.jpg | [pexels.com/photo/39192354](https://www.pexels.com/photo/39192354/) |
-| bebe-hd.jpg | [pexels.com/photo/14682959](https://www.pexels.com/photo/14682959/) |
-| enfermero-adulta-hd.jpg | [pexels.com/photo/37191914](https://www.pexels.com/photo/37191914/) |
-| joven-sonrisa-hd.jpg | [pexels.com/photo/39337360](https://www.pexels.com/photo/39337360/) |
-| lectura-hd.jpg | [pexels.com/photo/37885584](https://www.pexels.com/photo/37885584/) |
-| madre-hija-hd.jpg | [pexels.com/photo/4554750](https://www.pexels.com/photo/4554750/) |
-| manos-hd.jpg | [pexels.com/photo/37877428](https://www.pexels.com/photo/37877428/) |
-| manos-mayor-hd.jpg | [pexels.com/photo/5493781](https://www.pexels.com/photo/5493781/) |
-| nino-balon-hd.jpg | [pexels.com/photo/24811721](https://www.pexels.com/photo/24811721/) |
-| nino-brazos-hd.jpg | [pexels.com/photo/5896628](https://www.pexels.com/photo/5896628/) |
-| nino-risa-hd.jpg | [pexels.com/photo/13614367](https://www.pexels.com/photo/13614367/) |
-| nino-sonrisa-hd.jpg | [pexels.com/photo/32466555](https://www.pexels.com/photo/32466555/) |
-| saludo-hd.jpg | [pexels.com/photo/29372534](https://www.pexels.com/photo/29372534/) |
+| abrazo-xl.jpg | [pexels.com/photo/7403030](https://www.pexels.com/photo/7403030/) |
+| abuelas-xl.jpg | [pexels.com/photo/36883129](https://www.pexels.com/photo/36883129/) |
+| enfermero-adulta-xl.jpg | [pexels.com/photo/37191914](https://www.pexels.com/photo/37191914/) |
+| joven-sonrisa-xl.jpg | [pexels.com/photo/39337360](https://www.pexels.com/photo/39337360/) |
+| madre-hija-xl.jpg | [pexels.com/photo/4554750](https://www.pexels.com/photo/4554750/) |
+| manos-xl.jpg | [pexels.com/photo/37877428](https://www.pexels.com/photo/37877428/) |
+| manos-mayor-xl.jpg | [pexels.com/photo/5493781](https://www.pexels.com/photo/5493781/) |
+| nino-sonrisa-xl.jpg | [pexels.com/photo/32466555](https://www.pexels.com/photo/32466555/) |
+| saludo-xl.jpg | [pexels.com/photo/29372534](https://www.pexels.com/photo/29372534/) |
 
 ## Fotos del equipo
 
@@ -57,6 +51,11 @@ de esas imágenes están a su cargo.
   [campo 32410332](https://www.pexels.com/photo/32410332/),
   [salida 6572955](https://www.pexels.com/photo/6572955/),
   [links 8454632](https://www.pexels.com/photo/8454632/).
+
+- Retratos y escenas de personas (Pexels, licencia de Pexels): `abuelos-huila.jpg` [38802124],
+  `escolares-antioquia.jpg` [29625476], `nino-almuerzo.jpg` [17429555], `nina-choco.jpg` [13833946],
+  `bebe-manta.jpg` [16053833], `nino-acera.jpg` [13546301]. Reemplazaron fotos de personas
+  no latinas; el sitio muestra solo personas hispanas o latinoamericanas.
 
 ## Componentes
 
