@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { alRevelar, hayIntro } from "@/lib/intro";
@@ -11,6 +11,12 @@ import s from "./hero.module.css";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Con movimiento reducido el video no corre: queda el póster
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) videoRef.current?.pause();
+  }, []);
 
   useGSAP(
     () => {
@@ -40,6 +46,13 @@ export function Hero() {
         const soltar = alRevelar(() => entrada.play());
 
         // Parallax por columna al hacer scroll
+        // El video de fondo se desplaza un poco más lento que la página
+        gsap.to("[data-hero-video]", {
+          yPercent: 12,
+          ease: "none",
+          scrollTrigger: { trigger: ref.current, start: "top top", end: "bottom top", scrub: true },
+        });
+
         cols.forEach((col) => {
           gsap.to(col, {
             yPercent: Number(col.dataset.speed) * -1,
@@ -70,6 +83,23 @@ export function Hero() {
 
   return (
     <section ref={ref} id="inicio" className={s.hero}>
+      {/* Video de fondo: blanco y negro, 20 % y en multiplicar para fundirse con el crema */}
+      <div className={s.video} aria-hidden>
+        <video
+          ref={videoRef}
+          className={s.videoMedia}
+          data-hero-video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/video/hero-campo-poster.jpg"
+        >
+          <source src="/video/hero-campo.webm" type="video/webm" />
+          <source src="/video/hero-campo.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div className={`contenedor ${s.cabeza}`}>
         <Titular as="h1" lineas={hero.titulo} marca={hero.marca} className={s.titulo} immediate delay={0.3} />
         <p className={s.bajada} data-fade>

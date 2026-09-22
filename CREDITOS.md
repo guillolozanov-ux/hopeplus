@@ -28,9 +28,14 @@ Next.js genera el tamaño justo para cada pantalla.
 | nino-sonrisa-hd.jpg | [pexels.com/photo/32466555](https://www.pexels.com/photo/32466555/) |
 | saludo-hd.jpg | [pexels.com/photo/29372534](https://www.pexels.com/photo/29372534/) |
 
+## Video
+
+- `public/video/hero-campo.*` — [Pexels, video 10040045](https://www.pexels.com/video/10040045/)
+  (licencia de Pexels). Convertido a blanco y negro, sin audio.
+
 ## Componentes
 
-- `src/components/reactbits/*` — adaptados de [React Bits](https://reactbits.dev) (licencia MIT + Commons Clause). Cada archivo indica qué se cambió.
+- `src/components/reactbits/*` (incluye StaggeredMenu para el menú móvil) — adaptados de [React Bits](https://reactbits.dev) (licencia MIT + Commons Clause). Cada archivo indica qué se cambió.
 - Animación: [GSAP](https://gsap.com) (ScrollTrigger, SplitText, Draggable, InertiaPlugin, DrawSVG) y [Lenis](https://lenis.darkroom.engineering).
 
 ## Marca

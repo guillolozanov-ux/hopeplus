@@ -9,6 +9,7 @@ import { navegacion, pie, sitio, type ItemMenu } from "@/content/sitio";
 import { Enlace } from "@/components/enlace";
 import { Flecha } from "@/components/ui";
 import { IconoRed } from "@/components/redes";
+import { StaggeredMenuPanel, StaggeredMenuToggle } from "@/components/reactbits/StaggeredMenu";
 import s from "./encabezado.module.css";
 
 
@@ -17,15 +18,13 @@ const redes = pie.columnas.find((c) => c.titulo === "Redes")?.links ?? [];
 /**
  * Encabezado: barra delgada fija, navegación a la derecha con grupos que abren
  * un panel a todo el ancho, y botón de donación compacto. En móvil, un panel
- * lateral con acordeones.
+ * lateral (StaggeredMenu de React Bits).
  */
 export function Encabezado() {
   const ref = useRef<HTMLElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const movilRef = useRef<HTMLDivElement>(null);
   const [grupo, setGrupo] = useState<ItemMenu | null>(null);
   const [movil, setMovil] = useState(false);
-  const [acordeon, setAcordeon] = useState<string | null>(null);
   // Grupo que el panel está mostrando. Va un paso detrás de `grupo`: al cambiar
   // o cerrar, primero sale el contenido actual y después se actualiza.
   const [mostrado, setMostrado] = useState<ItemMenu | null>(null);
@@ -159,22 +158,9 @@ export function Encabezado() {
     };
   }, [mostrado]);
 
-  // Panel móvil: entra desde la derecha
+  // El panel móvil (StaggeredMenu) solo avisa si hay algo abierto para no ocultar la barra
   useEffect(() => {
-    const panel = movilRef.current;
-    if (!panel) return;
     if (ref.current) ref.current.dataset.abierto = String(movil || Boolean(grupo));
-    // El CSS lo deja fuera con translateX(100%); GSAP lo leería como px en `x`,
-    // así que se pone x en 0 y todo el desplazamiento va por xPercent
-    gsap.set(panel, { x: 0, xPercent: gsap.getProperty(panel, "xPercent") || 100 });
-    gsap.to(panel, { xPercent: movil ? 0 : 100, duration: movil ? 0.7 : 0.5, ease: "expo.inOut", overwrite: true });
-    if (movil) {
-      gsap.fromTo(
-        panel.querySelectorAll("[data-movil-item]"),
-        { x: 40, autoAlpha: 0 },
-        { x: 0, autoAlpha: 1, duration: 0.7, stagger: 0.05, ease: "expo.out", delay: 0.2 },
-      );
-    }
   }, [movil, grupo]);
 
   // Al cambiar de página: todo cerrado (ajuste de estado durante el render, patrón de React)
@@ -183,7 +169,6 @@ export function Encabezado() {
     setRutaPrevia(ruta);
     setGrupo(null);
     setMovil(false);
-    setAcordeon(null);
   }
 
   // …y la barra vuelve a verse aunque se hubiera ocultado con el scroll
@@ -268,20 +253,14 @@ export function Encabezado() {
               </span>
             </Enlace>
 
-            <button
-              className={s.burger}
-              data-entra
-              onClick={() => {
+            <StaggeredMenuToggle
+              className={s.menuBoton}
+              open={movil}
+              onToggle={() => {
                 setGrupo(null);
                 setMovil((m) => !m);
               }}
-              aria-expanded={movil}
-              aria-controls="menu-movil"
-              aria-label={movil ? "Cerrar menú" : "Abrir menú"}
-            >
-              <span />
-              <span />
-            </button>
+            />
           </div>
         </div>
 
@@ -339,62 +318,27 @@ export function Encabezado() {
         tabIndex={abierto ? 0 : -1}
       />
 
-      {/* Panel lateral móvil. Fuera del <header>: su transform confinaría a un hijo fixed */}
-      <div ref={movilRef} id="menu-movil" className={s.movil} aria-hidden={!movil} inert={!movil}>
-        <nav aria-label="Menú">
-          <ul className={s.movilLista}>
-            <li data-movil-item>
-              <Enlace href="/" className={s.movilLink} onClick={cerrar}>
-                Inicio
-              </Enlace>
-            </li>
-            {navegacion.map((n) => (
-              <li key={n.href} data-movil-item>
-                {n.grupo ? (
-                  <>
-                    <button
-                      className={s.movilLink}
-                      aria-expanded={acordeon === n.label}
-                      onClick={() => setAcordeon((a) => (a === n.label ? null : n.label))}
-                    >
-                      {n.label}
-                      <span className={s.caret} aria-hidden />
-                    </button>
-                    {/* Una sola fila de grid que se anima de 0fr a 1fr */}
-                    <div className={s.sublista} data-abierta={acordeon === n.label}>
-                      <ul className={s.subInterior}>
-                        {n.grupo.map((g) => (
-                          <li key={g.href + g.label}>
-                            <Enlace href={g.href} className={s.subLink} onClick={cerrar} tabIndex={acordeon === n.label ? 0 : -1}>
-                              {g.label}
-                            </Enlace>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </>
-                ) : (
-                  <Enlace href={n.href} className={s.movilLink} onClick={cerrar}>
-                    {n.label}
-                  </Enlace>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className={s.movilPie} data-movil-item>
-          <ul className={s.redes}>
-            {redes.map((r) => (
-              <li key={r.label}>
-                <a href={r.href} aria-label={r.label} className={s.red}>
-                  <IconoRed red={r.label} />
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p>{sitio.claim}.</p>
-        </div>
-      </div>
+      {/* Menú móvil: StaggeredMenu de React Bits (portal en <body>) */}
+      <StaggeredMenuPanel
+        open={movil}
+        onClose={cerrar}
+        items={[
+          { label: "Inicio", link: "/" },
+          ...navegacion.map((n) => ({ label: n.label, link: n.href })),
+          { label: "Donar", link: "/donar" },
+        ]}
+        socialItems={redes.map((r) => ({ label: r.label, link: r.href, icono: <IconoRed red={r.label} /> }))}
+        renderLink={(it, contenido, clase) => (
+          <Enlace
+            href={it.link}
+            className={clase}
+            aria-current={activo(it.link) ? "page" : undefined}
+            onClick={cerrar}
+          >
+            {contenido}
+          </Enlace>
+        )}
+      />
     </>
   );
 }

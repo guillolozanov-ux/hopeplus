@@ -1,0 +1,245 @@
+/* StaggeredMenu — adaptado de React Bits (MIT). Colores y tipografía por tokens de hope+. */
+
+/* ---------- Botón (vive en la barra del encabezado) ---------- */
+.sm-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  height: var(--size-control-md);
+  padding-inline: var(--space-xs);
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  font-family: var(--font-sans);
+  font-size: var(--type-small);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sm-toggle-textWrap {
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 3.3em; /* ancho de "Cerrar": el botón no cambia de tamaño */
+}
+
+.sm-toggle-textInner {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.sm-toggle-line {
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+
+/* El "+" de la marca: gira 225° y queda como ✕ */
+.sm-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 var(--size-icon-sm);
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+  color: var(--color-accent);
+  will-change: transform;
+}
+
+.sm-icon-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 2.5px;
+  background: currentColor;
+  border-radius: 1px;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+/* ---------- Capas y panel (portal en <body>) ---------- */
+.staggered-menu-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 49; /* debajo del encabezado: logo, Donar y el botón siguen visibles */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sm-prelayers,
+.staggered-menu-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+[data-position="left"] .sm-prelayers,
+[data-position="left"] .staggered-menu-panel {
+  right: auto;
+  left: 0;
+}
+
+.sm-prelayers {
+  z-index: 5;
+  opacity: 0;
+}
+
+.sm-prelayer {
+  position: absolute;
+  inset: 0;
+}
+
+.staggered-menu-panel {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--size-header) + var(--space-xl)) var(--space-md) var(--space-lg);
+  overflow-y: auto;
+  background: var(--color-surface);
+  pointer-events: auto;
+  opacity: 0;
+}
+
+.staggered-menu-wrapper:not([data-open]) .staggered-menu-panel {
+  pointer-events: none;
+}
+
+.sm-panel-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sm-panel-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sm-panel-itemWrap {
+  position: relative;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.sm-panel-item {
+  position: relative;
+  display: inline-block;
+  padding-right: 1.6em;
+  font-family: var(--font-display);
+  font-size: var(--type-display);
+  font-weight: var(--weight-medium);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-display);
+  color: var(--color-ink);
+  transition: color var(--motion-base) var(--motion-ease);
+}
+
+.sm-panel-itemLabel {
+  display: inline-block;
+  will-change: transform;
+  transform-origin: 50% 100%;
+}
+
+.sm-panel-item:hover,
+.sm-panel-item[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+/* Numeración 01, 02… en coral */
+.sm-panel-list[data-numbering] {
+  counter-reset: smItem;
+}
+
+.sm-panel-list[data-numbering] .sm-panel-item::after {
+  counter-increment: smItem;
+  content: counter(smItem, decimal-leading-zero);
+  position: absolute;
+  top: 0.15em;
+  right: 0;
+  font-family: var(--font-sans);
+  font-size: var(--type-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0;
+  color: var(--color-accent);
+  pointer-events: none;
+  user-select: none;
+  opacity: var(--sm-num-opacity, 0);
+}
+
+/* ---------- Redes ---------- */
+.sm-socials {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-xl);
+}
+
+.sm-socials-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--type-label);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.sm-socials-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sm-socials-link {
+  display: grid;
+  place-items: center;
+  width: var(--size-control-md);
+  height: var(--size-control-md);
+  border-radius: 50%;
+  background: var(--color-page-deep);
+  color: var(--color-ink);
+  transition:
+    background-color var(--motion-base) var(--motion-ease),
+    color var(--motion-base) var(--motion-ease),
+    opacity var(--motion-base) var(--motion-ease);
+}
+
+.sm-socials-link svg {
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
+}
+
+.sm-socials-list:hover .sm-socials-link:not(:hover) {
+  opacity: 0.4;
+}
+
+.sm-socials-link:hover {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+@media (min-width: 768px) {
+  .sm-prelayers,
+  .staggered-menu-panel {
+    width: min(480px, 100%);
+  }
+}
