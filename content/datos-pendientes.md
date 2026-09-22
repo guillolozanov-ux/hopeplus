@@ -31,8 +31,9 @@ que confirmarlo con la fundación antes de publicar el dominio definitivo.
 - [ ] Teléfono o WhatsApp, si se quiere mostrar.
 
 ## Equipo
-- [ ] Nombres, cargos y fotos reales. **Las 4 fotos actuales son de stock** y los
-      nombres dicen "Por confirmar".
+- [ ] Nombres y cargos reales (hoy dicen "Por confirmar").
+- [ ] **Fotos del equipo:** las 4 actuales las entregó el cliente y parecen venir de Pinterest.
+      Confirmar que son personas del equipo o que hay permiso de uso de su imagen antes de lanzar.
 
 ## Fotografía
 - [ ] Banco propio de jornadas. Todas las fotos de `public/fotos/` son de stock

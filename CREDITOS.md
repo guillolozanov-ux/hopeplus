@@ -12,10 +12,6 @@ Next.js genera el tamaño justo para cada pantalla.
 | abuelas-hd.jpg | [pexels.com/photo/36883129](https://www.pexels.com/photo/36883129/) |
 | adulto-mayor-medica-hd.jpg | [pexels.com/photo/39192354](https://www.pexels.com/photo/39192354/) |
 | bebe-hd.jpg | [pexels.com/photo/14682959](https://www.pexels.com/photo/14682959/) |
-| equipo-direccion-perfil.jpg | [pexels.com/photo/32254667](https://www.pexels.com/photo/32254667/) |
-| equipo-coordinacion-perfil.jpg | [pexels.com/photo/32160037](https://www.pexels.com/photo/32160037/) |
-| equipo-alianzas-perfil.jpg | [pexels.com/photo/19596247](https://www.pexels.com/photo/19596247/) |
-| equipo-voluntariado-perfil.jpg | [pexels.com/photo/32254658](https://www.pexels.com/photo/32254658/) |
 | enfermero-adulta-hd.jpg | [pexels.com/photo/37191914](https://www.pexels.com/photo/37191914/) |
 | joven-sonrisa-hd.jpg | [pexels.com/photo/39337360](https://www.pexels.com/photo/39337360/) |
 | lectura-hd.jpg | [pexels.com/photo/37885584](https://www.pexels.com/photo/37885584/) |
@@ -27,6 +23,11 @@ Next.js genera el tamaño justo para cada pantalla.
 | nino-risa-hd.jpg | [pexels.com/photo/13614367](https://www.pexels.com/photo/13614367/) |
 | nino-sonrisa-hd.jpg | [pexels.com/photo/32466555](https://www.pexels.com/photo/32466555/) |
 | saludo-hd.jpg | [pexels.com/photo/29372534](https://www.pexels.com/photo/29372534/) |
+
+## Fotos del equipo
+
+`equipo-*-foto.jpg` fueron provistas por el cliente; el origen y los permisos de uso
+de esas imágenes están a su cargo.
 
 ## Video
 

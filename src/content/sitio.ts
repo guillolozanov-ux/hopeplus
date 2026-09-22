@@ -277,12 +277,12 @@ export const equipo = {
   titulo: "Las personas detrás de la fundación",
   marca: "fundación",
   bajada: "Un equipo pequeño, respaldado por el talento humano de TuSalud+.",
-  // PENDIENTE: nombres y fotos reales. Las fotos actuales son de stock.
+  // PENDIENTE: nombres reales. Fotos provistas por el cliente (origen y permisos a su cargo).
   personas: [
-    { nombre: "Por confirmar", cargo: "Dirección ejecutiva", foto: "/fotos/equipo-direccion-perfil.jpg" },
-    { nombre: "Por confirmar", cargo: "Coordinación de programas", foto: "/fotos/equipo-coordinacion-perfil.jpg" },
-    { nombre: "Por confirmar", cargo: "Alianzas y recursos", foto: "/fotos/equipo-alianzas-perfil.jpg" },
-    { nombre: "Por confirmar", cargo: "Voluntariado", foto: "/fotos/equipo-voluntariado-perfil.jpg" },
+    { nombre: "Por confirmar", cargo: "Dirección ejecutiva", foto: "/fotos/equipo-direccion-foto.jpg" },
+    { nombre: "Por confirmar", cargo: "Coordinación de programas", foto: "/fotos/equipo-coordinacion-foto.jpg" },
+    { nombre: "Por confirmar", cargo: "Alianzas y recursos", foto: "/fotos/equipo-alianzas-foto2.jpg" },
+    { nombre: "Por confirmar", cargo: "Voluntariado", foto: "/fotos/equipo-voluntariado-foto2.jpg" },
   ],
 };
 
