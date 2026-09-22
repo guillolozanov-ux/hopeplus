@@ -33,10 +33,10 @@ de esas imágenes están a su cargo.
 
 - `public/video/hero-campo.*` — [Pexels, video 10040045](https://www.pexels.com/video/10040045/)
   (licencia de Pexels). Convertido a blanco y negro, sin audio.
-- `public/video/menu/*` — clips de 6 s de Pexels para el panel del menú:
-  [nosotros 7516765](https://www.pexels.com/video/7516765/),
-  [programas 7416683](https://www.pexels.com/video/7416683/),
-  [participa 6646611](https://www.pexels.com/video/6646611/). Recortados a 3:4, sin audio.
+- `public/video/menu/*-rostro.*` — retratos de Pexels (licencia de Pexels), en horizontal, a cámara lenta (0,5×) con ida y vuelta:
+  [nosotros 8065077, Los Muertos Crew](https://www.pexels.com/video/8065077/),
+  [programas 6248329, Kampus Production](https://www.pexels.com/video/6248329/),
+  [participa 6646693, RDNE Stock project](https://www.pexels.com/video/6646693/). Sin audio.
 - `public/video/golf/tour.*` — [golfista en un campo, de Ryan Parkland](https://www.pexels.com/es-es/video/golfista-practicando-en-un-campo-de-golf-panoramico-38025726/)
   (licencia de Pexels). Ralentizado, con corrección de color y fundido para el loop, sin audio.
 - `public/fotos/golf/*` — fotos de Pexels (licencia de Pexels):
