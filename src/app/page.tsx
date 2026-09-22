@@ -2,6 +2,7 @@ import { Hero } from "@/components/secciones/hero";
 import { Manifiesto } from "@/components/secciones/manifiesto";
 import { ComoAyudar } from "@/components/secciones/como-ayudar";
 import { Programas } from "@/components/secciones/programas";
+import { GolfBanner } from "@/components/secciones/golf-banner";
 import { Comunidad } from "@/components/secciones/comunidad";
 import { Cinta } from "@/components/secciones/cinta";
 import { Equipo } from "@/components/secciones/equipo";
@@ -15,6 +16,7 @@ export default function Inicio() {
       <Manifiesto />
       <ComoAyudar />
       <Programas />
+      <GolfBanner />
       <Comunidad />
       <Cinta />
       <Equipo />

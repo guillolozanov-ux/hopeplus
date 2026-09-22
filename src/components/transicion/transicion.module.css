@@ -29,6 +29,21 @@
   background: var(--color-blush);
 }
 
+.bosque {
+  background: var(--color-golf-deep);
+}
+
+/* Filete crema bajo el título del Golf Tour */
+.horizonte {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: calc(50% + var(--type-display) * 0.75);
+  height: var(--size-hairline);
+  background: var(--color-golf-cream);
+  opacity: 0.6;
+}
+
 .crema {
   background: var(--color-page);
   display: grid;
@@ -104,4 +119,12 @@
 
 .raiz[data-activa="inicio"] .titulo {
   display: none;
+}
+
+.raiz[data-activa="golf"] .titulo {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: var(--weight-regular);
+  letter-spacing: -0.01em;
+  color: var(--color-golf-cream);
 }

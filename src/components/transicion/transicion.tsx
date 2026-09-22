@@ -50,6 +50,15 @@ function cubrir(raiz: HTMLElement, v: Variante, origen: { x: number; y: number }
     case "cinta":
       tl.fromTo(q("[data-cinta]"), { xPercent: -110 }, { xPercent: 0, duration: 0.9, stagger: 0.07, ease: "power3.inOut" });
       break;
+    case "golf":
+      // Paño verde que sube como un telón y un filete crema que traza el horizonte
+      tl.fromTo(q("[data-golf]"), { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1, ease: "expo.inOut" }).fromTo(
+        q("[data-golf-horizonte]"),
+        { scaleX: 0 },
+        { scaleX: 1, duration: 1, ease: "expo.inOut" },
+        0.35,
+      );
+      break;
     case "inicio":
       tl.fromTo(q("[data-inicio]"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "power2.out" }).fromTo(
         q("[data-inicio-plus]"),
@@ -90,6 +99,13 @@ function descubrir(raiz: HTMLElement, v: Variante) {
       break;
     case "cinta":
       tl.to(q("[data-cinta]"), { xPercent: 110, duration: 0.9, stagger: 0.07, ease: "power3.inOut" }, "-=0.1");
+      break;
+    case "golf":
+      tl.to(q("[data-golf-horizonte]"), { scaleX: 0, transformOrigin: "100% 50%", duration: 0.6, ease: "expo.in" }, "-=0.2").to(
+        q("[data-golf]"),
+        { clipPath: "inset(0% 0% 100% 0%)", duration: 1, ease: "expo.inOut" },
+        "-=0.2",
+      );
       break;
     case "inicio":
       tl.to(q("[data-inicio]"), { yPercent: -100, duration: 0.8 }, "-=0.1");
@@ -228,6 +244,12 @@ export function Transicion() {
         <div className={s.giro}>
           <div className={`${s.cinta} ${s.rubor}`} data-cinta data-reset />
           <div className={`${s.cinta} ${s.acento}`} data-cinta data-reset />
+        </div>
+      </div>
+
+      <div className={s.capa} data-variante="golf">
+        <div className={`${s.panel} ${s.bosque}`} data-golf data-reset>
+          <span className={s.horizonte} data-golf-horizonte data-reset />
         </div>
       </div>
 

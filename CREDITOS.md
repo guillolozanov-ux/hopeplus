@@ -37,6 +37,16 @@ de esas imágenes están a su cargo.
   [nosotros 7516765](https://www.pexels.com/video/7516765/),
   [programas 7416683](https://www.pexels.com/video/7416683/),
   [participa 6646611](https://www.pexels.com/video/6646611/). Recortados a 3:4, sin audio.
+- `public/video/golf/tour.*` — [golfista en un campo, de Ryan Parkland](https://www.pexels.com/es-es/video/golfista-practicando-en-un-campo-de-golf-panoramico-38025726/)
+  (licencia de Pexels). Ralentizado, con corrección de color y fundido para el loop, sin audio.
+- `public/fotos/golf/*` — fotos de Pexels (licencia de Pexels):
+  [cafeteras 17836197](https://www.pexels.com/photo/17836197/),
+  [quindio 36459595](https://www.pexels.com/photo/36459595/),
+  [guajira 16041343](https://www.pexels.com/photo/16041343/),
+  [amazonas 29152688](https://www.pexels.com/photo/29152688/),
+  [campo 32410332](https://www.pexels.com/photo/32410332/),
+  [salida 6572955](https://www.pexels.com/photo/6572955/),
+  [links 8454632](https://www.pexels.com/photo/8454632/).
 
 ## Componentes
 
@@ -47,3 +57,4 @@ de esas imágenes están a su cargo.
 
 - Logos TSP Hope Fundación: sistema de diseño TuSalud+ (`assets/sub-brands/`).
 - Tipografías: Google Sans (titulares) y Poppins (texto), ambas de Google Fonts con licencia OFL.
+- Hope Golf Tour: logo entregado por el cliente (`public/marca/golf-logo*.svg`). Serif editorial Cormorant Garamond (Google Fonts, OFL).

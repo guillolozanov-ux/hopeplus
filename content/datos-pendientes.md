@@ -43,3 +43,11 @@ que confirmarlo con la fundación antes de publicar el dominio definitivo.
 ## Marca
 - [x] Logo oficial en SVG: "hope+ FUNDATION" (`public/marca/hope-logo.svg` y su versión clara).
 - [x] Favicon y símbolo de "Quiénes somos": la "o" del logo hope+ (anillo + mano). El monograma TH ya no se usa.
+
+## Hope Golf Tour (`src/content/golf.ts`), todo BORRADOR
+- [ ] Nombre final del circuito y temporada (hoy "Hope Golf Tour · Temporada 2027").
+- [ ] Paradas, fechas y campos anfitriones (hoy: Armenia, Pereira, Cartagena, Bogotá, Medellín y Barranquilla; los campos no tienen nombre).
+- [ ] Causas y metas de recaudo por parada (mujeres cafeteras, Memoria del 99, La Guajira, Amazonas, maternidad segura, adultos mayores).
+- [ ] Precios de inscripción (1,6 M / 5,8 M / 9,5 M) y niveles de patrocinio (180 M / 60 M / 15 M / 5 M).
+- [ ] Cifras del manifiesto ($1.200 M de meta, 100 % de la inscripción neta a la causa) y reglas de hándicap.
+- [ ] Hoy la inscripción y el patrocinio se envían por correo (mailto). Falta definir la pasarela o el formulario real.

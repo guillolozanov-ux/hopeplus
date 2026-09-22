@@ -61,6 +61,7 @@ export const navegacion: ItemMenu[] = [
     ],
   },
   { label: "Impacto", href: "/impacto" },
+  { label: "Golf Tour", href: "/golf-tour" },
 ];
 
 export const hero = {

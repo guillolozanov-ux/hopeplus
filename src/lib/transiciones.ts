@@ -1,7 +1,7 @@
 /**
  * Cada página tiene su transición de entrada. La elige la ruta de destino.
  */
-export type Variante = "inicio" | "cortina" | "columnas" | "circulo" | "plus" | "persianas" | "cinta";
+export type Variante = "inicio" | "cortina" | "columnas" | "circulo" | "plus" | "persianas" | "cinta" | "golf";
 
 export function varianteDe(ruta: string): { variante: Variante; titulo: string } {
   if (ruta === "/") return { variante: "inicio", titulo: "Inicio" };
@@ -10,6 +10,7 @@ export function varianteDe(ruta: string): { variante: Variante; titulo: string }
   if (ruta.startsWith("/programas")) return { variante: "columnas", titulo: "Programas" };
   if (ruta.startsWith("/participa")) return { variante: "plus", titulo: "Participa" };
   if (ruta.startsWith("/impacto")) return { variante: "persianas", titulo: "Impacto" };
+  if (ruta.startsWith("/golf-tour")) return { variante: "golf", titulo: "Hope Golf Tour" };
   if (ruta.startsWith("/donar")) return { variante: "cinta", titulo: "Donar" };
   return { variante: "cortina", titulo: "" };
 }

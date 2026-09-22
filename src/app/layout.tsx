@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Google_Sans, Poppins } from "next/font/google";
+import { Cormorant_Garamond, Google_Sans, Poppins } from "next/font/google";
 import { cssVars, color } from "@/styles/tokens";
 import { sitio } from "@/content/sitio";
 import { SmoothScroll } from "@/components/smooth-scroll";
@@ -24,6 +24,14 @@ const sans = Poppins({
   weight: ["400", "500", "600"],
 });
 
+// Serif editorial de la sub-marca Hope Golf Tour
+const serif = Cormorant_Garamond({
+  variable: "--ff-serif",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   title: { default: `${sitio.nombreLegal} · ${sitio.claim}`, template: `%s · ${sitio.nombreLegal}` },
   description: sitio.descripcion,
@@ -39,7 +47,7 @@ export const viewport: Viewport = { themeColor: color.page };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-CO" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
+    <html lang="es-CO" className={`${display.variable} ${sans.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
         <style id="tokens" dangerouslySetInnerHTML={{ __html: cssVars() }} />
         <script dangerouslySetInnerHTML={{ __html: scriptIntro }} />

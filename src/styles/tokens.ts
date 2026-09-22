@@ -32,12 +32,26 @@ export const color = {
   lineOnInk: "rgba(249, 248, 243, 0.18)",
   scrim: "linear-gradient(180deg, rgba(20, 31, 51, 0) 30%, rgba(20, 31, 51, 0.86) 100%)",
   duotone: "rgba(32, 49, 79, 0.28)",
+
+  // Sub-marca Hope Golf Tour (colores del logo): verde bosque y crema
+  golf: "#2F4127",
+  golfDeep: "#1B2616",
+  golfSoft: "#56694B",
+  golfCream: "#FDF5DE",
+  golfSand: "#EFE4C6",
+  lineOnGolf: "rgba(253, 245, 222, 0.24)",
+  lineGolf: "rgba(47, 65, 39, 0.18)",
+  golfVidrio: "rgba(27, 38, 22, 0.55)",
+  golfVineta: "radial-gradient(ellipse 60% 55% at 50% 50%, rgba(27, 38, 22, 0.42) 0%, rgba(27, 38, 22, 0) 70%)",
+  golfVelo: "linear-gradient(180deg, rgba(27, 38, 22, 0.55) 0%, rgba(27, 38, 22, 0.18) 38%, rgba(27, 38, 22, 0.28) 62%, rgba(27, 38, 22, 0.82) 100%)",
 } as const;
 
 export const font = {
   // Titulares: Google Sans (se carga con next/font en layout.tsx)
   display: "var(--ff-display), 'Helvetica Neue', Arial, sans-serif",
   sans: "var(--ff-sans), 'Helvetica Neue', Arial, sans-serif", // interfaz y cuerpo
+  // Serif editorial, solo en la sub-marca Hope Golf Tour (Cormorant Garamond, OFL)
+  serif: "var(--ff-serif), 'Times New Roman', Georgia, serif",
 } as const;
 
 export const weight = {
@@ -69,6 +83,7 @@ export const type = {
   body: { mobile: "15px", tablet: "16px", desktop: "16px", leading: 1.55, tracking: "0" },
   small: { mobile: "13px", tablet: "14px", desktop: "14px", leading: 1.45, tracking: "0" },
   label: { mobile: "11px", tablet: "12px", desktop: "12px", leading: 1.2, tracking: "0.16em" },
+  editorial: { mobile: "46px", tablet: "80px", desktop: "112px", leading: 0.96, tracking: "-0.02em" }, // serif del Golf Tour
   ribbon: { mobile: "34px", tablet: "56px", desktop: "72px", leading: 1.1, tracking: "-0.025em" },
 } as const satisfies Record<string, Step>;
 
@@ -109,6 +124,8 @@ export const size = {
   iconSm: "14px",
   iconMd: "18px",
   hairline: "1px",
+  bannerMin: "640px", // alto mínimo del banner del Golf Tour
+  logoGolf: "640px", // ancho máximo del logo del Golf Tour
 } as const;
 
 export const radius = {
