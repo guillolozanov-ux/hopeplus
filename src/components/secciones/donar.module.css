@@ -43,6 +43,53 @@
   opacity: 0.7;
 }
 
+/* ---------- Destino ---------- */
+.destinos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-sm);
+}
+
+.destino {
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  background: var(--color-ink-soft);
+  font-size: var(--type-small);
+  transition: background-color var(--motion-base) var(--motion-ease);
+}
+
+.destino:hover {
+  background: color-mix(in srgb, var(--color-ink-soft) 70%, var(--color-on-ink));
+}
+
+.destino[aria-checked="true"] {
+  background: var(--color-page);
+  color: var(--color-ink);
+}
+
+.resumen {
+  display: grid;
+  gap: var(--space-2xs);
+  min-height: 3.2em;
+  margin-top: var(--space-sm);
+}
+
+.resumenTexto {
+  font-size: var(--type-small);
+  opacity: 0.85;
+}
+
+.resumenTexto strong {
+  font-weight: var(--weight-semibold);
+}
+
+.rotuloMonto {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: var(--size-hairline) solid var(--color-line-on-ink);
+}
+
 .montos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

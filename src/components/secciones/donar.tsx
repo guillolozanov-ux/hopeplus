@@ -1,15 +1,27 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useSyncExternalStore } from "react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { alRevelar } from "@/lib/intro";
-import { donar, sitio } from "@/content/sitio";
+import { donar, programas, sitio } from "@/content/sitio";
+import { BarraMeta } from "@/components/barra-meta";
 import { Titular, Etiqueta, Boton, Plus, pesos } from "@/components/ui";
 import s from "./donar.module.css";
 
 /** `principal`: es la primera sección de la página (/donar), entra al abrirse el velo. */
 export function Donar({ principal = false }: { principal?: boolean }) {
   const ref = useRef<HTMLElement>(null);
+  // Destino: ?programa=slug preselecciona (llega desde "Apoyar este programa")
+  const programaUrl = useSyncExternalStore(
+    () => () => {},
+    () => new URLSearchParams(window.location.search).get("programa"),
+    () => null,
+  );
+  const [destinoElegido, setDestinoElegido] = useState<string | null>(null);
+  const destino = destinoElegido ?? (programas.items.some((p) => p.slug === programaUrl) ? programaUrl! : "general");
+  const programa = programas.items.find((p) => p.slug === destino);
+  const nombreDestino = programa ? programa.corto : "Donde más se necesite";
+
   const [monto, setMonto] = useState(donar.montos[1]);
   // "Otro monto": solo dígitos; vacío = se usa el monto fijo elegido
   const [otro, setOtro] = useState("");
@@ -50,9 +62,9 @@ export function Donar({ principal = false }: { principal?: boolean }) {
     setOtro(valor.replace(/\D/g, "").replace(/^0+/, "").slice(0, 12));
   };
 
-  const asunto = encodeURIComponent(`Soporte de donación ${pesos(montoFinal)}`);
+  const asunto = encodeURIComponent(`Soporte de donación ${pesos(montoFinal)} · ${nombreDestino}`);
   const cuerpo = encodeURIComponent(
-    `Hola, adjunto el soporte de mi donación a ${sitio.nombreLegal} por ${pesos(montoFinal)}.\n\nNombre:\nDocumento:\n`,
+    `Hola, adjunto el soporte de mi donación a ${sitio.nombreLegal} por ${pesos(montoFinal)}.\nDestino: ${nombreDestino}.\n\nNombre:\nDocumento:\n`,
   );
 
   const copiar = async () => {
@@ -75,7 +87,36 @@ export function Donar({ principal = false }: { principal?: boolean }) {
       </div>
 
       <div className={s.tarjeta} data-bloque>
-        <p className={s.rotulo}>Elige un monto</p>
+        {/* 1. Destino de la donación */}
+        <p className={s.rotulo}>¿A qué quieres donar?</p>
+        <div className={s.destinos} role="radiogroup" aria-label="Destino de la donación">
+          {[{ slug: "general", corto: "Donde más se necesite" }, ...programas.items].map((d) => (
+            <button
+              key={d.slug}
+              role="radio"
+              aria-checked={destino === d.slug}
+              className={s.destino}
+              onClick={() => setDestinoElegido(d.slug)}
+            >
+              {d.corto}
+            </button>
+          ))}
+        </div>
+        <div className={s.resumen} aria-live="polite">
+          {programa ? (
+            <>
+              <p className={s.resumenTexto}>
+                <strong>{pesos(programa.recaudado)}</strong> recaudados de {pesos(programa.meta)}
+              </p>
+              <BarraMeta key={programa.slug} pct={(programa.recaudado / programa.meta) * 100} fondo="oscuro" />
+            </>
+          ) : (
+            <p className={s.resumenTexto}>Tu aporte se asigna al programa con la necesidad más urgente del mes.</p>
+          )}
+        </div>
+
+        {/* 2. Monto */}
+        <p className={`${s.rotulo} ${s.rotuloMonto}`}>Elige un monto</p>
         <div className={s.montos} role="radiogroup" aria-label="Monto de la donación">
           {donar.montos.map((m) => (
             <button
@@ -120,7 +161,7 @@ export function Donar({ principal = false }: { principal?: boolean }) {
 
         <p className={s.equivale} data-equivale aria-live="polite">
           <Plus className={s.plus} />
-          {equivalencia(montoFinal, usandoOtro && !otroValido)}
+          {equivalencia(montoFinal, usandoOtro && !otroValido, programa)}
         </p>
 
         <dl className={s.cuenta}>
@@ -147,9 +188,19 @@ export function Donar({ principal = false }: { principal?: boolean }) {
   );
 }
 
-/** Qué financia un monto: el tramo más alto que alcanza; desde 250.000, días de brigada. */
-function equivalencia(monto: number, invalido: boolean) {
+const porcentaje = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 1 });
+
+/**
+ * Qué hace un monto. Con un programa elegido: qué parte de lo que le falta cubre.
+ * Sin programa: el tramo más alto que alcanza; desde 500.000, días de brigada.
+ */
+function equivalencia(monto: number, invalido: boolean, programa?: (typeof programas.items)[number]) {
   if (invalido) return `Escribe un monto desde ${pesos(donar.minimo)}.`;
+  if (programa) {
+    const falta = programa.meta - programa.recaudado;
+    if (monto >= falta) return `Completa la meta de ${programa.corto}.`;
+    return `Cubre el ${porcentaje.format((monto / falta) * 100)} % de lo que le falta a ${programa.corto}.`;
+  }
   const tramos = Object.keys(donar.equivalencias)
     .map(Number)
     .sort((a, b) => a - b);

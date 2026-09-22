@@ -34,7 +34,7 @@ export function PaginaPrograma({ p }: { p: Programa }) {
             </p>
           </div>
           <div className={s.botones} data-sube>
-            <Boton href="/donar" magnet>
+            <Boton href={`/donar?programa=${p.slug}`} magnet>
               Apoyar este programa
             </Boton>
             <Boton href="/participa" variante="secundario">
