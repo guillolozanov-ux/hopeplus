@@ -42,8 +42,13 @@ de esas imágenes están a su cargo.
   [participa-1 6248639, Kampus Production](https://www.pexels.com/video/6248639/),
   [participa-2 7514536, Kampus Production](https://www.pexels.com/video/7514536/),
   [participa-3 6682448, Kampus Production](https://www.pexels.com/video/6682448/).
-- `public/video/golf/tour.*` — [golfista en un campo, de Ryan Parkland](https://www.pexels.com/es-es/video/golfista-practicando-en-un-campo-de-golf-panoramico-38025726/)
-  (licencia de Pexels). Ralentizado, con corrección de color y fundido para el loop, sin audio.
+- `public/video/golf/tour-1..6.*` — planos del Hope Golf Tour, de Pexels (licencia de Pexels), con corrección de color cálida y bucle de ida y vuelta, sin audio:
+  [tour-1 38025726, Ryan Parkland](https://www.pexels.com/video/38025726/),
+  [tour-2 37996383, Ryan Parkland](https://www.pexels.com/video/37996383/),
+  [tour-3 6256816, cottonbro studio](https://www.pexels.com/video/6256816/),
+  [tour-4 6573583, Kindel Media](https://www.pexels.com/video/6573583/),
+  [tour-5 33024007, Nelemson G](https://www.pexels.com/video/33024007/),
+  [tour-6 33511635, Asai Villarreal](https://www.pexels.com/video/33511635/).
 - `public/fotos/golf/*` — fotos de Pexels (licencia de Pexels):
   [cafeteras 17836197](https://www.pexels.com/photo/17836197/),
   [quindio 36459595](https://www.pexels.com/photo/36459595/),

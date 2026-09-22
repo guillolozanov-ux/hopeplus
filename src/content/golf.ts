@@ -10,7 +10,15 @@ export const golfTour = {
     descripcion:
       "Un circuito de golf en seis paradas por Colombia. Cada parada juega por una causa: mujeres cafeteras, La Guajira, Amazonas, el Eje Cafetero y más.",
   },
-  video: { nombre: "golf/tour", alt: "Un golfista hace su swing en un campo abierto" },
+  /** Planos del tour. Cada sección toma uno distinto y rotan en cada visita. */
+  videos: [
+    { nombre: "golf/tour-1", alt: "Un golfista hace su swing en un campo abierto" },
+    { nombre: "golf/tour-2", alt: "Vista aérea de las calles de un campo de golf al amanecer" },
+    { nombre: "golf/tour-3", alt: "Un golfista camina por la calle al atardecer" },
+    { nombre: "golf/tour-4", alt: "Pelotas de golf sobre el tee con luz dorada" },
+    { nombre: "golf/tour-5", alt: "Vista aérea de los búnkeres de un campo de golf" },
+    { nombre: "golf/tour-6", alt: "Primer plano de un golfista alineando el putt" },
+  ],
   logo: { positivo: "/marca/golf-logo.svg", negativo: "/marca/golf-logo-claro.svg", alt: "Hope Golf Tour" },
   temporada: "Temporada 2027",
 

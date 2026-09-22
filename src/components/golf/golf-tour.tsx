@@ -233,7 +233,7 @@ export function PaginaGolfTour() {
 
       {/* 9. Cierre: video de nuevo, logo y dos caminos */}
       <Aparece className={s.cierre}>
-        <VideoGolf className={s.cierreVideo} />
+        <VideoGolf className={s.cierreVideo} posicion={1} />
         <div className={s.cierreVelo} aria-hidden />
         <div className={s.cierreContenido}>
           <div className={s.cierreLogo} data-sube>
