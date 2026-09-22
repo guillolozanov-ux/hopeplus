@@ -53,9 +53,12 @@ export const font = {
   sans: "var(--ff-sans), 'Helvetica Neue', Arial, sans-serif", // interfaz y cuerpo
   // Serif editorial, solo en la sub-marca Hope Golf Tour (Cormorant Garamond, OFL)
   serif: "var(--ff-serif), 'Times New Roman', Georgia, serif",
+  // Cifras: la serif tiene números de estilo antiguo que bailan; van en Arial fina
+  numeros: "Arial, 'Helvetica Neue', Helvetica, sans-serif",
 } as const;
 
 export const weight = {
+  light: 300,
   regular: 400,
   medium: 500,
   semibold: 600,

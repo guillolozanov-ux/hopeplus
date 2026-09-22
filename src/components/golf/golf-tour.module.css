@@ -205,7 +205,8 @@
 }
 
 .cifra dt {
-  font-family: var(--font-serif);
+  font-family: var(--font-numeros);
+  font-weight: var(--weight-light);
   font-size: var(--type-h2);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -258,6 +259,7 @@
   grid-column: 1 / -1;
   aspect-ratio: 4 / 3;
   overflow: hidden;
+  border-radius: var(--radius-lg);
   margin-bottom: var(--space-xs);
 }
 
@@ -267,9 +269,9 @@
 }
 
 .causaNumero {
-  font-family: var(--font-serif);
+  font-family: var(--font-numeros);
+  font-weight: var(--weight-light);
   font-size: var(--type-h3);
-  font-style: italic;
   line-height: 1.2;
   min-width: 2.2em;
 }
@@ -305,7 +307,8 @@
   display: flex;
   align-items: baseline;
   gap: var(--space-xs);
-  font-family: var(--font-serif);
+  font-family: var(--font-numeros);
+  font-weight: var(--weight-light);
   font-size: var(--type-h3);
 }
 
@@ -355,15 +358,16 @@
 }
 
 .paradaNumero {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-numeros);
+  font-weight: var(--weight-light);
   font-size: var(--type-h3);
   min-width: 2.2em;
 }
 
 .paradaFecha {
   white-space: nowrap;
-  font-family: var(--font-serif);
+  font-family: var(--font-numeros);
+  font-weight: var(--weight-light);
   font-size: var(--type-h2);
   line-height: 1;
 }
@@ -423,7 +427,9 @@
 .formatoFoto {
   position: relative;
   min-height: 70svh;
+  margin: var(--gutter);
   overflow: hidden;
+  border-radius: var(--radius-lg);
 }
 
 .formatoMarco {
@@ -478,9 +484,9 @@
 }
 
 .momentoHora {
-  font-family: var(--font-serif);
+  font-family: var(--font-numeros);
+  font-weight: var(--weight-light);
   font-size: var(--type-h3);
-  font-style: italic;
   line-height: 1.2;
 }
 
@@ -519,6 +525,7 @@
   aspect-ratio: 4 / 5;
   margin-top: var(--space-md);
   overflow: hidden;
+  border-radius: var(--radius-lg);
 }
 
 .inscripcionFoto img {
@@ -583,7 +590,8 @@
 }
 
 .modalidadPrecio {
-  font-family: var(--font-serif);
+  font-family: var(--font-numeros);
+  font-weight: var(--weight-light);
   font-size: var(--type-h3);
   text-align: right;
 }
@@ -673,7 +681,8 @@
   display: flex;
   align-items: baseline;
   gap: var(--space-sm);
-  font-family: var(--font-serif);
+  font-family: var(--font-numeros);
+  font-weight: var(--weight-light);
   font-size: var(--type-h2);
 }
 
@@ -761,10 +770,12 @@
 }
 
 .nivelPrecio {
-  font-family: var(--font-serif);
-  font-size: var(--type-stat);
+  font-family: var(--font-numeros);
+  font-weight: var(--weight-light);
+  font-size: var(--type-h2);
   line-height: 1;
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .nivelBeneficios {
@@ -1068,6 +1079,7 @@
     display: block;
     aspect-ratio: 4 / 5;
     overflow: hidden;
+    border-radius: var(--radius-lg);
   }
 
   .causaFoto {
@@ -1089,9 +1101,9 @@
     position: absolute;
     left: var(--space-md);
     bottom: var(--space-sm);
-    font-family: var(--font-serif);
+    font-family: var(--font-numeros);
+    font-weight: var(--weight-light);
     font-size: var(--type-mega);
-    font-style: italic;
     line-height: 1;
     color: var(--color-golf-cream);
   }
@@ -1128,7 +1140,7 @@
   }
 
   .formatoFoto {
-    min-height: 100%;
+    min-height: calc(100% - var(--gutter) * 2);
   }
 
   .formatoTexto {

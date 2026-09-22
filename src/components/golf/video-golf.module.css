@@ -1,0 +1,9 @@
+/* Dos capas de video superpuestas: los planos se relevan con un fundido. */
+.capa {
+  background: var(--color-golf-deep);
+}
+
+.capa[data-fondo] {
+  opacity: 0;
+  visibility: hidden;
+}
