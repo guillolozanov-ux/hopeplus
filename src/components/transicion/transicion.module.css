@@ -33,12 +33,35 @@
   background: var(--color-golf-deep);
 }
 
-/* Filete crema bajo el título del Golf Tour */
+/* Logo del Golf Tour con su filete: sustituye al título de texto */
+.bosque.panel {
+  display: grid;
+  place-items: center;
+}
+
+.golfMarca {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  width: min(var(--size-logo-golf), 72vw);
+}
+
+.golfMascara {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.golfLogo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .horizonte {
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  top: calc(50% + var(--type-display) * 0.75);
+  display: block;
+  width: 100%;
   height: var(--size-hairline);
   background: var(--color-golf-cream);
   opacity: 0.6;
@@ -122,9 +145,5 @@
 }
 
 .raiz[data-activa="golf"] .titulo {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: var(--weight-regular);
-  letter-spacing: -0.01em;
-  color: var(--color-golf-cream);
+  display: none;
 }
