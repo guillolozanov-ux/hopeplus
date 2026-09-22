@@ -12,11 +12,11 @@ Next.js genera el tamaño justo para cada pantalla.
 | abuelas-hd.jpg | [pexels.com/photo/36883129](https://www.pexels.com/photo/36883129/) |
 | adulto-mayor-medica-hd.jpg | [pexels.com/photo/39192354](https://www.pexels.com/photo/39192354/) |
 | bebe-hd.jpg | [pexels.com/photo/14682959](https://www.pexels.com/photo/14682959/) |
+| equipo-direccion.jpg | [pexels.com/photo/32254667](https://www.pexels.com/photo/32254667/) |
+| equipo-coordinacion.jpg | [pexels.com/photo/32160037](https://www.pexels.com/photo/32160037/) |
+| equipo-alianzas.jpg | [pexels.com/photo/19596247](https://www.pexels.com/photo/19596247/) |
+| equipo-voluntariado.jpg | [pexels.com/photo/32254658](https://www.pexels.com/photo/32254658/) |
 | enfermero-adulta-hd.jpg | [pexels.com/photo/37191914](https://www.pexels.com/photo/37191914/) |
-| equipo-1-hd.jpg | [pexels.com/photo/8460157](https://www.pexels.com/photo/8460157/) |
-| equipo-2-hd.jpg | [pexels.com/photo/16552437](https://www.pexels.com/photo/16552437/) |
-| equipo-3-hd.jpg | [pexels.com/photo/32254667](https://www.pexels.com/photo/32254667/) |
-| equipo-4-hd.jpg | [pexels.com/photo/32115962](https://www.pexels.com/photo/32115962/) |
 | joven-sonrisa-hd.jpg | [pexels.com/photo/39337360](https://www.pexels.com/photo/39337360/) |
 | lectura-hd.jpg | [pexels.com/photo/37885584](https://www.pexels.com/photo/37885584/) |
 | madre-hija-hd.jpg | [pexels.com/photo/4554750](https://www.pexels.com/photo/4554750/) |

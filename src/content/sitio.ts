@@ -279,10 +279,11 @@ export const equipo = {
   bajada: "Un equipo pequeño, respaldado por el talento humano de TuSalud+.",
   // PENDIENTE: nombres y fotos reales. Las fotos actuales son de stock.
   personas: [
-    { nombre: "Por confirmar", cargo: "Dirección ejecutiva", foto: "/fotos/equipo-2-hd.jpg" },
-    { nombre: "Por confirmar", cargo: "Coordinación de programas", foto: "/fotos/equipo-1-hd.jpg" },
-    { nombre: "Por confirmar", cargo: "Alianzas y recursos", foto: "/fotos/equipo-3-hd.jpg" },
-    { nombre: "Por confirmar", cargo: "Voluntariado", foto: "/fotos/equipo-4-hd.jpg" },
+    { nombre: "Por confirmar", cargo: "Dirección ejecutiva", foto: "/fotos/equipo-direccion.jpg" },
+    { nombre: "Por confirmar", cargo: "Coordinación de programas", foto: "/fotos/equipo-coordinacion.jpg" },
+    { nombre: "Por confirmar", cargo: "Alianzas y recursos", foto: "/fotos/equipo-alianzas.jpg" },
+    // encuadre: esta foto tiene más aire arriba; se acerca un poco más para igualar a las otras
+    { nombre: "Por confirmar", cargo: "Voluntariado", foto: "/fotos/equipo-voluntariado.jpg", zoom: 1.6, foco: "50% 72%" },
   ],
 };
 
