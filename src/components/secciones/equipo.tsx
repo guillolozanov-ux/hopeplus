@@ -48,9 +48,7 @@ export function Equipo() {
           <li key={p.cargo} data-persona>
             <TiltedCard caption={p.cargo} className={s.tilt} captionClassName={s.caption}>
               <div className={s.retrato} data-retrato>
-                <Image
-                  src={p.foto}
-                  style={"zoom" in p ? ({ "--zoom": p.zoom, objectPosition: p.foco } as React.CSSProperties) : undefined} alt={`Retrato, ${p.cargo}`} fill sizes="(min-width: 1200px) 300px, 45vw" />
+                <Image src={p.foto} alt={`Retrato, ${p.cargo}`} fill sizes="(min-width: 1200px) 300px, 45vw" />
                 <Plus className={s.plus} />
               </div>
             </TiltedCard>

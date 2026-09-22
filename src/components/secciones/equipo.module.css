@@ -45,10 +45,7 @@
 
 .retrato img {
   object-fit: cover;
-  object-position: 50% 18%; /* caras en el tercio superior, mismo encuadre en las cuatro */
-  /* Encuadre de retrato: de pecho hacia arriba */
-  transform: scale(var(--zoom, 1.45));
-  transform-origin: 50% 12%;
+  /* Las fotos vienen recortadas en 4:5 con la cabeza al 10 % superior (mismo encuadre) */
   filter: grayscale(1) contrast(1.05);
   transition: filter var(--motion-slow) var(--motion-ease);
 }
