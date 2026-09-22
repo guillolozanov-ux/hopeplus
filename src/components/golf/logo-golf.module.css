@@ -1,0 +1,36 @@
+.logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  color: var(--color-golf-cream);
+}
+
+.pieza {
+  fill: currentColor;
+}
+
+.trazo,
+.destello {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.trazo {
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.destello {
+  stroke: var(--color-golf-brillo);
+  stroke-width: 5;
+}
+
+.plusBrillo {
+  fill: var(--color-golf-brillo);
+  visibility: hidden;
+  pointer-events: none;
+}

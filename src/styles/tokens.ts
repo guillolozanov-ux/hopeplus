@@ -41,6 +41,7 @@ export const color = {
   golfSand: "#EFE4C6",
   lineOnGolf: "rgba(253, 245, 222, 0.24)",
   lineGolf: "rgba(47, 65, 39, 0.18)",
+  golfBrillo: "#FF8A3D", // naranja brillante del destello que arma el logo del Golf Tour
   golfVidrio: "rgba(27, 38, 22, 0.55)",
   golfVineta: "radial-gradient(ellipse 60% 55% at 50% 50%, rgba(27, 38, 22, 0.42) 0%, rgba(27, 38, 22, 0) 70%)",
   golfVelo: "linear-gradient(180deg, rgba(27, 38, 22, 0.55) 0%, rgba(27, 38, 22, 0.18) 38%, rgba(27, 38, 22, 0.28) 62%, rgba(27, 38, 22, 0.82) 100%)",

@@ -1,11 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { alRevelar } from "@/lib/intro";
 import { golfTour } from "@/content/golf";
 import { VideoGolf } from "./video-golf";
+import { LogoGolf } from "./logo-golf";
 import s from "./golf-tour.module.css";
 
 /** Primer pantallazo de /golf-tour: video a sangre y el logo en crema. */
@@ -19,7 +19,6 @@ export function GolfHero() {
       mm.add(MOTION_OK, () => {
         const tl = gsap.timeline({ paused: true });
         tl.from("[data-video-golf]", { scale: 1.25, duration: 2.6, ease: "expo.out" }, 0)
-          .from("[data-logo]", { autoAlpha: 0, y: 40, filter: "blur(14px)", duration: 2, ease: "expo.out" }, 0.3)
           .from("[data-ante]", { autoAlpha: 0, y: 16, duration: 1.2, ease: "expo.out" }, 0.4)
           .from("[data-filete]", { scaleX: 0, duration: 1.6, ease: "expo.inOut" }, 0.6)
           .from("[data-fade]", { autoAlpha: 0, y: 20, duration: 1.2, stagger: 0.1, ease: "expo.out" }, 0.9);
@@ -52,7 +51,7 @@ export function GolfHero() {
           {hero.antetitulo}
         </p>
         <h1 className={s.heroLogo} data-logo>
-          <Image src={logo.negativo} alt={logo.alt} width={1525} height={430} priority unoptimized />
+          <LogoGolf titulo={logo.alt} retraso={0.2} />
         </h1>
         <div className={s.heroEstado}>
           <span className={s.heroFilete} data-filete />

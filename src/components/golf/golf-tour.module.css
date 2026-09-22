@@ -93,7 +93,7 @@
   line-height: 0;
 }
 
-.heroLogo img {
+.heroLogo svg {
   width: min(calc(var(--size-logo-golf) * 1.25), 84vw);
   height: auto;
 }

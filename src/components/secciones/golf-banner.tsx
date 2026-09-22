@@ -1,11 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { golfTour } from "@/content/golf";
 import { BotonGolf } from "@/components/golf/golf-ui";
 import { VideoGolf } from "@/components/golf/video-golf";
+import { LogoGolf } from "@/components/golf/logo-golf";
 import s from "./golf-banner.module.css";
 
 /**
@@ -43,8 +43,7 @@ export function GolfBanner() {
         );
 
         const tl = gsap.timeline({ scrollTrigger: { trigger: ref.current, start: "top 45%", once: true } });
-        tl.from("[data-logo]", { autoAlpha: 0, y: 30, filter: "blur(12px)", duration: 2, ease: "expo.out" })
-          .from("[data-ante]", { autoAlpha: 0, y: 16, duration: 1.2, ease: "expo.out" }, 0.2)
+        tl.from("[data-ante]", { autoAlpha: 0, y: 16, duration: 1.2, ease: "expo.out" }, 0.2)
           .from("[data-filete]", { scaleX: 0, duration: 1.6, ease: "expo.inOut", stagger: 0.1 }, 0.4)
           .from("[data-fade]", { autoAlpha: 0, y: 20, duration: 1.2, stagger: 0.12, ease: "expo.out" }, 0.8)
           .from("[data-esquina]", { autoAlpha: 0, duration: 1.4, stagger: 0.1, ease: "power2.out" }, 1);
@@ -73,7 +72,7 @@ export function GolfBanner() {
             {banner.antetitulo}
           </p>
           <h2 id="golf-banner-titulo" className={s.logoCaja} data-logo>
-            <Image src={logo.negativo} alt={logo.alt} className={s.logo} width={1525} height={430} unoptimized />
+            <LogoGolf titulo={logo.alt} disparo="scroll" className={s.logo} />
           </h2>
           <div className={s.estado}>
             <span className={s.filete} data-filete />
