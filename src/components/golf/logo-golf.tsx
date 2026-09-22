@@ -20,7 +20,7 @@ const monograma = de("monograma")[0];
 /**
  * Logo Hope Golf Tour que se arma solo, en el mismo espíritu que la intro de hope+:
  * 1. la "HG" del centro se traza y se rellena,
- * 2. un destello naranja la recorre y termina encendiendo el "+" pequeño,
+ * 2. el "+" pequeño aparece encendido en naranja y se apaga a crema,
  * 3. HOPE y GOLF salen desde el monograma hacia los lados,
  * 4. y al final aparece TOUR.
  * Con movimiento reducido se muestra quieto y completo.
@@ -43,9 +43,7 @@ export function LogoGolf({ className, disparo = "revelar", retraso = 0, titulo =
 
         // Estado inicial: solo existe el trazo del monograma, sin dibujar
         gsap.set(q("[data-relleno]"), { fillOpacity: 0 });
-        // El contorno de la HG empieza junto al "+": se recorre de atrás hacia adelante
         gsap.set(q("[data-trazo]"), { drawSVG: "100% 100%", autoAlpha: 1 });
-        gsap.set(q("[data-destello]"), { drawSVG: "100% 100%", autoAlpha: 1 });
         gsap.set(q("[data-tipo='palo']"), { autoAlpha: 0, rotate: -35, svgOrigin: "900 160" });
         gsap.set(q("[data-tipo='plus']"), { scale: 0, svgOrigin: `${PLUS_GOLF.x} ${PLUS_GOLF.y}` });
         gsap.set(q("[data-plus-brillo]"), { autoAlpha: 0, scale: 0, svgOrigin: `${PLUS_GOLF.x} ${PLUS_GOLF.y}` });
@@ -59,22 +57,15 @@ export function LogoGolf({ className, disparo = "revelar", retraso = 0, titulo =
           .to(q("[data-tipo='monograma']"), { fillOpacity: 1, duration: 0.9, ease: "power2.out" }, 1.1)
           .to(q("[data-trazo]"), { autoAlpha: 0, duration: 0.6 }, 1.5)
           .to(q("[data-tipo='palo']"), { autoAlpha: 1, rotate: 0, fillOpacity: 1, duration: 1, ease: "back.out(1.6)" }, 1.2)
-          // 2. el destello naranja recorre la HG como un cometa y se va al "+"
-          .fromTo(
-            q("[data-destello]"),
-            { drawSVG: "88% 100%" },
-            { drawSVG: "0% 12%", duration: 1.3, ease: "power2.inOut" },
-            1.0,
-          )
-          .to(q("[data-destello]"), { drawSVG: "0% 0%", duration: 0.25, ease: "power1.in" }, 2.3)
-          .to(q("[data-plus-brillo]"), { autoAlpha: 1, scale: 1.25, duration: 0.5, ease: "back.out(2)" }, 2.4)
-          .to(q("[data-tipo='plus']"), { scale: 1, fillOpacity: 1, duration: 0.7, ease: "back.out(2.2)" }, 2.4)
-          .to(q("[data-plus-brillo]"), { autoAlpha: 0, scale: 1, duration: 1.2, ease: "power2.out" }, 2.95)
+          // 2. solo el "+" se ilumina en naranja y se apaga a crema
+          .to(q("[data-plus-brillo]"), { autoAlpha: 1, scale: 1.25, duration: 0.5, ease: "back.out(2)" }, 1.9)
+          .to(q("[data-tipo='plus']"), { scale: 1, fillOpacity: 1, duration: 0.7, ease: "back.out(2.2)" }, 1.9)
+          .to(q("[data-plus-brillo]"), { autoAlpha: 0, scale: 1, duration: 1.2, ease: "power2.out" }, 2.6)
           // 3. las palabras nacen del centro hacia los lados
-          .to(q("[data-tipo='hope']"), { autoAlpha: 1, x: 0, fillOpacity: 1, duration: 1.3, stagger: { each: 0.08, from: "end" } }, 2.7)
-          .to(q("[data-tipo='golf']"), { autoAlpha: 1, x: 0, fillOpacity: 1, duration: 1.3, stagger: { each: 0.08, from: "start" } }, 2.7)
+          .to(q("[data-tipo='hope']"), { autoAlpha: 1, x: 0, fillOpacity: 1, duration: 1.3, stagger: { each: 0.08, from: "end" } }, 2.4)
+          .to(q("[data-tipo='golf']"), { autoAlpha: 1, x: 0, fillOpacity: 1, duration: 1.3, stagger: { each: 0.08, from: "start" } }, 2.4)
           // 4. TOUR, de último
-          .to(q("[data-tipo='tour']"), { autoAlpha: 1, y: 0, fillOpacity: 1, duration: 1, stagger: 0.1 }, 3.5);
+          .to(q("[data-tipo='tour']"), { autoAlpha: 1, y: 0, fillOpacity: 1, duration: 1, stagger: 0.1 }, 3.2);
 
         if (disparo === "revelar") return alRevelar(() => tl.play());
         if (!tl.scrollTrigger) tl.play();
@@ -102,8 +93,6 @@ export function LogoGolf({ className, disparo = "revelar", retraso = 0, titulo =
 
       {/* Trazo crema que dibuja el monograma antes de rellenarse */}
       <path d={monograma.d} className={s.trazo} data-trazo />
-      {/* Destello naranja: un tramo corto del contorno que viaja hasta el "+" */}
-      <path d={monograma.d} className={s.destello} filter={`url(#brillo${id})`} data-destello />
       {/* Halo naranja del "+" al encenderse */}
       <g className={s.plusBrillo} filter={`url(#brillo${id})`} data-plus-brillo>
         {de("plus").map((p, i) => (
