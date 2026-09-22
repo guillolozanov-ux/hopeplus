@@ -26,7 +26,7 @@ const redes = pie.columnas.find((c) => c.titulo === "Redes")?.links ?? [];
 /** Índice al azar distinto del anterior (si hay más de una opción). */
 function otroIndice(previo: number | undefined, total: number) {
   if (total < 2) return 0;
-  let i = previo ?? -1;
+  let i = Math.floor(Math.random() * total);
   while (i === previo) i = Math.floor(Math.random() * total);
   return i;
 }
