@@ -36,7 +36,7 @@ que confirmarlo con la fundación antes de publicar el dominio definitivo.
 
 ## Fotografía
 - [ ] Banco propio de jornadas. Todas las fotos de `public/fotos/` son de stock
-      CC0 (ver `CREDITOS.md`).
+      de Pexels en alta resolución (ver `CREDITOS.md`).
 - [ ] Imagen Open Graph para redes.
 
 ## Marca

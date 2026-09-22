@@ -15,14 +15,14 @@ export const nosotros = {
       "Organizamos jornadas en veredas y barrios, acompañamos a adultos mayores en casa y hacemos seguimiento a niños y madres gestantes. Lo hacemos con el talento humano y las unidades móviles del grupo, y con el aporte de donantes y aliados.",
     ],
     chip: "Fundación sin ánimo de lucro · Parte del grupo TuSalud+",
-    foto: "/fotos/saludo.jpg",
-    alt: "Enfermero saluda a una paciente mayor",
+    foto: "/fotos/saludo-hd.jpg",
+    alt: "Cuidadora saluda a una señora mayor en su casa",
   },
   banner: {
     titulo: ["Salud que llega", "a donde hace falta"],
     marca: "falta",
-    foto: "/fotos/abuelas.jpg",
-    alt: "Dos mujeres mayores sonriendo juntas",
+    foto: "/fotos/abuelas-hd.jpg",
+    alt: "Tres generaciones de mujeres juntas",
   },
   pilares: {
     etiqueta: "Lo que nos mueve",
@@ -46,7 +46,7 @@ export const nosotros = {
         titulo: "Llegar a tiempo",
         texto: "Prevenir cuesta menos que tratar y duele menos que esperar.",
         tono: "foto",
-        foto: "/fotos/nino-sonrisa.jpg",
+        foto: "/fotos/nino-sonrisa-hd.jpg",
       },
       {
         tag: "Valor",
@@ -59,7 +59,7 @@ export const nosotros = {
         titulo: "Escuchar primero",
         texto: "Cada jornada empieza preguntando qué necesita la comunidad.",
         tono: "foto",
-        foto: "/fotos/lectura.jpg",
+        foto: "/fotos/lectura-hd.jpg",
       },
       {
         tag: "Valor",
@@ -121,8 +121,8 @@ export const participa = {
     marca: "jornada",
     texto:
       "Las jornadas empiezan temprano y terminan cuando se atiende a la última persona en la fila. Te asignamos un rol según tu perfil y siempre trabajas acompañado por el equipo de la fundación.",
-    foto: "/fotos/enfermero-adulta.jpg",
-    alt: "Enfermero acompaña a una paciente",
+    foto: "/fotos/enfermero-adulta-hd.jpg",
+    alt: "Equipo de salud atiende en una jornada comunitaria",
     roles: [
       { titulo: "Atención", texto: "Médicos, enfermeras, odontólogos y nutricionistas." },
       { titulo: "Registro", texto: "Toma de datos y organización de la fila." },
@@ -158,7 +158,7 @@ export const impacto = {
     bajada: "Contamos lo que hacemos para que sepas exactamente a dónde llega tu apoyo.",
   },
   cifras: {
-    atendidos: { valor: 3200, sufijo: "+", titulo: "Personas atendidas", texto: "En jornadas de salud durante 2025, en 14 municipios del Atlántico.", foto: "/fotos/madre-hija.jpg", alt: "Madre e hija" },
+    atendidos: { valor: 3200, sufijo: "+", titulo: "Personas atendidas", texto: "En jornadas de salud durante 2025, en 14 municipios del Atlántico.", foto: "/fotos/madre-hija-hd.jpg", alt: "Madre e hija" },
     programas: { valor: 92, sufijo: "%", texto: "de cada peso donado va directo a los programas." },
     jornadas: { valor: 38, texto: "Jornadas realizadas", titulo: "Presencia en campo", detalle: "Cada jornada incluye medicina, odontología, enfermería y farmacia." },
     gestion: {

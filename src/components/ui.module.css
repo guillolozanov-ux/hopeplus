@@ -105,7 +105,6 @@
 .secundario {
   background: var(--color-surface);
   color: var(--color-ink);
-  box-shadow: inset 0 0 0 var(--size-hairline) var(--color-line);
 }
 
 .secundario .botonFlecha {

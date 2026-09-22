@@ -12,13 +12,15 @@ type ApareceProps = {
   id?: string;
   /** Primera pantalla: espera a que el velo se abra en lugar de al scroll. */
   inicial?: boolean;
+  /** Marca el primer pantallazo como oscuro (el encabezado se aclara). */
+  "data-hero-oscuro"?: boolean;
 };
 
 /**
  * Anima los descendientes marcados con `data-sube` (suben y aparecen) y los
  * `data-escala` (la foto se asienta desde un leve zoom) cuando la sección entra.
  */
-export function Aparece({ children, as: Tag = "section", className, id, inicial }: ApareceProps) {
+export function Aparece({ children, as: Tag = "section", className, id, inicial, ...resto }: ApareceProps) {
   const ref = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -41,7 +43,7 @@ export function Aparece({ children, as: Tag = "section", className, id, inicial 
   );
 
   return (
-    <Tag ref={ref} className={className} id={id}>
+    <Tag ref={ref} className={className} id={id} {...resto}>
       {children}
     </Tag>
   );

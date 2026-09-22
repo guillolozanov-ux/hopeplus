@@ -11,9 +11,6 @@ import { Flecha } from "@/components/ui";
 import { IconoRed } from "@/components/redes";
 import s from "./encabezado.module.css";
 
-// Rutas cuyo primer pantallazo es una foto oscura: la barra arranca en claro.
-// Hoy ninguna (la foto de /nosotros es clara arriba), pero el tono queda listo.
-const RUTAS_OSCURAS: string[] = [];
 
 const redes = pie.columnas.find((c) => c.titulo === "Redes")?.links ?? [];
 
@@ -38,7 +35,6 @@ export function Encabezado() {
   const ruta = usePathname();
 
   const activo = (href: string) => (href === "/" ? ruta === "/" : ruta.startsWith(href));
-  const oscura = RUTAS_OSCURAS.some((r) => ruta.startsWith(r));
 
   useGSAP(
     () => {
@@ -195,6 +191,15 @@ export function Encabezado() {
     if (ref.current) gsap.to(ref.current, { yPercent: 0, duration: 0.5, ease: "expo.out", overwrite: "auto" });
   }, [ruta]);
 
+  // Tono de la barra: si la página marca su primer pantallazo con [data-hero-oscuro],
+  // letras claras y logo en negativo mientras no haya un panel abierto
+  useEffect(() => {
+    const header = ref.current;
+    if (!header) return;
+    const oscura = Boolean(document.querySelector("[data-hero-oscuro]"));
+    header.dataset.tono = oscura && !grupo && !movil ? "claro" : "oscuro";
+  }, [ruta, grupo, movil]);
+
   // Escape cierra cualquier panel
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -219,7 +224,6 @@ export function Encabezado() {
         ref={ref}
         className={s.header}
         data-solido="false"
-        data-tono={oscura && !abierto ? "claro" : "oscuro"}
         data-panel={abierto ? "true" : "false"}
       >
         <div className={s.barra}>

@@ -2,32 +2,31 @@
 
 ## Fotografías
 
-Todas bajo licencia **CC0** (dominio público) de [StockSnap.io](https://stocksnap.io), obtenidas vía la API de Openverse.
+Todas de [Pexels](https://www.pexels.com), bajo la [licencia de Pexels](https://www.pexels.com/license/)
+(uso libre, también comercial, sin atribución obligatoria). Descargadas a 2400 px de ancho;
+Next.js genera el tamaño justo para cada pantalla.
 
-| Archivo | Tamaño | Fuente |
-|---|---|---|
-| equipo-4.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/3LMPSCJQGQ.jpg |
-| manos.jpg | 960×720 | https://cdn.stocksnap.io/img-thumbs/960w/8J6SO4AGN0.jpg |
-| bebe.jpg | 960×641 | https://cdn.stocksnap.io/img-thumbs/960w/99XNQ9NFW8.jpg |
-| amigos.jpg | 960×638 | https://cdn.stocksnap.io/img-thumbs/960w/A7LS7BWQ1V.jpg |
-| saludo.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/FX16JTHQ3J.jpg |
-| hermanas.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/HE2S42Y7QG.jpg |
-| equipo-3.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/IDO6DVW9KN.jpg |
-| equipo-1.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/KN1OCKC4Y2.jpg |
-| enfermero-adulta.jpg | 960×1440 | https://cdn.stocksnap.io/img-thumbs/960w/MMZWABUQGA.jpg |
-| abuelas.jpg | 960×759 | https://cdn.stocksnap.io/img-thumbs/960w/PEFKCYN1NY.jpg |
-| abrazo.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/QCPBRN5SH3.jpg |
-| madre-hija.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/QWWUHIRMOL.jpg |
-| nino-sonrisa.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/RA8TCORE8X.jpg |
-| nino-balon.jpg | 960×960 | https://cdn.stocksnap.io/img-thumbs/960w/S8K0KB3BTZ.jpg |
-| mujer-retrato.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/TI7XCCOF5U.jpg |
-| adulto-mayor-medica.jpg | 960×1440 | https://cdn.stocksnap.io/img-thumbs/960w/TMNVHGYBTL.jpg |
-| lectura.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/TRBSHJCRPY.jpg |
-| joven-sonrisa.jpg | 960×640 | https://cdn.stocksnap.io/img-thumbs/960w/VTHPEAGBVR.jpg |
-| equipo-2.jpg | 960×1440 | https://cdn.stocksnap.io/img-thumbs/960w/WINC1QDMT4.jpg |
-| nino-risa.jpg | 960×641 | https://cdn.stocksnap.io/img-thumbs/960w/WTI11TRZ8F.jpg |
-| manos-mayor.jpg | 960×540 | https://cdn.stocksnap.io/img-thumbs/960w/XGA8T6UUH6.jpg |
-| nino-brazos.jpg | 960×639 | https://cdn.stocksnap.io/img-thumbs/960w/Z7KA11AW7L.jpg |
+| Archivo | Fuente |
+|---|---|
+| abrazo-hd.jpg | [pexels.com/photo/7403030](https://www.pexels.com/photo/7403030/) |
+| abuelas-hd.jpg | [pexels.com/photo/36883129](https://www.pexels.com/photo/36883129/) |
+| adulto-mayor-medica-hd.jpg | [pexels.com/photo/39192354](https://www.pexels.com/photo/39192354/) |
+| bebe-hd.jpg | [pexels.com/photo/14682959](https://www.pexels.com/photo/14682959/) |
+| enfermero-adulta-hd.jpg | [pexels.com/photo/37191914](https://www.pexels.com/photo/37191914/) |
+| equipo-1-hd.jpg | [pexels.com/photo/8460157](https://www.pexels.com/photo/8460157/) |
+| equipo-2-hd.jpg | [pexels.com/photo/16552437](https://www.pexels.com/photo/16552437/) |
+| equipo-3-hd.jpg | [pexels.com/photo/32254667](https://www.pexels.com/photo/32254667/) |
+| equipo-4-hd.jpg | [pexels.com/photo/32115962](https://www.pexels.com/photo/32115962/) |
+| joven-sonrisa-hd.jpg | [pexels.com/photo/39337360](https://www.pexels.com/photo/39337360/) |
+| lectura-hd.jpg | [pexels.com/photo/37885584](https://www.pexels.com/photo/37885584/) |
+| madre-hija-hd.jpg | [pexels.com/photo/4554750](https://www.pexels.com/photo/4554750/) |
+| manos-hd.jpg | [pexels.com/photo/37877428](https://www.pexels.com/photo/37877428/) |
+| manos-mayor-hd.jpg | [pexels.com/photo/5493781](https://www.pexels.com/photo/5493781/) |
+| nino-balon-hd.jpg | [pexels.com/photo/24811721](https://www.pexels.com/photo/24811721/) |
+| nino-brazos-hd.jpg | [pexels.com/photo/5896628](https://www.pexels.com/photo/5896628/) |
+| nino-risa-hd.jpg | [pexels.com/photo/13614367](https://www.pexels.com/photo/13614367/) |
+| nino-sonrisa-hd.jpg | [pexels.com/photo/32466555](https://www.pexels.com/photo/32466555/) |
+| saludo-hd.jpg | [pexels.com/photo/29372534](https://www.pexels.com/photo/29372534/) |
 
 ## Componentes
 

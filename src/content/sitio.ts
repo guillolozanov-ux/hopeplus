@@ -28,7 +28,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Nosotros",
     href: "/nosotros",
-    imagen: { src: "/fotos/enfermero-adulta.jpg", alt: "Enfermero acompaña a una paciente", posicion: "35% 50%" },
+    imagen: { src: "/fotos/enfermero-adulta-hd.jpg", alt: "Jornada de salud comunitaria", posicion: "50% 50%" },
     grupo: [
       { label: "Quiénes somos", href: "/nosotros" },
       { label: "Cómo trabajamos", href: "/nosotros#proceso" },
@@ -38,7 +38,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Programas",
     href: "/programas",
-    imagen: { src: "/fotos/nino-sonrisa.jpg", alt: "Niño sonriendo", posicion: "45% 40%" },
+    imagen: { src: "/fotos/nino-sonrisa-hd.jpg", alt: "Niño sonriendo", posicion: "50% 30%" },
     grupo: [
       { label: "Todos los programas", href: "/programas" },
       { label: "Jornadas rurales", href: "/programas/jornadas-rurales" },
@@ -51,7 +51,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Participa",
     href: "/participa",
-    imagen: { src: "/fotos/madre-hija.jpg", alt: "Madre abraza a su hija en un parque", posicion: "40% 50%" },
+    imagen: { src: "/fotos/madre-hija-hd.jpg", alt: "Madre e hija abrazadas", posicion: "50% 35%" },
     grupo: [
       { label: "Voluntariado", href: "/participa#voluntariado" },
       { label: "Aliados", href: "/participa#aliados" },
@@ -81,20 +81,20 @@ export const mosaico = {
   causaA: {
     etiqueta: "Niñez",
     titulo: "Tamizaje visual para escolares",
-    foto: "/fotos/nino-sonrisa.jpg",
+    foto: "/fotos/nino-sonrisa-hd.jpg",
     alt: "Niño sonriendo mirando hacia arriba",
   },
   comunidad: { titulo: "Súmate a 500 voluntarios", cta: { label: "Ser voluntario", href: "/participa" } },
   causaB: {
     etiqueta: "Adulto mayor",
     titulo: "Brigadas para adultos mayores en zona rural",
-    foto: "/fotos/adulto-mayor-medica.jpg",
-    alt: "Médica atiende a un adulto mayor en silla de ruedas",
+    foto: "/fotos/adulto-mayor-medica-hd.jpg",
+    alt: "Médica conversa con un paciente mayor",
   },
   explorar: {
     titulo: "Explorar programas",
     href: "/programas",
-    foto: "/fotos/manos.jpg",
+    foto: "/fotos/manos-hd.jpg",
     alt: "Mano adulta sostiene la mano de un bebé",
   },
   confianza: { titulo: "Tu aporte llega completo", href: "/impacto" },
@@ -158,8 +158,8 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       corto: "Jornadas rurales",
       titulo: "Jornadas de salud en zonas rurales del Atlántico",
       texto: "Consulta médica, odontología y entrega de medicamentos en veredas sin puesto de salud.",
-      foto: "/fotos/enfermero-adulta.jpg",
-      alt: "Enfermero revisa un formulario con una paciente adulta",
+      foto: "/fotos/enfermero-adulta-hd.jpg",
+      alt: "Equipo de salud atiende en una jornada comunitaria",
       recaudado: 38_450_000,
       meta: 60_000_000,
       apoyos: 412,
@@ -170,15 +170,15 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       descripcion:
         "Llevamos un equipo completo a veredas que no tienen puesto de salud: medicina general, odontología, enfermería y farmacia. Cada jornada atiende en un día lo que a una familia le tomaría semanas conseguir.",
       incluye: ["Consulta de medicina general.", "Valoración y limpieza odontológica.", "Toma de tensión y glucometría.", "Entrega de medicamentos formulados."],
-      fotoDetalle: "/fotos/saludo.jpg",
-      altDetalle: "Enfermero saluda a una paciente mayor en silla de ruedas",
+      fotoDetalle: "/fotos/saludo-hd.jpg",
+      altDetalle: "Cuidadora saluda a una señora mayor en su casa",
     },
     {
       slug: "tamizaje-escolar",
       corto: "Tamizaje escolar",
       titulo: "Tamizaje visual y auditivo para escolares",
       texto: "Detección temprana en colegios públicos y entrega de gafas formuladas sin costo.",
-      foto: "/fotos/nino-sonrisa.jpg",
+      foto: "/fotos/nino-sonrisa-hd.jpg",
       alt: "Niño sonriendo",
       recaudado: 21_300_000,
       meta: 35_000_000,
@@ -190,16 +190,16 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       descripcion:
         "Un niño que no ve bien el tablero parece un niño que no aprende. Revisamos visión y audición en colegios públicos y entregamos las gafas formuladas sin costo para la familia.",
       incluye: ["Tamizaje de agudeza visual.", "Audiometría de barrido.", "Remisión a optometría.", "Gafas formuladas sin costo."],
-      fotoDetalle: "/fotos/lectura.jpg",
-      altDetalle: "Padre lee un libro con su hija",
+      fotoDetalle: "/fotos/lectura-hd.jpg",
+      altDetalle: "Niño en un examen visual",
     },
     {
       slug: "adultos-mayores",
       corto: "Adultos mayores",
       titulo: "Acompañamiento a adultos mayores",
       texto: "Control de hipertensión y diabetes, y visitas domiciliarias a personas que viven solas.",
-      foto: "/fotos/adulto-mayor-medica.jpg",
-      alt: "Médica atiende a un adulto mayor en silla de ruedas",
+      foto: "/fotos/adulto-mayor-medica-hd.jpg",
+      alt: "Médica conversa con un paciente mayor",
       recaudado: 14_800_000,
       meta: 30_000_000,
       apoyos: 190,
@@ -210,16 +210,16 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       descripcion:
         "Muchos adultos mayores con hipertensión o diabetes viven solos y dejan de ir a control. Los visitamos en casa, revisamos su tratamiento y los conectamos con su EPS cuando hace falta.",
       incluye: ["Control de tensión arterial y glucosa.", "Revisión de medicamentos.", "Visita domiciliaria de enfermería.", "Acompañamiento en trámites de salud."],
-      fotoDetalle: "/fotos/manos-mayor.jpg",
-      altDetalle: "Manos de una persona mayor sosteniendo una pelota de terapia",
+      fotoDetalle: "/fotos/manos-mayor-hd.jpg",
+      altDetalle: "Manos entrelazadas con una persona mayor",
     },
     {
       slug: "materno-infantil",
       corto: "Materno infantil",
       titulo: "Salud materna y primera infancia",
       texto: "Controles prenatales, vacunación y seguimiento nutricional durante los primeros mil días.",
-      foto: "/fotos/madre-hija.jpg",
-      alt: "Madre abraza a su hija en un parque",
+      foto: "/fotos/madre-hija-hd.jpg",
+      alt: "Madre e hija abrazadas",
       recaudado: 26_900_000,
       meta: 40_000_000,
       apoyos: 331,
@@ -230,7 +230,7 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       descripcion:
         "Los primeros mil días definen buena parte de la salud de una persona. Acompañamos a madres gestantes y a sus bebés con controles, vacunación y orientación nutricional.",
       incluye: ["Controles prenatales.", "Esquema de vacunación al día.", "Seguimiento de peso y talla.", "Talleres de lactancia y crianza."],
-      fotoDetalle: "/fotos/bebe.jpg",
+      fotoDetalle: "/fotos/bebe-hd.jpg",
       altDetalle: "Bebé sonriendo",
     },
     {
@@ -238,8 +238,8 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       corto: "Nutrición infantil",
       titulo: "Nutrición para niños en riesgo",
       texto: "Complemento alimentario y valoración por nutricionista para niños con bajo peso.",
-      foto: "/fotos/nino-balon.jpg",
-      alt: "Niño juega con un balón en el pasto",
+      foto: "/fotos/nino-balon-hd.jpg",
+      alt: "Niño comiendo un plato de verduras",
       recaudado: 9_750_000,
       meta: 25_000_000,
       apoyos: 124,
@@ -250,8 +250,8 @@ export const programas: { etiqueta: string; titulo: string; marca: string; items
       descripcion:
         "Detectamos a tiempo a niños con bajo peso y los acompañamos hasta que recuperan su curva de crecimiento, con complemento alimentario y valoración por nutricionista.",
       incluye: ["Valoración por nutricionista.", "Complemento alimentario.", "Desparasitación.", "Orientación a las familias."],
-      fotoDetalle: "/fotos/nino-brazos.jpg",
-      altDetalle: "Niño con los brazos abiertos en el campo",
+      fotoDetalle: "/fotos/nino-brazos-hd.jpg",
+      altDetalle: "Niña con los brazos arriba en un parque",
     },
   ],
 };
@@ -263,10 +263,10 @@ export const comunidad = {
   texto: "personas que apoyan a la fundación",
   cta: { label: "Quiero ser parte", href: "/participa" },
   fotos: [
-    { src: "/fotos/nino-risa.jpg", alt: "Niño riendo" },
-    { src: "/fotos/joven-sonrisa.jpg", alt: "Joven sonriendo" },
-    { src: "/fotos/abrazo.jpg", alt: "Dos niñas abrazadas" },
-    { src: "/fotos/bebe.jpg", alt: "Bebé sonriendo" },
+    { src: "/fotos/nino-risa-hd.jpg", alt: "Niño riendo" },
+    { src: "/fotos/joven-sonrisa-hd.jpg", alt: "Joven sonriendo" },
+    { src: "/fotos/abrazo-hd.jpg", alt: "Madre e hija abrazadas" },
+    { src: "/fotos/bebe-hd.jpg", alt: "Bebé sonriendo" },
   ],
 };
 
@@ -279,10 +279,10 @@ export const equipo = {
   bajada: "Un equipo pequeño, respaldado por el talento humano de TuSalud+.",
   // PENDIENTE: nombres y fotos reales. Las fotos actuales son de stock.
   personas: [
-    { nombre: "Por confirmar", cargo: "Dirección ejecutiva", foto: "/fotos/equipo-2.jpg" },
-    { nombre: "Por confirmar", cargo: "Coordinación de programas", foto: "/fotos/equipo-1.jpg" },
-    { nombre: "Por confirmar", cargo: "Alianzas y recursos", foto: "/fotos/equipo-3.jpg" },
-    { nombre: "Por confirmar", cargo: "Voluntariado", foto: "/fotos/equipo-4.jpg" },
+    { nombre: "Por confirmar", cargo: "Dirección ejecutiva", foto: "/fotos/equipo-2-hd.jpg" },
+    { nombre: "Por confirmar", cargo: "Coordinación de programas", foto: "/fotos/equipo-1-hd.jpg" },
+    { nombre: "Por confirmar", cargo: "Alianzas y recursos", foto: "/fotos/equipo-3-hd.jpg" },
+    { nombre: "Por confirmar", cargo: "Voluntariado", foto: "/fotos/equipo-4-hd.jpg" },
   ],
 };
 

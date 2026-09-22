@@ -13,7 +13,8 @@ export function PaginaNosotros() {
   return (
     <main>
       {/* 1. Tarjeta sobre foto a sangre, con el trazo de marca cruzando */}
-      <Aparece className={s.about} inicial>
+      {/* data-hero-oscuro: el encabezado pasa a letras claras y logo en negativo */}
+      <Aparece className={s.about} inicial data-hero-oscuro>
         <div className={s.aboutFoto} data-escala>
           <Image src={about.foto} alt={about.alt} fill priority sizes="100vw" className={s.aboutImg} />
         </div>
