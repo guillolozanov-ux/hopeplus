@@ -208,6 +208,7 @@
   font-family: var(--font-numeros);
   font-weight: var(--weight-light);
   font-size: var(--type-h2);
+  white-space: nowrap;
   line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -1000,7 +1001,7 @@
 /* ================= Tablet ================= */
 @media (min-width: 768px) {
   .cifra dt {
-    font-size: var(--type-stat);
+    font-size: var(--type-h2);
   }
 
   .cifras {
