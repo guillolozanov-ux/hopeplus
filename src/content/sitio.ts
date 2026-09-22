@@ -33,10 +33,9 @@ export const navegacion: ItemMenu[] = [
     label: "Nosotros",
     href: "/nosotros",
     videos: [
-      { nombre: "nosotros-1", alt: "Una señora mayor sonríe a la cámara con luz cálida" },
-      { nombre: "nosotros-2", alt: "Un médico con gafas se ríe en la consulta" },
-      { nombre: "nosotros-3", alt: "Un señor mayor con gafas de sol sonríe en un jardín" },
-      { nombre: "nosotros-4", alt: "Una señora mayor con gafas sonríe en su sala" },
+      { nombre: "nosotros-1", alt: "Un caficultor con sombrero y ruana toma café en su finca" },
+      { nombre: "nosotros-2", alt: "Una señora mayor sonríe sentada en un café" },
+      { nombre: "nosotros-3", alt: "Una señora mayor con gafas sonríe con luz cálida" },
     ],
     grupo: [
       { label: "Quiénes somos", href: "/nosotros" },
@@ -48,9 +47,8 @@ export const navegacion: ItemMenu[] = [
     label: "Programas",
     href: "/programas",
     videos: [
-      { nombre: "programas-1", alt: "Un niño sonríe a la cámara" },
-      { nombre: "programas-2", alt: "Un niño de pelo rizado sonríe a la cámara" },
-      { nombre: "programas-3", alt: "Un niño pequeño sonríe sentado en casa" },
+      { nombre: "programas-1", alt: "Una niña sonríe en la puerta de su casa" },
+      { nombre: "programas-2", alt: "Un niño se ríe sentado en casa" },
     ],
     grupo: [
       { label: "Todos los programas", href: "/programas" },
@@ -65,9 +63,9 @@ export const navegacion: ItemMenu[] = [
     label: "Participa",
     href: "/participa",
     videos: [
-      { nombre: "participa-1", alt: "Una voluntaria sonríe y conversa" },
-      { nombre: "participa-2", alt: "Una voluntaria con camiseta azul sonríe a la cámara" },
-      { nombre: "participa-3", alt: "Dos voluntarios sonríen a la cámara" },
+      { nombre: "participa-1", alt: "Una joven sonríe a la cámara" },
+      { nombre: "participa-2", alt: "Un joven se ríe a la cámara" },
+      { nombre: "participa-3", alt: "Un joven sonríe en su casa" },
     ],
     grupo: [
       { label: "Voluntariado", href: "/participa#voluntariado" },
