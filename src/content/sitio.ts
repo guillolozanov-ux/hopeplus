@@ -20,8 +20,11 @@ export type ItemMenu = {
   label: string;
   href: string;
   grupo?: { label: string; href: string }[];
-  /** Clip corto del panel del menú: `/video/menu/<nombre>.{webm,mp4,jpg}` */
-  video?: { nombre: string; alt: string };
+  /**
+   * Retratos en cámara lenta del panel del menú: `/video/menu/<nombre>.{webm,mp4,jpg}`.
+   * Cada vez que se abre el grupo se muestra uno distinto al de la vez anterior.
+   */
+  videos?: { nombre: string; alt: string }[];
 };
 
 /** Menú principal. Los ítems con `grupo` abren un panel desplegable. */
@@ -29,7 +32,12 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Nosotros",
     href: "/nosotros",
-    video: { nombre: "nosotros-rostro", alt: "Una señora mayor sonríe a la cámara con luz cálida" },
+    videos: [
+      { nombre: "nosotros-1", alt: "Una señora mayor sonríe a la cámara con luz cálida" },
+      { nombre: "nosotros-2", alt: "Un médico con gafas se ríe en la consulta" },
+      { nombre: "nosotros-3", alt: "Un señor mayor con gafas de sol sonríe en un jardín" },
+      { nombre: "nosotros-4", alt: "Una señora mayor con gafas sonríe en su sala" },
+    ],
     grupo: [
       { label: "Quiénes somos", href: "/nosotros" },
       { label: "Cómo trabajamos", href: "/nosotros#proceso" },
@@ -39,7 +47,11 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Programas",
     href: "/programas",
-    video: { nombre: "programas-rostro", alt: "Un niño sonríe a la cámara" },
+    videos: [
+      { nombre: "programas-1", alt: "Un niño sonríe a la cámara" },
+      { nombre: "programas-2", alt: "Un niño de pelo rizado sonríe a la cámara" },
+      { nombre: "programas-3", alt: "Un niño pequeño sonríe sentado en casa" },
+    ],
     grupo: [
       { label: "Todos los programas", href: "/programas" },
       { label: "Jornadas rurales", href: "/programas/jornadas-rurales" },
@@ -52,7 +64,11 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Participa",
     href: "/participa",
-    video: { nombre: "participa-rostro", alt: "Una voluntaria sonríe y conversa" },
+    videos: [
+      { nombre: "participa-1", alt: "Una voluntaria sonríe y conversa" },
+      { nombre: "participa-2", alt: "Una voluntaria con camiseta azul sonríe a la cámara" },
+      { nombre: "participa-3", alt: "Dos voluntarios sonríen a la cámara" },
+    ],
     grupo: [
       { label: "Voluntariado", href: "/participa#voluntariado" },
       { label: "Aliados", href: "/participa#aliados" },

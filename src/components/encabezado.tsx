@@ -23,6 +23,14 @@ const redes = pie.columnas.find((c) => c.titulo === "Redes")?.links ?? [];
  * un panel a todo el ancho, y botón de donación compacto. En móvil, un panel
  * lateral (StaggeredMenu de React Bits).
  */
+/** Índice al azar distinto del anterior (si hay más de una opción). */
+function otroIndice(previo: number | undefined, total: number) {
+  if (total < 2) return 0;
+  let i = previo ?? -1;
+  while (i === previo) i = Math.floor(Math.random() * total);
+  return i;
+}
+
 export function Encabezado() {
   const ref = useRef<HTMLElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -32,6 +40,14 @@ export function Encabezado() {
   // o cerrar, primero sale el contenido actual y después se actualiza.
   const [mostrado, setMostrado] = useState<ItemMenu | null>(null);
   if (grupo && !mostrado) setMostrado(grupo);
+  // Retrato elegido por grupo: cambia cada vez que el grupo se abre
+  const [retrato, setRetrato] = useState<Record<string, number>>({});
+  const alternarGrupo = (n: ItemMenu) => {
+    const abre = grupo?.label !== n.label;
+    setGrupo(abre ? n : null);
+    if (abre && n.videos) setRetrato((r) => ({ ...r, [n.label]: otroIndice(r[n.label], n.videos!.length) }));
+  };
+  const video = mostrado?.videos?.[retrato[mostrado.label] ?? 0];
   const panelAbierto = useRef(false);
   const alturaPrevia = useRef(0);
   const ruta = usePathname();
@@ -231,7 +247,7 @@ export function Encabezado() {
                         aria-expanded={grupo?.label === n.label}
                         aria-controls="panel-menu"
                         data-actual={activo(n.href) || undefined}
-                        onClick={() => setGrupo((g) => (g?.label === n.label ? null : n))}
+                        onClick={() => alternarGrupo(n)}
                       >
                         {n.label}
                         <span className={s.caret} aria-hidden />
@@ -271,10 +287,10 @@ export function Encabezado() {
         <div ref={panelRef} id="panel-menu" className={s.panel} aria-hidden={!grupo} inert={!grupo}>
           <div className={s.panelInterior}>
             <div className={s.panelMedia} data-panel-media>
-              {mostrado?.video && (
+              {video && (
                 // key: al cambiar de grupo se monta un video nuevo y arranca desde el inicio
                 <video
-                  key={mostrado.video.nombre}
+                  key={video.nombre}
                   className={s.panelImg}
                   data-panel-img
                   autoPlay={!movimientoReducido()}
@@ -282,11 +298,11 @@ export function Encabezado() {
                   loop
                   playsInline
                   preload="metadata"
-                  poster={`/video/menu/${mostrado.video.nombre}.jpg`}
-                  aria-label={mostrado.video.alt}
+                  poster={`/video/menu/${video.nombre}.jpg`}
+                  aria-label={video.alt}
                 >
-                  <source src={`/video/menu/${mostrado.video.nombre}.webm`} type="video/webm" />
-                  <source src={`/video/menu/${mostrado.video.nombre}.mp4`} type="video/mp4" />
+                  <source src={`/video/menu/${video.nombre}.webm`} type="video/webm" />
+                  <source src={`/video/menu/${video.nombre}.mp4`} type="video/mp4" />
                 </video>
               )}
             </div>
