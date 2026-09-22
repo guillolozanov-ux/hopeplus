@@ -124,6 +124,7 @@ export const size = {
   iconSm: "14px",
   iconMd: "18px",
   hairline: "1px",
+  panelMedia: "440px", // alto mínimo del video del panel del menú
   bannerMin: "640px", // alto mínimo del banner del Golf Tour
   logoGolf: "640px", // ancho máximo del logo del Golf Tour
 } as const;

@@ -29,7 +29,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Nosotros",
     href: "/nosotros",
-    video: { nombre: "nosotros", alt: "Un cuidador sostiene la mano de un paciente mayor" },
+    video: { nombre: "nosotros-hd", alt: "Un cuidador sostiene la mano de un paciente mayor" },
     grupo: [
       { label: "Quiénes somos", href: "/nosotros" },
       { label: "Cómo trabajamos", href: "/nosotros#proceso" },
@@ -39,7 +39,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Programas",
     href: "/programas",
-    video: { nombre: "programas", alt: "Niño con gafas sonríe a la cámara" },
+    video: { nombre: "programas-hd", alt: "Niño con gafas sonríe a la cámara" },
     grupo: [
       { label: "Todos los programas", href: "/programas" },
       { label: "Jornadas rurales", href: "/programas/jornadas-rurales" },
@@ -52,7 +52,7 @@ export const navegacion: ItemMenu[] = [
   {
     label: "Participa",
     href: "/participa",
-    video: { nombre: "participa", alt: "Voluntarios cargan cajas de ayuda" },
+    video: { nombre: "participa-hd", alt: "Voluntarios cargan cajas de ayuda" },
     grupo: [
       { label: "Voluntariado", href: "/participa#voluntariado" },
       { label: "Aliados", href: "/participa#aliados" },

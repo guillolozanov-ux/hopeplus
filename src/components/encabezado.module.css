@@ -201,10 +201,11 @@
   padding: var(--space-sm) var(--space-md) var(--space-xl);
 }
 
+/* El video ocupa toda la columna izquierda y crece con la lista */
 .panelMedia {
   position: relative;
-  width: 240px;
-  aspect-ratio: 3 / 4;
+  width: 100%;
+  min-height: min(var(--size-panel-media), 52vh);
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-page-deep);
